@@ -1,0 +1,324 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DefaultMasterPage.master.cs" Inherits="DefaultMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Hiệp Thực Phẩm Minh Bạch - Food Transparency Association</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta content="Metronic Shop UI description" name="description" />
+    <meta content="Metronic Shop UI keywords" name="keywords" />
+    <meta content="keenthemes" name="author" />
+
+    <meta property="og:site_name" content="-CUSTOMER VALUE-" />
+    <meta property="og:title" content="-CUSTOMER VALUE-" />
+    <meta property="og:description" content="-CUSTOMER VALUE-" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="-CUSTOMER VALUE-" />
+    <!-- link to image for socio -->
+    <meta property="og:url" content="-CUSTOMER VALUE-" />
+
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- Fonts START -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css" />
+    <!-- Fonts END -->
+
+    <!-- Global styles START -->
+    <link href="/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Global styles END -->
+
+    <!-- Page level plugin styles START -->
+    <link href="/assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+    <link href="/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <link href="/assets/global/plugins/slider-revolution-slider/rs-plugin/css/settings.css" rel="stylesheet" />
+    <!-- Page level plugin styles END -->
+
+    <!-- Theme styles START -->
+    <link href="/assets/global/css/components.css" rel="stylesheet" />
+    <link href="/assets/frontend/layout/css/style.css" rel="stylesheet" />
+    <link href="/assets/frontend/pages/css/style-revolution-slider.css" rel="stylesheet" />
+    <!-- metronic revo slider styles -->
+    <link href="/assets/frontend/layout/css/style-responsive.css" rel="stylesheet" />
+    <link href="/assets/frontend/layout/css/themes/red.css" rel="stylesheet" />
+    <link href="/assets/frontend/layout/css/custom.css" rel="stylesheet" />
+    <!-- Theme styles END -->
+
+    <%-- Custom style --%>
+    <link href="/css/frontend/custom.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="corporate">
+    <form id="form1" runat="server">
+        <!-- BEGIN TOP BAR -->
+        <div class="pre-header">
+            <div class="container">
+                <div class="row">
+                    <!-- BEGIN TOP BAR LEFT PART -->
+                    <div class="col-md-6 col-sm-6 additional-shop-info">
+                        <ul class="list-unstyled list-inline">
+                            <li><i class="fa fa-phone"></i><span>(08)64 646 825</span></li>
+                            <li><i class="fa fa-envelope-o"></i><span>thucphamminhbach@gmail.com</span></li>
+                        </ul>
+                    </div>
+                    <!-- END TOP BAR LEFT PART -->
+                    <!-- BEGIN TOP BAR MENU -->
+                    <div class="col-md-6 col-sm-6 additional-nav">
+                        <ul class="list-unstyled list-inline pull-right">
+                            <li><a href="page-login.html">Log In</a></li>
+                            <li><a href="page-reg-page.html">Registration</a></li>
+                        </ul>
+                    </div>
+                    <!-- END TOP BAR MENU -->
+                </div>
+            </div>
+        </div>
+        <!-- END TOP BAR -->
+        <!-- BEGIN HEADER -->
+        <div class="header">
+            <div class="container">
+                <a class="site-logo" href="index.html">
+                    <img src="../images/logo/FTA-Logo_MENU.png" class="img-responsive" alt="Food Transparency Association" /></a>
+                <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+                <!-- BEGIN NAVIGATION -->
+                <div class="header-navigation pull-right font-transform-inherit">
+                    <ul>
+                        <li class="dropdown active">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Trang chủ</a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Về chúng tôi </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Lịch sử hình thành</a></li>
+                                <li><a href="#">Đội ngủ phát triển và chuyên gia</a></li>
+                                <li><a href="#">Trách nhiệm xã hội</a></li>
+                                <li><a href="#">Cơ hội nghề nghiệp</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-megamenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Thành viên</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Lợi ích khi là thành viên</a></li>
+                                <li><a href="#">Trách nhiệm thành viên</a></li>
+                                <li><a href="#">Hướng dẫn đăng ký thành viên</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Tin tức & sự kiện </a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Thông tin minh bạch </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Điều lệ hiệp hội</a></li>
+                                <li><a href="#">Cơ chế giám sát, kiểm tra chéo nội bộ</a></li>
+                                <li><a href="#">Các quy tắc hiệp hội</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" target="_blank">Liên hệ</a></li>
+                        <!-- BEGIN TOP SEARCH -->
+                        <li class="menu-search">
+                            <span class="sep"></span>
+                            <i class="fa fa-search search-btn"></i>
+                            <div class="search-box">
+                                <div class="input-group">
+                                    <input type="text" placeholder="Search" class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">Search</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- END TOP SEARCH -->
+                    </ul>
+                </div>
+                <!-- END NAVIGATION -->
+            </div>
+        </div>
+        <!-- Header END -->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- BEGIN PRE-FOOTER -->
+        <div class="pre-footer">
+            <div class="container">
+                <div class="row">
+                    <!-- BEGIN BOTTOM ABOUT BLOCK -->
+                    <div class="col-md-4 col-sm-6 pre-footer-col">
+                        <h2>Về chúng tôi</h2>
+                        <p>Hiệp Thực Phẩm Minh Bạch (FTA) được thành lập tại Việt Nam vào năm 2016, với mục tiêu cụ thể là phát triển và thúc đẩy các tiêu chuẩn minh bạch và an toàn thực phẩm từ trang trại đến bàn ăn.</p>
+
+                        <div class="photo-stream">
+                            <h2>Thư Viện Ảnh</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#">
+                                    <img alt="" src="../images/people/lcdang.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../images/people/lcdang2.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../images/people/lcdang3.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../images/people/lcdang3.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../images/people/lcdang3.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../images/people/lcdang3.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../images/people/lcdang3.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../images/people/lcdang3.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../assets/frontend/pages/img/people/img5-small.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../assets/frontend/pages/img/works/img1.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../assets/frontend/pages/img/people/img4-large.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../assets/frontend/pages/img/works/img6.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../assets/frontend/pages/img/works/img3.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../assets/frontend/pages/img/people/img2-large.jpg" /></a></li>
+                                <li><a href="#">
+                                    <img alt="" src="../assets/frontend/pages/img/works/img2.jpg" /></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- END BOTTOM ABOUT BLOCK -->l
+
+                    <!-- BEGIN BOTTOM CONTACTS -->
+                    <div class="col-md-4 col-sm-6 pre-footer-col">
+                        <h2>Thông tin liên hệ</h2>
+                        <address class="margin-bottom-40">
+                            Địa chỉ: Lầu 8, 79 Trương Định, Quận 1,
+                            <br />
+                            Hồ Chí Minh, Việt Nam<br />
+                            Điện thoại: +848 3823 4179<br />
+                            Hotline: 0916 441 939 - 0918 955 739<br />
+                            Email: <a href="mailto:thucphamminhbach@gmail.com">thucphamminhbach@gmail.com</a><br />
+                            <%--Skype: <a href="skype:thucphamminhbach">thucphamminhbach</a>--%>
+                        </address>
+
+                        <div class="pre-footer-subscribe-box pre-footer-subscribe-box-vertical">
+                            <h2>Nhận bản tin</h2>
+                            <p>Hãy để lại E-mail của bạn để nhận được những thông tin mới nhất được cập nhật liên tục!</p>
+                            <div>
+                                <div class="input-group">
+                                    <input type="text" placeholder="youremail@mail.com" class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END BOTTOM CONTACTS -->
+
+                    <!-- BEGIN TWITTER BLOCK -->
+                    <div class="col-md-4 col-sm-6 pre-footer-col">
+                        <h2 class="margin-bottom-0">Trang Facebook</h2>
+                        <%--<a class="twitter-timeline" href="https://twitter.com/twitterapi" data-tweet-limit="2" data-theme="dark" data-link-color="#57C8EB" data-widget-id="455411516829736961" data-chrome="noheader nofooter noscrollbar noborders transparent">Loading tweets by @keenthemes...</a>--%>
+                        <div class="fb-page"
+                            data-href="https://www.facebook.com/thucphamminhbach"
+                            data-tabs="timeline"
+                            data-small-header="false"
+                            data-adapt-container-width="true"
+                            data-hide-cover="false"
+                            data-height="350"
+                            data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/thucphamminhbach" class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/thucphamminhbach">Thực phẩm minh bạch</a>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!-- END TWITTER BLOCK -->
+                </div>
+            </div>
+        </div>
+        <!-- END PRE-FOOTER -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- BEGIN COPYRIGHT -->
+                    <div class="col-md-6 col-sm-6 padding-top-10">
+                        2016 © Food Transparency Association. ALL Rights Reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                    </div>
+                    <!-- END COPYRIGHT -->
+                    <!-- BEGIN PAYMENTS -->
+                    <div class="col-md-6 col-sm-6">
+                        <ul class="social-footer list-unstyled list-inline pull-right">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            <li><a href="#"><i class="fa fa-github"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dropbox"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- END PAYMENTS -->
+                </div>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+    </form>
+    <!-- Load javascripts at bottom, this will reduce page load time -->
+    <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+    <!--[if lt IE 9]>
+    <script src="/assets/global/plugins/respond.min.js"></script>
+    <![endif]-->
+    <script src="/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script src="/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <!-- pop up -->
+    <script src="/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+    <!-- slider for products -->
+
+    <!-- BEGIN RevolutionSlider -->
+
+    <script src="/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
+    <script src="/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
+    <script src="/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>
+    <script src="/assets/frontend/pages/scripts/revo-slider-init.js" type="text/javascript"></script>
+    <!-- END RevolutionSlider -->
+
+    <script src="/assets/frontend/layout/scripts/layout.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            Layout.init();
+            Layout.initOWL();
+            RevosliderInit.initRevoSlider();
+            Layout.initTwitter();
+            Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+            Layout.initNavScrolling();
+        });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+    <%-- FACEBOOK PLUGIN --%>
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.6&appId=147525538932174";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <%-- END FACEBOOK PLUGIN --%>
+</body>
+</html>

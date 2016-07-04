@@ -1,0 +1,14 @@
+E:\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+E:\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+E:\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+E:\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+E:\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+E:\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+E:\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
