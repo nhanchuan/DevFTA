@@ -44,7 +44,7 @@
                             data-speed="400"
                             data-start="3000"
                             data-easing="easeOutExpo">Đăng ký ngay!
-              </a>
+                        </a>
                         <div class="caption lfb"
                             data-x="640"
                             data-y="0"
@@ -94,7 +94,7 @@
                             data-speed="400"
                             data-start="3000"
                             data-easing="easeOutExpo">Purchase Now!
-              </a>
+                        </a>
                         <div class="caption lfb"
                             data-x="640"
                             data-y="55"
@@ -231,7 +231,7 @@
                             data-speed="400"
                             data-start="3500"
                             data-easing="easeOutExpo">Watch more Videos!
-                            </a>
+                        </a>
                     </li>
 
                     <!-- THE FORTH SLIDE -->
@@ -272,7 +272,7 @@
                             data-speed="400"
                             data-start="3000"
                             data-easing="easeOutExpo">Learn More!
-                            </a>
+                        </a>
                         <div class="caption lft start"
                             data-x="670"
                             data-y="55"
@@ -309,59 +309,18 @@
                     </div>
                 </div>
             </div>
-            <!-- BEGIN RECENT WORKS -->
-            <%--<div class="row recent-work margin-bottom-40">
-                <div class="col-md-3">
-                    <h3>NGƯỜI TIÊU DÙNG</h3>
-                </div>
-                <div class="col-md-9">
-                    <div class="owl-carousel owl-carousel3">
-                        <div class="recent-work-item">
-                            <em>
-                                <img src="../../assets/frontend/pages/img/works/img1.jpg" alt="Amazing Project" class="img-responsive" />
-                                <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                                <a href="../../assets/frontend/pages/img/works/img1.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
-                            </em>
-                            <a class="recent-work-description" href="#">
-                                <strong>Quét mã vạch sản phẩm</strong>
-                            </a>
-                        </div>
-                        <div class="recent-work-item">
-                            <em>
-                                <img src="../../assets/frontend/pages/img/works/img2.jpg" alt="Amazing Project" class="img-responsive" />
-                                <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                                <a href="../../assets/frontend/pages/img/works/img2.jpg" class="fancybox-button" title="Project Name #2" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
-                            </em>
-                            <a class="recent-work-description" href="#">
-                                <strong>Xem kết quả báo cáo</strong>
-                            </a>
-                        </div>
-                        <div class="recent-work-item">
-                            <em>
-                                <img src="../../assets/frontend/pages/img/works/img3.jpg" alt="Amazing Project" class="img-responsive" />
-                                <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                                <a href="../../assets/frontend/pages/img/works/img3.jpg" class="fancybox-button" title="Project Name #3" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
-                            </em>
-                            <a class="recent-work-description" href="#">
-                                <strong>Tìm kiếm và lọc thông tin </strong>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>--%>
-            <!-- END RECENT WORKS -->
-
 
             <%-- Demo NTD --%>
             <div class="row margin-bottom-40">
                 <div class="col-lg-12">
                     <h3 class="margin-bottom-15">NGƯỜI TIÊU DÙNG</h3>
                     <div class="wpnguoitieudung">
-                        <h1>Truy xuất nguồn gốc! <br />
+                        <h1>Truy xuất nguồn gốc!
+                            <br />
                             ↓</h1>
                         <a class="btn btn-danger">Đăng ký người dùng</a>
                         <%--<video src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/28831/Typer.mp4" autoplay="autoplay" loop="loop"></video>--%>
-                        
+
                         <video autoplay="autoplay" muted="muted" loop="loop">
                             <source src="../Videos/TraceVerified ScanQRCode.mp4" type="video/mp4" />
                             <source src="../Videos/TraceVerified ScanQRCode_VP8.webm" type="video/webm" />
@@ -373,6 +332,22 @@
 
             <%-- End Demo NTD --%>
 
+            <%-- NGUOI TIEU DUNG SLIDE 2 --%>
+
+            <div class="row margin-bottom-40">
+                <div class="col-lg-12">
+                    <h3 class="margin-bottom-15">NGƯỜI TIÊU DÙNG</h3>
+                    <div class="col-lg-6">
+                        <div class="videonguoitieudung">
+                            <%--<iframe width="560" height="315" src="https://www.youtube.com/watch?v=A60b9KuOsI0" frameborder="0" allowfullscreen></iframe>--%>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/A60b9KuOsI0" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <%-- END NGUOI TIEU DUNG SLIDE 2 --%>
 
             <%-- BEGIN NEWS --%>
             <div class="row margin-bottom-40">
