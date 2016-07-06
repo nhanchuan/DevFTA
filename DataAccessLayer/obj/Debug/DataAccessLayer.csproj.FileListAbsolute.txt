@@ -8,3 +8,8 @@ C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\Dat
 C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\NhanChuan\Developer\DevFTA\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\NhanChuan\Developer\DevFTA\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\NhanChuan\Developer\DevFTA\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\NhanChuan\Developer\DevFTA\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\NhanChuan\Developer\DevFTA\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

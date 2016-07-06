@@ -12,3 +12,10 @@ C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\Bus
 C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
 C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 C:\Users\NhanChuan\OneDrive\DEVELOPER\PROJECT MANAGER\FTA Project\DevProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\NhanChuan\Developer\DevFTA\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\NhanChuan\Developer\DevFTA\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\NhanChuan\Developer\DevFTA\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\NhanChuan\Developer\DevFTA\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\NhanChuan\Developer\DevFTA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\NhanChuan\Developer\DevFTA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\NhanChuan\Developer\DevFTA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

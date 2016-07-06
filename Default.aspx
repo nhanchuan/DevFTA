@@ -26,8 +26,8 @@
                             data-speed="400"
                             data-start="1500"
                             data-easing="easeOutExpo">
-                            Explore the Power<br />
-                            <span class="slide_title_white_bold">of Metronic</span>
+                            Hiệp Hội Thực Phẩm<br />
+                            <span class="slide_title_white_bold">Minh Bạch</span>
                         </div>
                         <div class="caption lft slide_subtitle_white slide_item_left"
                             data-x="87"

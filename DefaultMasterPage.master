@@ -192,7 +192,7 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- END BOTTOM ABOUT BLOCK -->l
+                    <!-- END BOTTOM ABOUT BLOCK -->
 
                     <!-- BEGIN BOTTOM CONTACTS -->
                     <div class="col-md-4 col-sm-6 pre-footer-col">
@@ -222,24 +222,37 @@
                     </div>
                     <!-- END BOTTOM CONTACTS -->
 
-                    <!-- BEGIN TWITTER BLOCK -->
+                    <%-- BEGIN Latest posts --%>
                     <div class="col-md-4 col-sm-6 pre-footer-col">
-                        <h2 class="margin-bottom-0">Trang Facebook</h2>
-                        <%--<a class="twitter-timeline" href="https://twitter.com/twitterapi" data-tweet-limit="2" data-theme="dark" data-link-color="#57C8EB" data-widget-id="455411516829736961" data-chrome="noheader nofooter noscrollbar noborders transparent">Loading tweets by @keenthemes...</a>--%>
-                        <div class="fb-page"
-                            data-href="https://www.facebook.com/thucphamminhbach"
-                            data-tabs="timeline"
-                            data-small-header="false"
-                            data-adapt-container-width="true"
-                            data-hide-cover="false"
-                            data-height="350"
-                            data-show-facepile="true">
-                            <blockquote cite="https://www.facebook.com/thucphamminhbach" class="fb-xfbml-parse-ignore">
-                                <a href="https://www.facebook.com/thucphamminhbach">Thực phẩm minh bạch</a>
-                            </blockquote>
+                        <h2>Latest posts</h2>
+                        <div class="top-news">
+                            <a href="#" class="btn blue">
+                                <span>Gold Price Falls </span>
+                                <em>Posted on: April 14, 2013</em>
+                                <em>
+                                    <i class="fa fa-tags"></i>
+                                    USA, Business, Apple </em>
+                                <i class="fa fa-globe top-news-icon"></i>
+                            </a>
+                            <a href="#" class="btn purple">
+                                <span>Top Destinations </span>
+                                <em>Posted on: April 12, 2013</em>
+                                <em>
+                                    <i class="fa fa-tags"></i>
+                                    Places, Internet, Google Map </em>
+                                <i class="fa fa-bolt top-news-icon"></i>
+                            </a>
+                            <a href="#" class="btn red">
+                                <span>Tranparency News </span>
+                                <em>Posted on: April 16, 2013</em>
+                                <em>
+                                    <i class="fa fa-tags"></i>
+                                    Money, Business, Google </em>
+                                <i class="fa fa-briefcase top-news-icon"></i>
+                            </a>
                         </div>
                     </div>
-                    <!-- END TWITTER BLOCK -->
+                    <%-- END Latest posts --%>
                 </div>
             </div>
         </div>
@@ -311,14 +324,14 @@
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
     <%-- FACEBOOK PLUGIN --%>
-    <div id="fb-root"></div>
+    <%--<div id="fb-root"></div>
     <script>(function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
     js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.6&appId=147525538932174";
     fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));</script>--%>
     <%-- END FACEBOOK PLUGIN --%>
 </body>
 </html>
