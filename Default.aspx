@@ -43,7 +43,7 @@
                             data-y="315"
                             data-speed="400"
                             data-start="3000"
-                            data-easing="easeOutExpo">Purchase Now!
+                            data-easing="easeOutExpo">Đăng ký ngay!
               </a>
                         <div class="caption lfb"
                             data-x="640"
@@ -355,7 +355,7 @@
             <%-- Demo NTD --%>
             <div class="row margin-bottom-40">
                 <div class="col-lg-12">
-                    <h3 class="margin-bottom-35">NGƯỜI TIÊU DÙNG</h3>
+                    <h3 class="margin-bottom-15">NGƯỜI TIÊU DÙNG</h3>
                     <div class="wpnguoitieudung">
                         <h1>Truy xuất nguồn gốc! <br />
                             ↓</h1>
