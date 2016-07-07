@@ -122,7 +122,7 @@
                                 <li><a href="#">Các quy tắc hiệp hội</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" target="_blank">Liên hệ</a></li>
+                        <li><a href="../Pages/LienHe.aspx">Liên hệ</a></li>
                         <!-- BEGIN TOP SEARCH -->
                         <li class="menu-search">
                             <span class="sep"></span>
@@ -153,9 +153,42 @@
                 <div class="row">
                     <!-- BEGIN BOTTOM ABOUT BLOCK -->
                     <div class="col-md-4 col-sm-6 pre-footer-col">
+                        <h2>Thông tin liên hệ</h2>
+                        <address class="margin-bottom-40">
+                            Địa chỉ: Lầu 8, 79 Trương Định, Quận 1,
+                            <br />
+                            Hồ Chí Minh, Việt Nam<br />
+                            Điện thoại: +848 3823 4179<br />
+                            Hotline: 0916 441 939 - 0918 955 739<br />
+                            Email: <a href="mailto:thucphamminhbach@gmail.com">thucphamminhbach@gmail.com</a><br />
+                            <%--Skype: <a href="skype:thucphamminhbach">thucphamminhbach</a>--%>
+                        </address>
+
+                    </div>
+                    <!-- END BOTTOM ABOUT BLOCK -->
+
+                    <!-- BEGIN BOTTOM CONTACTS -->
+                    <div class="col-md-4 col-sm-6 pre-footer-col">
                         <h2>Về chúng tôi</h2>
                         <p>Hiệp Thực Phẩm Minh Bạch (FTA) được thành lập tại Việt Nam vào năm 2016, với mục tiêu cụ thể là phát triển và thúc đẩy các tiêu chuẩn minh bạch và an toàn thực phẩm từ trang trại đến bàn ăn.</p>
 
+                        <div class="pre-footer-subscribe-box pre-footer-subscribe-box-vertical">
+                            <h2>Nhận bản tin</h2>
+                            <p>Hãy để lại E-mail của bạn để nhận được những thông tin mới nhất được cập nhật liên tục!</p>
+                            <div>
+                                <div class="input-group">
+                                    <input type="text" placeholder="youremail@mail.com" class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END BOTTOM CONTACTS -->
+
+                    <%-- BEGIN Latest posts --%>
+                    <div class="col-md-4 col-sm-6 pre-footer-col">
                         <div class="photo-stream">
                             <h2>Thư Viện Ảnh</h2>
                             <ul class="list-unstyled">
@@ -190,66 +223,6 @@
                                 <li><a href="#">
                                     <img alt="" src="../assets/frontend/pages/img/works/img2.jpg" /></a></li>
                             </ul>
-                        </div>
-                    </div>
-                    <!-- END BOTTOM ABOUT BLOCK -->
-
-                    <!-- BEGIN BOTTOM CONTACTS -->
-                    <div class="col-md-4 col-sm-6 pre-footer-col">
-                        <h2>Thông tin liên hệ</h2>
-                        <address class="margin-bottom-40">
-                            Địa chỉ: Lầu 8, 79 Trương Định, Quận 1,
-                            <br />
-                            Hồ Chí Minh, Việt Nam<br />
-                            Điện thoại: +848 3823 4179<br />
-                            Hotline: 0916 441 939 - 0918 955 739<br />
-                            Email: <a href="mailto:thucphamminhbach@gmail.com">thucphamminhbach@gmail.com</a><br />
-                            <%--Skype: <a href="skype:thucphamminhbach">thucphamminhbach</a>--%>
-                        </address>
-
-                        <div class="pre-footer-subscribe-box pre-footer-subscribe-box-vertical">
-                            <h2>Nhận bản tin</h2>
-                            <p>Hãy để lại E-mail của bạn để nhận được những thông tin mới nhất được cập nhật liên tục!</p>
-                            <div>
-                                <div class="input-group">
-                                    <input type="text" placeholder="youremail@mail.com" class="form-control" />
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="submit">Subscribe</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END BOTTOM CONTACTS -->
-
-                    <%-- BEGIN Latest posts --%>
-                    <div class="col-md-4 col-sm-6 pre-footer-col">
-                        <h2>Latest posts</h2>
-                        <div class="top-news">
-                            <a href="#" class="btn blue">
-                                <span>Gold Price Falls </span>
-                                <em>Posted on: April 14, 2013</em>
-                                <em>
-                                    <i class="fa fa-tags"></i>
-                                    USA, Business, Apple </em>
-                                <i class="fa fa-globe top-news-icon"></i>
-                            </a>
-                            <a href="#" class="btn purple">
-                                <span>Top Destinations </span>
-                                <em>Posted on: April 12, 2013</em>
-                                <em>
-                                    <i class="fa fa-tags"></i>
-                                    Places, Internet, Google Map </em>
-                                <i class="fa fa-bolt top-news-icon"></i>
-                            </a>
-                            <a href="#" class="btn red">
-                                <span>Tranparency News </span>
-                                <em>Posted on: April 16, 2013</em>
-                                <em>
-                                    <i class="fa fa-tags"></i>
-                                    Money, Business, Google </em>
-                                <i class="fa fa-briefcase top-news-icon"></i>
-                            </a>
                         </div>
                     </div>
                     <%-- END Latest posts --%>

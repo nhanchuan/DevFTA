@@ -343,10 +343,23 @@
                     <div class="col-lg-6">
                         <h1>TRUY XUẤT NGUỒN GỐC ĐIỆN TỬ</h1>
                         <label>YOUTUBE, VIMEO AND OTHERS.</label>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer elit sed diam
-nonummy amet euismod dolore.
-                        </p>
+                        <ul>
+                            <li>
+                                Ứng dụng điện thoại di động để tra cứu thông tin minh bạch về sản phẩm
+                            </li>
+                            <li>
+                                Nhập thông tin nhanh, đơn giản, theo nhu cầu của doanh nghiệp
+                            </li>
+                            <li>
+                                Người tiêu dùng tra cứu thông tin bằng cách quét mã vạch sản phẩm
+                            </li>
+                            <li>
+                                Công cụ tiếp thị mà không làm thay đổi bao bì
+                            </li>
+                            <li>
+                                Chi phí thấp và hiệu quả.
+                            </li>
+                        </ul>
                         <a class="btn btn-warning">Đăng ký người dùng</a>
                     </div>
                 </div>

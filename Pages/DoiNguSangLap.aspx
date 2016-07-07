@@ -42,14 +42,12 @@
                                 <!-- END LISTS -->
                             </div>
                             <!-- END INFO BLOCK -->
-
                         </div>
-
                         <div class="row front-team">
                             <ul class="list-unstyled">
                                 <li class="col-md-3">
                                     <div class="thumbnail">
-                                        <img alt="" src="../images/content/TeamPeople/TsNguyenThiHongMinh.bmp" style="width: 800px; height: auto;" />
+                                        <img alt="" src="../images/content/TeamPeople/TsNguyenThiHongMinh.bmp" style="width: 800px; height: 250px;" />
                                         <h3>
                                             <strong>Nguyễn Thị Hồng Minh</strong>
                                             <small>Người sáng lập, Chủ tịch HĐQT</small>
@@ -65,7 +63,7 @@
                                 </li>
                                 <li class="col-md-3">
                                     <div class="thumbnail">
-                                        <img alt="" src="../images/content/TeamPeople/MrTruongDinhHoe.jpg" style="width: 800px; height: auto;" />
+                                        <img alt="" src="../images/content/TeamPeople/MrTruongDinhHoe.jpg" style="width: 800px; height: 250px;" />
                                         <h3>
                                             <strong>Ông Trương Đình Hòe</strong>
                                             <small>Thành viên HĐQT</small>
@@ -81,7 +79,7 @@
                                 </li>
                                 <li class="col-md-3">
                                     <div class="thumbnail">
-                                        <img alt="" src="../images/content/TeamPeople/BaDauThuyHa.jpg" style="width: 800px; height: auto;" />
+                                        <img alt="" src="../images/content/TeamPeople/BaDauThuyHa.jpg" style="width: 800px; height: 250px;" />
                                         <h3>
                                             <strong>Bà Đậu Thúy Hà</strong>
                                             <small>Thành viên HĐQT</small>
@@ -97,7 +95,7 @@
                                 </li>
                                 <li class="col-md-3">
                                     <div class="thumbnail">
-                                        <img alt="" src="../images/content/TeamPeople/MrBuiHuyBinh.jpg" style="width: 800px; height: auto;" />
+                                        <img alt="" src="../images/content/TeamPeople/MrBuiHuyBinh.jpg" style="width: 800px; height: 250px;" />
                                         <h3>
                                             <strong>Ông Bùi Huy Bình</strong>
                                             <small>Giám đốc điều hành</small>
