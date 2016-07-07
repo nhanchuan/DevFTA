@@ -49,12 +49,12 @@
                             <ul class="list-unstyled">
                                 <li class="col-md-3">
                                     <div class="thumbnail">
-                                        <img alt="" src="../images/content/TeamPeople/TsNguyenThiHongMinh.bmp" class="img-responsive" />
+                                        <img alt="" src="../images/content/TeamPeople/TsNguyenThiHongMinh.bmp" style="width: 800px; height: auto;" />
                                         <h3>
-                                            <strong>Lina Doe</strong>
-                                            <small>Chief Executive Officer / CEO</small>
+                                            <strong>Nguyễn Thị Hồng Minh</strong>
+                                            <small>Người sáng lập, Chủ tịch HĐQT</small>
                                         </h3>
-                                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+                                        <p>Bà Nguyễn Thị Hồng Minh là nguyên thứ trưởng bộ Thủy sản (nay sát nhập với Bộ NN và PTNT), phụ trách về chất lượng.</p>
                                         <ul class="social-icons social-icons-color">
                                             <li><a class="facebook" data-original-title="Facebook" href="#"></a></li>
                                             <li><a class="twitter" data-original-title="Twitter" href="#"></a></li>
@@ -65,12 +65,12 @@
                                 </li>
                                 <li class="col-md-3">
                                     <div class="thumbnail">
-                                        <img alt="" src="../../assets/frontend/pages/img/people/img4-large.jpg">
+                                        <img alt="" src="../images/content/TeamPeople/MrTruongDinhHoe.jpg" style="width: 800px; height: auto;" />
                                         <h3>
-                                            <strong>Carles Puyol</strong>
-                                            <small>Chief Executive Officer / CEO</small>
+                                            <strong>Ông Trương Đình Hòe</strong>
+                                            <small>Thành viên HĐQT</small>
                                         </h3>
-                                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+                                        <p>Ông Trương Đình Hòe là Tổng thư ký Hiệp hội chế biến và xuất khẩu thủy sản Việt Nam từ năm 2007.</p>
                                         <ul class="social-icons social-icons-color">
                                             <li><a class="facebook" data-original-title="Facebook" href="#"></a></li>
                                             <li><a class="twitter" data-original-title="Twitter" href="#"></a></li>
@@ -81,12 +81,12 @@
                                 </li>
                                 <li class="col-md-3">
                                     <div class="thumbnail">
-                                        <img alt="" src="../../assets/frontend/pages/img/people/img2-large.jpg">
+                                        <img alt="" src="../images/content/TeamPeople/BaDauThuyHa.jpg" style="width: 800px; height: auto;" />
                                         <h3>
-                                            <strong>Andres Iniesta</strong>
-                                            <small>Chief Executive Officer / CEO</small>
+                                            <strong>Bà Đậu Thúy Hà</strong>
+                                            <small>Thành viên HĐQT</small>
                                         </h3>
-                                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+                                        <p>Bà Đậu Thuý Hà là Chủ tịch Hội đồng Quản trị Công ty Tư vấn Quản lý OCD và Công ty CP Đào tạo Quản lý Trực tuyến OMT.</p>
                                         <ul class="social-icons social-icons-color">
                                             <li><a class="facebook" data-original-title="Facebook" href="#"></a></li>
                                             <li><a class="twitter" data-original-title="Twitter" href="#"></a></li>
@@ -97,12 +97,12 @@
                                 </li>
                                 <li class="col-md-3">
                                     <div class="thumbnail">
-                                        <img alt="" src="../../assets/frontend/pages/img/people/img5-large.jpg">
+                                        <img alt="" src="../images/content/TeamPeople/MrBuiHuyBinh.jpg" style="width: 800px; height: auto;" />
                                         <h3>
-                                            <strong>Jessica Alba</strong>
-                                            <small>Chief Executive Officer / CEO</small>
+                                            <strong>Ông Bùi Huy Bình</strong>
+                                            <small>Giám đốc điều hành</small>
                                         </h3>
-                                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+                                        <p>Ông Bùi Huy Bình là thạc sỹ chính sách công, chương trình học bổng Fulbright tại Việt Nam...</p>
                                         <ul class="social-icons social-icons-color">
                                             <li><a class="facebook" data-original-title="Facebook" href="#"></a></li>
                                             <li><a class="twitter" data-original-title="Twitter" href="#"></a></li>

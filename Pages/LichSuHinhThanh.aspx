@@ -5,6 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main">
         <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Về chúng tôi</a></li>
+                <li class="active">Lịch sử hình thành</li>
+            </ul>
             <%-- /Row Timeline --%>
             <div class="row">
                 <div class="col-lg-4">
