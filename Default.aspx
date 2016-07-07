@@ -311,7 +311,7 @@
             </div>
 
             <%-- Demo NTD --%>
-            <div class="row margin-bottom-40">
+            <%--<div class="row margin-bottom-40">
                 <div class="col-lg-12">
                     <h3 class="margin-bottom-15">NGƯỜI TIÊU DÙNG</h3>
                     <div class="wpnguoitieudung">
@@ -319,8 +319,6 @@
                             <br />
                             ↓</h1>
                         <a class="btn btn-danger">Đăng ký người dùng</a>
-                        <%--<video src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/28831/Typer.mp4" autoplay="autoplay" loop="loop"></video>--%>
-
                         <video autoplay="autoplay" muted="muted" loop="loop">
                             <source src="../Videos/TraceVerified ScanQRCode.mp4" type="video/mp4" />
                             <source src="../Videos/TraceVerified ScanQRCode_VP8.webm" type="video/webm" />
@@ -328,8 +326,7 @@
                         </video>
                     </div>
                 </div>
-            </div>
-
+            </div>--%>
             <%-- End Demo NTD --%>
 
             <%-- NGUOI TIEU DUNG SLIDE 2 --%>
@@ -343,7 +340,15 @@
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/A60b9KuOsI0" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
-
+                    <div class="col-lg-6">
+                        <h1>TRUY XUẤT NGUỒN GỐC ĐIỆN TỬ</h1>
+                        <label>YOUTUBE, VIMEO AND OTHERS.</label>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer elit sed diam
+nonummy amet euismod dolore.
+                        </p>
+                        <a class="btn btn-warning">Đăng ký người dùng</a>
+                    </div>
                 </div>
             </div>
 
