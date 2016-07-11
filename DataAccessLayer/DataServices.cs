@@ -16,7 +16,7 @@ namespace DataAccessLayer
         /// <summary>
         /// ConnectionStrings
         /// </summary>
-        string strconn = ConfigurationManager.ConnectionStrings["connectionStrCon"].ToString();
+        string strconn = ConfigurationManager.ConnectionStrings["connectionStrConFTA"].ToString();
         private SqlConnection m_conn;
         public SqlConnection Conn
         {
