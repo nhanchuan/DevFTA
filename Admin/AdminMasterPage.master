@@ -44,7 +44,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="page-header-fixed page-quick-sidebar-over-content-transparent">
     <form id="form1" runat="server">
         <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
         <!-- BEGIN HEADER -->
@@ -243,7 +243,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="../../Admin/Pages/Category.aspx">
                                         <i class="fa fa-reorder"></i>
                                         Chuyên mục  
                                     </a>
