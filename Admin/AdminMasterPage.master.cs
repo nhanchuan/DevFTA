@@ -16,5 +16,6 @@ public partial class Admin_AdminMasterPage : System.Web.UI.MasterPage
     {
         Session.SetCurrentUser(null);
         Response.Redirect("http://" + Request.Url.Authority + "/Admin/Login.aspx");
+
     }
 }
