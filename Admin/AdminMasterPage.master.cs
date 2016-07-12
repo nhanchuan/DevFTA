@@ -11,4 +11,10 @@ public partial class Admin_AdminMasterPage : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void btnlogout_ServerClick(object sender, EventArgs e)
+    {
+        Session.SetCurrentUser(null);
+        Response.Redirect("http://" + Request.Url.Authority + "/Admin/Login.aspx");
+    }
 }

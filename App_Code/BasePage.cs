@@ -24,10 +24,25 @@ public class BasePage : System.Web.UI.Page
         // TODO: Add constructor logic here
         //
     }
+    public void setcurenturl()
+    {
+        string url = "";
+        url = Request.Url.AbsoluteUri;
+        Session.SetCurrentURL(url);
+    }
     //value Salt pasword
     protected string SaltPassword()
     {
-        return "AS@2d23";
+        return "FTA@2d23";
+    }
+    //Create SHA-512 Hash string
+    public static string CreateSHAHash(string Password, string Salt)
+    {
+        System.Security.Cryptography.SHA512Managed HashTool = new System.Security.Cryptography.SHA512Managed();
+        Byte[] PasswordAsByte = System.Text.Encoding.UTF8.GetBytes(string.Concat(Password, Salt));
+        Byte[] EncryptedBytes = HashTool.ComputeHash(PasswordAsByte);
+        HashTool.Clear();
+        return Convert.ToBase64String(EncryptedBytes);
     }
     protected string RandomName
     {
@@ -60,5 +75,27 @@ public class BasePage : System.Web.UI.Page
             }
         }
         return null;
+    }
+    //============================================================================================================
+
+    /// <summary>
+    /// Hiện thông báo
+    /// </summary>
+    /// <param name="isvalid">Bật/Tắt thông báo</param>
+    /// <param name="validString">Chuỗi thông báo</param>
+    /// <param name="divValid">Điều khiển html thông báo</param>
+    /// <param name="lblvalid">Label nhận chuỗi thông báo</param>
+    public void AlertPageValid(bool isvalid, string validString, System.Web.UI.HtmlControls.HtmlGenericControl divValid, Label lblvalid)
+    {
+        if (isvalid)
+        {
+            divValid.Attributes.Add("class", "alert alert-danger");
+            lblvalid.Text = "<strong>Error!</strong>" + " " + validString.ToString();
+        }
+        else
+        {
+            divValid.Attributes.Add("class", "alert alert-danger display-none");
+            lblvalid.Text = "";
+        }
     }
 }

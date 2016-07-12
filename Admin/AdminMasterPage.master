@@ -2,6 +2,8 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -143,7 +145,7 @@
                                         <i class="icon-lock"></i>Lock screen </a>
                                 </li>
                                 <li>
-                                    <a href="#" id="btnlogout" runat="server">
+                                    <a href="#" id="btnlogout" onserverclick="btnlogout_ServerClick" runat="server">
                                         <i class="icon-key"></i>Logout </a>
                                 </li>
                             </ul>
@@ -295,7 +297,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="../Pages/NewUser.aspx"><i class="icon-user-follow"></i>New User</a>
+                                    <a href="../../Admin/Pages/NewUser.aspx"><i class="icon-user-follow"></i>New User</a>
                                 </li>
                                 <li>
                                     <a href="../Pages/Users.aspx"><i class="fa fa-users"></i>All Users</a>

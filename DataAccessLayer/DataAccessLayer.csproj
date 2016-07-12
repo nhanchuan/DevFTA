@@ -43,7 +43,14 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="DataServices.cs" />
+    <Compile Include="Images.cs" />
+    <Compile Include="ImagesType.cs" />
+    <Compile Include="Post.cs" />
+    <Compile Include="Post_Category_Relationships.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tags_relationships.cs" />
+    <Compile Include="UserAdmin.cs" />
+    <Compile Include="UserAdminProfile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
