@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterPage.master" AutoEventWireup="true" CodeFile="ImagesCategory.aspx.cs" Inherits="Admin_Pages_ImagesCategory" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-     <!-- BEGIN PAGE HEADER-->
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <!-- BEGIN PAGE HEADER-->
     <h1 class="page-title">Chuyên mục hình ảnh
     </h1>
     <div class="page-bar">
@@ -45,13 +45,14 @@
         <div class="col-lg-8">
             <div class="row margin-bottom-25">
                 <div class="col-lg-12">
-                    <a class="btn btn-default" id="btnfixImagesCT" href="#modalEditIamgeCategory" data-toggle="modal" runat="server"><i class="fa fa-cog"></i>Chỉnh sửa danh mục</a>
+                    <a id="btnfixImagesCT" href="#modalEditIamgeCategory" data-toggle="modal" runat="server"><i class="fa fa-cog"></i>&nbsp Chỉnh sửa danh mục</a>
                     <asp:Label ID="lblConfirm" runat="server"></asp:Label>
                 </div>
             </div>
 
             <asp:GridView ID="gwImagesCategory" CssClass="table table-condensed" runat="server" AutoGenerateColumns="False" RowStyle-BackColor="#A1DCF2" Font-Names="Arial" Font-Size="10pt"
-                HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White">
+                HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
+                OnRowDataBound="gwImagesCategory_RowDataBound" OnRowDeleting="gwImagesCategory_RowDeleting" OnSelectedIndexChanged="gwImagesCategory_SelectedIndexChanged">
                 <Columns>
                     <asp:TemplateField HeaderText="DB_ID">
                         <ItemTemplate>
@@ -104,12 +105,11 @@
                 </div>
                 <div class="modal-footer">
                     <a class="btn btn-warning" data-dismiss="modal">Cancel</a>
-                    <asp:Button ID="btnsave" CssClass="btn btn-primary" ValidationGroup="validEImgCategory" runat="server" Text="Save" />
+                    <asp:Button ID="btnsave" CssClass="btn btn-primary" ValidationGroup="validEImgCategory" OnClick="btnsave_Click" runat="server" Text="Save" />
                 </div>
             </div>
         </div>
     </div>
     <%-- End Modal --%>
-    
 </asp:Content>
 
