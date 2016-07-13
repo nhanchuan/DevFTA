@@ -11,4 +11,9 @@ public partial class Admin_Pages_Category : System.Web.UI.Page
     {
 
     }
+
+    protected void btnSaveNewCategory_Click(object sender, EventArgs e)
+    {
+
+    }
 }

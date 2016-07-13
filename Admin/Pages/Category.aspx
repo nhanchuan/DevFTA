@@ -141,13 +141,42 @@
                                 <label class="control-label">Chọn ảnh tiêu biểu</label>
                                 <div class="row">
                                     <a class="btn red" id="btnrefreshImg" runat="server"><i class="fa fa-refresh">Clear</i></a>
-                                    <a class="btn green" href="#modaluploadImages" data-toggle="modal"><i class="fa fa-upload"></i>Tải tập tin lên</a>
+                                    <a class="btn green" href="#coluploadUploadImg" data-toggle="collapse"><i class="fa fa-upload"></i>Tải tập tin lên</a>
                                     <a class="btn yellow" href="#modalselectimages" data-toggle="modal"><i class="fa fa-bank"></i>Chọn từ thư viện</a>
                                 </div>
                                 <br />
                                 <i>( Ảnh chức năng cho chuyên mục )</i>
+                                <div class="col-md-12">
+                                    <%-- Collapse Upload Images --%>
+                                    <div id="coluploadUploadImg" class="panel-collapse collapse">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-icon">
+                                                    <i class="fa fa-file"></i>
+                                                    <asp:FileUpload ID="fileUploadImgCategory" CssClass="form-control" runat="server" />
+                                                </div>
+                                                <span class="input-group-btn">
+                                                    <button id="btnuploadImg" class="btn btn-success" type="button" validationgroup="fileUploadImgCategory" runat="server"><i class="fa fa-arrow-left fa-fw"></i>OK</button>
+                                                </span>
+                                            </div>
+                                            <asp:RequiredFieldValidator ErrorMessage="Required"
+                                                ControlToValidate="fileUploadImgCategory" ValidationGroup="validfileUploadImgPost"
+                                                runat="server" Display="Dynamic" ForeColor="Red" />
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationExpression="(.)+(.jpg|.gif|.png|.JPG|.PNG|.GIF)$"
+                                                ControlToValidate="fileUploadImgCategory"
+                                                ValidationGroup="validfileUploadImgPost"
+                                                runat="server" ForeColor="Red"
+                                                ErrorMessage="Please select a valid Images file !"
+                                                Display="Dynamic" />
+                                        </div>
+                                        <label>You can upload JPG, GIF, or PNG file. Maximum file size is 4MB.</label>
+
+                                    </div>
+                                    <%-- End Collapse Upload Images --%>
+                                </div>
                             </div>
                         </div>
+
                         <%-- /Row --%>
                         <div class="row">
                             <div class="col-md-8"></div>
@@ -160,7 +189,7 @@
                     </div>
                     <div class="form-actions right">
                         <a class="btn btn-default">Cancel</a>
-                        <asp:Button ID="btnSaveNew" CssClass="btn blue" runat="server" Text="Thêm chuyên mục" />
+                        <asp:Button ID="btnSaveNewCategory" CssClass="btn blue" OnClick="btnSaveNewCategory_Click" runat="server" Text="Thêm chuyên mục" />
                     </div>
                 </div>
             </div>

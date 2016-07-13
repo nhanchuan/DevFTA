@@ -19,15 +19,14 @@ public partial class Admin_Pages_NewUser : BasePage
         this.setcurenturl();
         if (!IsPostBack)
         {
-            //if (Session.GetCurrentUser() == null)
-            //{
-            //    Response.Redirect("http://" + Request.Url.Authority + "/Admin/Login.aspx");
-            //}
-            //else
-            //{
-            //    this.AlertPageValid(false, "", alertPageValid, lblPageValid);
-            //}
-
+            if (Session.GetCurrentUser() == null)
+            {
+                Response.Redirect("http://" + Request.Url.Authority + "/Admin/Login.aspx");
+            }
+            else
+            {
+                this.AlertPageValid(false, "", alertPageValid, lblPageValid);
+            }
         }
     }
     
