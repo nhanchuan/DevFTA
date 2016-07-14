@@ -45,7 +45,7 @@
         <div class="col-lg-8">
             <div class="row margin-bottom-25">
                 <div class="col-lg-12">
-                    <a id="btnfixImagesCT" href="#modalEditIamgeCategory" data-toggle="modal" runat="server"><i class="fa fa-cog"></i>&nbsp Chỉnh sửa danh mục</a>
+                    <a id="btnfixImagesCT" href="#modalEditIamgeCategory" data-toggle="modal" runat="server"><i class="fa fa-cog"></i>&nbsp Chỉnh sửa chuyên mục</a>
                     <asp:Label ID="lblConfirm" runat="server"></asp:Label>
                 </div>
             </div>
