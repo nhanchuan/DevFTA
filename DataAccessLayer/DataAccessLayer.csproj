@@ -44,7 +44,6 @@
     <Compile Include="Category.cs" />
     <Compile Include="DataServices.cs" />
     <Compile Include="Images.cs" />
-    <Compile Include="ImagesType.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Post_Category_Relationships.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

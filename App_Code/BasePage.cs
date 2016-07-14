@@ -98,4 +98,12 @@ public class BasePage : System.Web.UI.Page
             lblvalid.Text = "";
         }
     }
+    // LOAD DROPDOWNLIST()
+    public void load_DropdownList(DropDownList dl, Object obj, string textfield, string valuefield)
+    {
+        dl.DataSource = obj;
+        dl.DataTextField = textfield;
+        dl.DataValueField = valuefield;
+        dl.DataBind();
+    }
 }

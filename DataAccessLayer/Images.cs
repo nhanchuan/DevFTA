@@ -11,7 +11,6 @@ namespace DataAccessLayer
         private int iD;
         private string imagesName;
         private string imagesUrl;
-        private int imagesType;
         private int userUpload;
         private DateTime dateOfStart;
         public int ID
@@ -50,19 +49,6 @@ namespace DataAccessLayer
             set
             {
                 imagesUrl = value;
-            }
-        }
-
-        public int ImagesType
-        {
-            get
-            {
-                return imagesType;
-            }
-
-            set
-            {
-                imagesType = value;
             }
         }
 

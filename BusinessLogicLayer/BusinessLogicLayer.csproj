@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="CategoryBLL.cs" />
     <Compile Include="ImagesBLL.cs" />
-    <Compile Include="ImagesTypeBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserAdminBLL.cs" />
     <Compile Include="UserAdminProfileBLL.cs" />

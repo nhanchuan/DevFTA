@@ -12,6 +12,17 @@ namespace BusinessLogicLayer
     public class CategoryBLL
     {
         DataServices dt = new DataServices();
+        public DataTable CategoryParent()
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "Exec CategoryParent";
+            DataTable tb = dt.DATable(sqlquery);
+            this.dt.CloseConnection();
+            return tb;
+        }
         public Boolean NewCategory(string NameVN, string NameEN, int Parent, int ItemIndex, string Permalink, string SeoTitle, int CateogryImage, int CreateBy, DateTime ModifyDate, int ModifyBy, string MetaTitle, string MetaKeywords, string MetaDescriptions, Boolean CategoryStatus, Boolean ShowOnHome)
         {
             if (!this.dt.OpenConnection())
