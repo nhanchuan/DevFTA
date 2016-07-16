@@ -24,7 +24,8 @@ namespace DataAccessLayer
         private int viewCount;
         public bool TopHot;
         private int postImages;
-
+        private DateTime postTime;
+        private string postCode;
         public int ID
         {
             get
@@ -204,6 +205,32 @@ namespace DataAccessLayer
             set
             {
                 postImages = value;
+            }
+        }
+
+        public DateTime PostTime
+        {
+            get
+            {
+                return postTime;
+            }
+
+            set
+            {
+                postTime = value;
+            }
+        }
+
+        public string PostCode
+        {
+            get
+            {
+                return postCode;
+            }
+
+            set
+            {
+                postCode = value;
             }
         }
     }

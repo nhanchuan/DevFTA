@@ -4,7 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
-    <link href="../../App_Themes/admin/imgaesmanager.css" rel="stylesheet" />
+   <%-- <link href="../../App_Themes/admin/imgaesmanager.css" rel="stylesheet" />--%>
+    <link href="../../App_Themes/admin/pagination.css" rel="stylesheet" />
+    <style type="text/css">
+        .page_disabled {
+            background:#ff6a00;
+        }
+    </style>
     <!-- BEGIN PAGE HEADER-->
     <h3 class="page-title">Thư viện hình ảnh <small>Images Manager</small>
     </h3>
@@ -96,7 +102,7 @@
                                 <asp:Repeater ID="rptPager" runat="server">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="lnkPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
-                                            CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "page_enabled" : "page_disabled" %>'
+                                            CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "btn btn-default page_enabled" : "btn btn-default page_disabled" %>'
                                             OnClick="Page_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:Repeater>

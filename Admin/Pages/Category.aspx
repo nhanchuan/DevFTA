@@ -53,9 +53,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label bold col-md-4">Tên chuyên mục - VN</label>
+                                    <label class="control-label bold col-md-4">Tên chuyên mục - VN (<span class="required">*</span>)</label>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txtCategoryNameVN" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtCategoryNameVN" ValidationGroup="validNewCategory" ForeColor="Red" Display="Dynamic" runat="server" ErrorMessage="Category name can't be blank !"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                             </div>
@@ -153,24 +154,25 @@
                                             <div class="input-group">
                                                 <div class="input-icon">
                                                     <i class="fa fa-file"></i>
-                                                    <asp:FileUpload ID="fileUploadImgCategory" CssClass="form-control" runat="server" />
+                                                    <asp:FileUpload ID="fileUploadImgCategory" onchange="previewFile()" CssClass="form-control" runat="server" />
                                                 </div>
                                                 <span class="input-group-btn">
-                                                    <button id="btnuploadImg" class="btn btn-success" type="button" validationgroup="fileUploadImgCategory" runat="server"><i class="fa fa-arrow-left fa-fw"></i>OK</button>
+                                                    <asp:Button ID="btnuploadImg" CssClass="btn btn-success" OnClick="btnuploadImg_Click" ValidationGroup="fileUploadImgCategory" runat="server" Text="<= OK" />
                                                 </span>
                                             </div>
-                                            <asp:RequiredFieldValidator ErrorMessage="Required"
-                                                ControlToValidate="fileUploadImgCategory" ValidationGroup="validfileUploadImgPost"
+                                            <asp:RequiredFieldValidator ErrorMessage="You have not picked a picture !"
+                                                ControlToValidate="fileUploadImgCategory" ValidationGroup="fileUploadImgCategory"
                                                 runat="server" Display="Dynamic" ForeColor="Red" />
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationExpression="(.)+(.jpg|.gif|.png|.JPG|.PNG|.GIF)$"
                                                 ControlToValidate="fileUploadImgCategory"
-                                                ValidationGroup="validfileUploadImgPost"
+                                                ValidationGroup="fileUploadImgCategory"
                                                 runat="server" ForeColor="Red"
                                                 ErrorMessage="Please select a valid Images file !"
                                                 Display="Dynamic" />
                                         </div>
                                         <label>You can upload JPG, GIF, or PNG file. Maximum file size is 4MB.</label>
-
+                                        <%-- Tên Images Tạm --%>
+                                        <asp:TextBox ID="txtImageTemp" runat="server"></asp:TextBox>
                                     </div>
                                     <%-- End Collapse Upload Images --%>
                                 </div>
@@ -182,14 +184,14 @@
                             <div class="col-md-8"></div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <asp:CheckBox ID="CheckBox1" Text="Show On Home" runat="server" />
+                                    <asp:CheckBox ID="chkShowOnHome" CssClass="display-none" Text="Show On Home" runat="server" />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-actions right">
                         <a class="btn btn-default">Cancel</a>
-                        <asp:Button ID="btnSaveNewCategory" CssClass="btn blue" OnClick="btnSaveNewCategory_Click" runat="server" Text="Thêm chuyên mục" />
+                        <asp:Button ID="btnSaveNewCategory" ValidationGroup="validNewCategory" CssClass="btn blue" OnClick="btnSaveNewCategory_Click" runat="server" Text="Thêm chuyên mục" />
                     </div>
                 </div>
             </div>
@@ -198,40 +200,138 @@
     <%-- END PORLET ADD NEW CATEGORY --%>
     <%-- LIST CATEGORY --%>
     <div class="clearfix"></div>
-    <!-- BEGIN Portlet PORTLET-->
-    <div class="portlet light">
-        <div class="portlet-title">
-            <div class="caption">
-                <i class="glyphicon glyphicon-list-alt font-yellow-casablanca"></i>
-                <span class="caption-subject bold font-yellow-casablanca uppercase">Danh sách chuyên mục </span>
-                <span class="caption-helper">more samples...</span>
-            </div>
-            <div class="inputs">
-                <div class="portlet-input input-inline input-medium">
-                    <div class="input-group">
-                        <input id="txtsearch" type="text" class="form-control input-circle-left" placeholder="search..." title="Tìm Mã hoặc Tên khóa học" runat="server" />
-                        <span class="input-group-btn">
-                            <button id="btnSearchKhoaHoc" class="btn btn-circle-right btn-default" type="submit" runat="server">Go!</button>
-                        </span>
+    <div class="row">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="glyphicon glyphicon-list-alt font-yellow-casablanca"></i>
+                    <span class="caption-subject bold font-yellow-casablanca uppercase">Danh sách chuyên mục </span>
+                    <span class="caption-helper">more samples...</span>
+                </div>
+                <div class="inputs">
+                    <div class="portlet-input input-inline input-medium">
+                        <div class="input-group">
+                            <input id="txtsearch" type="text" class="form-control input-circle-left" placeholder="search..." title="Tìm Mã hoặc Tên khóa học" runat="server" />
+                            <span class="input-group-btn">
+                                <button id="btnSearchKhoaHoc" class="btn btn-circle-right btn-default" type="submit" runat="server">Go!</button>
+                            </span>
+                        </div>
                     </div>
                 </div>
+                <div class="actions">
+                    <a class="btn btn-circle btn-icon-only btn-default" title="Xuất danh sách Excel" href="#">
+                        <i class="fa fa-file-excel-o"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default" href="#modalEditKhoa" data-toggle="modal" id="btnEditKhoaHoc" title="Chỉnh sửa thông tin khóa học" runat="server">
+                        <i class="icon-wrench"></i>
+                    </a>
+                    <a id="btnRefreshLstKhoaHoc" class="btn btn-circle btn-icon-only btn-default" title="Làm mới danh sách" runat="server" href="#">
+                        <i class="fa fa-refresh"></i>
+                    </a>
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#"></a>
+                </div>
             </div>
-            <div class="actions">
-                <a class="btn btn-circle btn-icon-only btn-default" title="Xuất danh sách Excel" href="#">
-                    <i class="fa fa-file-excel-o"></i>
-                </a>
-                <a class="btn btn-circle btn-icon-only btn-default" href="#modalEditKhoa" data-toggle="modal" id="btnEditKhoaHoc" title="Chỉnh sửa thông tin khóa học" runat="server">
-                    <i class="icon-wrench"></i>
-                </a>
-                <a id="btnRefreshLstKhoaHoc" class="btn btn-circle btn-icon-only btn-default" title="Làm mới danh sách" runat="server" href="#">
-                    <i class="fa fa-refresh"></i>
-                </a>
-                <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#"></a>
+            <div class="portlet-body">
+                <asp:GridView ID="gwCategory" CssClass="table table-condensed table-responsive" runat="server"
+                    AutoGenerateColumns="False" RowStyle-BackColor="#A1DCF2" Font-Names="Arial" Font-Size="10pt"
+                    HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
+                    OnSelectedIndexChanged="gwCategory_SelectedIndexChanged" OnRowDataBound="gwCategory_RowDataBound" OnRowDeleting="gwCategory_RowDeleting">
+                    <SelectedRowStyle BackColor="#79B782" ForeColor="Black" />
+                    <Columns>
+                        <asp:TemplateField HeaderText="No.">
+                            <ItemTemplate>
+                                <asp:Label ID="lblRowNumber" runat="server" Text='<%# Eval("RowNumber") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Tên Danh Mục - VN">
+                            <ItemTemplate>
+                                <asp:Label ID="lblCategoryID" CssClass="display-none" runat="server" Text='<%# Bind("ID") %>'></asp:Label>
+                                <asp:Label ID="lblNameVN" runat="server" Text='<%# Bind("NameVN") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Tên Danh Mục - EN">
+                            <ItemTemplate>
+                                <asp:Label ID="lblNameEN" runat="server" Text='<%# Bind("NameEN") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Meta Descriptions">
+                            <ItemTemplate>
+                                <asp:Label ID="lblMetaDescriptions" runat="server" Text='<%# Bind("MetaDescriptions") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Permalink">
+                            <ItemTemplate>
+                                <asp:Label ID="lblPermalink" runat="server" Text='<%# Bind("Permalink") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Thuộc danh mục">
+                            <ItemTemplate>
+                                <asp:Label ID="lblParentVN" runat="server" Text='<%# Bind("ParentVN") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Hình ảnh">
+                            <ItemTemplate>
+                                <img src='<%# "../../" + Eval("ImagesUrl") %>' style="width: 60px; height: auto;" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="linkBtnDel" CssClass="btn btn-circle btn-icon-only btn-default" runat="server" CausesValidation="False" CommandName="Delete" ToolTip="Delete" Text="Delete"><i class="glyphicon glyphicon-trash"></i></asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle Width="30px" />
+                        </asp:TemplateField>
+                        <asp:CommandField ShowSelectButton="True" />
+                    </Columns>
+                    <HeaderStyle BackColor="#3AC0F2" ForeColor="White"></HeaderStyle>
+                    <RowStyle BackColor="#A1DCF2"></RowStyle>
+                </asp:GridView>
             </div>
         </div>
-        <div class="portlet-body">
+        <div class="col-lg-12">
+            <!-- BEGIN PAGINATOR -->
+                <div class="col-md-4 col-sm-4 items-info">
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <div class="pagination_lst pull-right">
+                        <asp:Repeater ID="rptPager" runat="server">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
+                                    CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "page_enabled" : "page_disabled" %>'
+                                    OnClick="Page_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <%--<asp:Repeater ID="rptSearchPage" runat="server">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="lnkSearchPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
+                                CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "page_enabled" : "page_disabled" %>'
+                                OnClick="SearchPage_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:Repeater>--%>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            <!-- END PAGINATOR -->
         </div>
+        <%-- END LIST CATOGORY --%>
     </div>
-    <%-- END LIST CATOGORY --%>
+    <script type="text/javascript">
+        function previewFile() {
+            var preview = document.querySelector('#<%=ImgPostCategory.ClientID %>');
+            var file = document.querySelector('#<%=fileUploadImgCategory.ClientID %>').files[0];
+            var reader = new FileReader();
+            <%--document.getElementById('<%=HiddenUploadimg.ClientID %>').value = "";
+            document.getElementById('<%=txtTenAnh.ClientID %>').value = "Image tag name";--%>
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+    </script>
 </asp:Content>
 

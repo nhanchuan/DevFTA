@@ -237,7 +237,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="../../Admin/Pages/Post-New.aspx">
                                         <i class="fa fa-pencil"></i>
                                         Viết bài mới
                                     </a>
@@ -278,12 +278,12 @@
                                         Thêm tập tin
                                     </a>
                                 </li>
-                                <li>
+                                <%--<li>
                                     <a href="../Pages/ImagesCategory.aspx">
                                         <i class="fa fa-cubes"></i>
                                         Images Category
                                     </a>
-                                </li>
+                                </li>--%>
                             </ul>
                         </li>
                         <li class="heading">
