@@ -231,7 +231,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">
+                                    <a href="../../Admin/Pages/Posts.aspx">
                                         <i class="fa fa-list-alt"></i>
                                         Tất cả bài viết
                                     </a>

@@ -49,5 +49,43 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return true;
         }
+        //Check Exist
+        public List<Tags> getTagsWithName(string name)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "select * from Tags where TagsName=@name";
+            SqlParameter ptagname = new SqlParameter("name", name);
+            DataTable tb = dt.DATable(sqlquery, ptagname);
+            List<Tags> lst = new List<Tags>();
+            foreach (DataRow r in tb.Rows)
+            {
+                Tags t = new Tags();
+                t.ID = (int)r[0];
+                t.TagsName = (string.IsNullOrEmpty(r["TagsName"].ToString())) ? "" : (string)r["TagsName"];
+                t.Descritption = (string.IsNullOrEmpty(r["Descritption"].ToString())) ? "" : (string)r["Descritption"];
+                t.Permalink = (string.IsNullOrEmpty(r["Permalink"].ToString())) ? "" : (string)r["Permalink"];
+                t.DateOfCreate = (DateTime)r["DateOfCreate"];
+                lst.Add(t);
+            }
+            this.dt.CloseConnection();
+            return lst;
+        }
+
+        //New Tags With TagName
+        public Boolean newTagsName(string tagsname)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sqlquery = "insert into Tags(TagsName) values(@tagsname)";
+            SqlParameter ptagsname = new SqlParameter("tagsname", tagsname);
+            this.dt.Updatedata(sqlquery, ptagsname);
+            this.dt.CloseConnection();
+            return true;
+        }
     }
 }

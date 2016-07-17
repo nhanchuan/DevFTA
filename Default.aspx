@@ -10,33 +10,34 @@
     <link href="../assets/admin/pages/css/blog.css" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL STYLES -->
     <link href="../css/frontend/addvideo.css" rel="stylesheet" />
+    <%-- FONT --%>
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese" rel="stylesheet" type="text/css" />
     <!-- BEGIN SLIDER -->
     <div class="page-slider margin-bottom-40">
-        <div class="fullwidthbanner-container revolution-slider">
+        <div class="fullwidthbanner-container revolution-slider" style="height:500px;">
             <div class="fullwidthabnner">
                 <ul id="revolutionul">
                     <!-- THE NEW SLIDE -->
                     <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
                         <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                        <img src="../assets/frontend/pages/img/revolutionslider/bg9.jpg" alt="" />
+                        <img src="../assets/frontend/pages/img/revolutionslider/bg1.jpg" alt="" />
 
-                        <div class="caption lft slide_title_white slide_item_left"
+                        <div class="caption lft slide_title_white slide_item_left" style="color:black;font: 300 47px/66px, 'Open Sans', sans-serif;"
                             data-x="30"
                             data-y="90"
                             data-speed="400"
                             data-start="1500"
                             data-easing="easeOutExpo">
-                            Hiệp Hội Thực Phẩm<br />
-                            <span class="slide_title_white_bold">Minh Bạch</span>
+                            THỰC PHẨM AN TOÀN <br />
+                            <span class="slide_title_white_bold">CẦN MINH BẠCH</span>
                         </div>
-                        <div class="caption lft slide_subtitle_white slide_item_left"
+                        <div class="caption lft slide_subtitle_white slide_item_left" style="color:black;"
                             data-x="87"
                             data-y="245"
                             data-speed="400"
                             data-start="2000"
                             data-easing="easeOutExpo">
-                            This is what you were looking for
-             
+                            Food safety requires transparency
                         </div>
                         <a class="caption lft btn dark slide_btn slide_item_left" href="#"
                             data-x="187"
@@ -47,38 +48,38 @@
                         </a>
                         <div class="caption lfb"
                             data-x="640"
-                            data-y="0"
+                            data-y="20"
                             data-speed="700"
                             data-start="1000"
                             data-easing="easeOutExpo">
-                            <img src="../assets/frontend/pages/img/revolutionslider/lady.png" alt="Image 1" />
+                            <img src="../images/logo/LogoftaFN.png" alt="Image 1" />
                         </div>
                     </li>
 
                     <!-- THE FIRST SLIDE -->
                     <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
                         <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                        <img src="../assets/frontend/pages/img/revolutionslider/bg1.jpg" alt="" />
+                        <img src="../images/slider/background/hoinghifta2.jpg" alt="" />
 
-                        <div class="caption lft slide_title slide_item_left"
+                        <%--<div class="caption lft slide_title slide_item_left"
                             data-x="30"
                             data-y="105"
                             data-speed="400"
                             data-start="1500"
                             data-easing="easeOutExpo">
-                            Need a website design? 
+                            Hội thảo vận động thành lập FTA Hà Nội - Hồ Chí Minh 
              
-                        </div>
+                        </div>--%>
                         <div class="caption lft slide_subtitle slide_item_left"
-                            data-x="30"
-                            data-y="180"
+                            data-x="0"
+                            data-y="410"
                             data-speed="400"
                             data-start="2000"
                             data-easing="easeOutExpo">
-                            This is what you were looking for
+                            Hội thảo vận động thành lập FTA Hà Nội - Hồ Chí Minh
              
                         </div>
-                        <div class="caption lft slide_desc slide_item_left"
+                        <%--<div class="caption lft slide_desc slide_item_left"
                             data-x="30"
                             data-y="220"
                             data-speed="400"
@@ -87,22 +88,22 @@
                             Lorem ipsum dolor sit amet, dolore eiusmod<br />
                             quis tempor incididunt. Sed unde omnis iste.
              
-                        </div>
+                        </div>--%>
                         <a class="caption lft btn green slide_btn slide_item_left" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes"
-                            data-x="30"
-                            data-y="290"
+                            data-x="0"
+                            data-y="450"
                             data-speed="400"
                             data-start="3000"
-                            data-easing="easeOutExpo">Purchase Now!
+                            data-easing="easeOutExpo">Xem thêm !
                         </a>
-                        <div class="caption lfb"
+                        <%--<div class="caption lfb"
                             data-x="640"
                             data-y="55"
                             data-speed="700"
                             data-start="1000"
                             data-easing="easeOutExpo">
                             <img src="../assets/frontend/pages/img/revolutionslider/man-winner.png" alt="Image 1" />
-                        </div>
+                        </div>--%>
                     </li>
 
                     <!-- THE SECOND SLIDE -->
@@ -305,7 +306,7 @@
                     <h3>DOANH NGHIỆP</h3>
                     <div class="bussiness">
                         <%--<img src="images/content/MinhBachDoanhNghiep.png" />--%>
-                        <a class="btn btn-danger">Đăng ký thành viên</a>
+                        <%--<a class="btn btn-danger">Đăng ký thành viên</a>--%>
                     </div>
                 </div>
             </div>

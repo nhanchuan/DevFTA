@@ -9,7 +9,7 @@
     <link href="../../App_Themes/admin/pagination.css" rel="stylesheet" />
     <style type="text/css">
         .page_disabled {
-            background:#ff6a00;
+            background: #ff6a00;
         }
     </style>
     <!-- BEGIN PAGE HEADER-->
@@ -43,76 +43,8 @@
     <%--End Pages is Valid --%>
     <%-- CONTENT POST --%>
     <div class="row">
-        <div class="col-lg-9">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="tabbable-custom ">
-                        <ul class="nav nav-tabs ">
-                            <li class="active">
-                                <a href="#tab_content_vi" data-toggle="tab">Content VN </a>
-                            </li>
-                            <li>
-                                <a href="#tab_content_en" data-toggle="tab">Content EN </a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab_content_vi">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="control-label"><strong>Tiêu đề bài viết</strong></label>
-                                            <input id="txtPostTitleVN" type="text" class="form-control" placeholder="Nhập tiêu đề tại đây" runat="server" />
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtPostTitleVN" ValidationGroup="validNewPost" runat="server" ErrorMessage="Required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtPostTitleVN" ForeColor="Red" Display="Dynamic" ValidationGroup="validNewPost" ValidationExpression="(.){0,200}$" runat="server" ErrorMessage="Tên từ 0-200 ký tự !"></asp:RegularExpressionValidator>
-                                        </div>
-                                        <CKEditor:CKEditorControl ID="EditorPostContentVN" runat="server"
-                                            Toolbar="Full"
-                                            ContentsLangDirection="Ui"
-                                            DialogButtonsOrder="OS"
-                                            Height="800px"
-                                            EnterMode="BR"
-                                            ResizeDir="Both"
-                                            ShiftEnterMode="P"
-                                            StartupMode="Wysiwyg"
-                                            Language="vi"
-                                            ToolbarLocation="Top">
-                                        </CKEditor:CKEditorControl>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab_content_en">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label class="control-label"><strong>Post title</strong></label>
-                                            <input id="txtPostTitleEN" type="text" class="form-control" placeholder="Enter Post title here " runat="server" />
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtPostTitleEN" ForeColor="Red" Display="Dynamic" ValidationGroup="validNewPost" ValidationExpression="(.){0,200}$" runat="server" ErrorMessage="Tên từ 0-200 ký tự !"></asp:RegularExpressionValidator>
-                                        </div>
-                                        <CKEditor:CKEditorControl ID="EditorPostContentEN" runat="server"
-                                            Toolbar="Full"
-                                            ContentsLangDirection="Ui"
-                                            DialogButtonsOrder="OS"
-                                            Height="800px"
-                                            EnterMode="BR"
-                                            ResizeDir="Both"
-                                            ShiftEnterMode="P"
-                                            StartupMode="Wysiwyg"
-                                            Language="en"
-                                            ToolbarLocation="Top">
-                                        </CKEditor:CKEditorControl>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <%-- Info Post --%>
+<%-- Info Post --%>
         <div class="col-lg-3">
-
             <div class="panel-group accordion" id="accordion3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -171,14 +103,14 @@
                                                     <button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
                                                 </span>
                                             </div>
-                                            <br />
-                                            <asp:Button ID="btnUpdateTimePost" CssClass="btn green pull-right" ValidationGroup="validtimepost" runat="server" Text="Update Time" />
                                         </div>
                                     </div>
                                 </div>
                                 <%-- End Datetime picker --%>
                             </div>
-
+                            <div class="form-group">
+                                <asp:CheckBox ID="chkTopHot" Text="Top Hot" runat="server" />
+                            </div>
                         </div>
                         <div class="panel-footer">
                             <div class="panel-body">
@@ -204,7 +136,7 @@
                                     <asp:TreeView ID="treeboxCategory" OnTreeNodePopulate="treeboxCategory_TreeNodePopulate" runat="server" ShowExpandCollapse="true" PopulateNodesFromClient="true" ShowLines="true" ExpandDepth="2" ShowCheckBoxes="All"></asp:TreeView>
                                 </div>
                             </div>
-                            <a href="../../Admin/Pages/Category.aspx" target="_blank"><i class="fa fa-list"></i>Thêm nhanh chuyên mục</a>
+                            <a href="../../Admin/Pages/Category.aspx" target="_blank"><i class="fa fa-list"></i>&nbsp Thêm chuyên mục</a>
                         </div>
                     </div>
                 </div>
@@ -241,12 +173,11 @@
                     </div>
                     <div id="collapse_3_3" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <asp:UpdatePanel runat="server">
-                                <ContentTemplate>
+                            
                                     <div class="inline">
                                         <div class="input-icon">
                                             <i class="fa fa-tag"></i>
-                                            <asp:TextBox ID="txttagsname" CssClass="form-control" onkeyup="document.getElementById('lblmultiTags').innerHTML = this.value" AutoPostBack="true" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txttagsname" CssClass="form-control" onkeyup="document.getElementById('lblmultiTags').innerHTML = this.value" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <i>Phân cách với nhau bằng dấu (,)</i><br />
@@ -255,13 +186,9 @@
                                     <div id="lblmultiTags" class="label label-warning"></div>
                                     <asp:Label ID="lbltagsExsit" CssClass="label label-danger" runat="server"></asp:Label><asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="label label-danger" ControlToValidate="txttagsname" ValidationGroup="validTags" runat="server" Display="Dynamic" ErrorMessage="Required"></asp:RequiredFieldValidator>
                                     <%--  --%><%--  --%> <%--  --%><%--  --%><%--  --%> <%--  --%><%--  --%><%--  --%> <%--  --%><%--  --%><%--  --%> <%--  --%>
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="txttagsname" EventName="TextChanged" />
-                                </Triggers>
-                            </asp:UpdatePanel>
+                               
                             <br />
-                            <asp:Button ID="btnAddTags" CssClass="btn btn-success pull-right" ValidationGroup="validTags" runat="server" Text="Thêm Tags" />
+                            <asp:Button ID="btnAddTags" CssClass="btn btn-success pull-right" OnClick="btnAddTags_Click" ValidationGroup="validTags" runat="server" Text="Thêm Tags" />
                             <br />
                             <br />
                             <a>Chọn từ những thẻ được dùng nhiều nhất</a>
@@ -336,6 +263,74 @@
 
         </div>
         <%-- End Info Post --%>
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tabbable-custom ">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a href="#tab_content_vi" data-toggle="tab">Content VN </a>
+                            </li>
+                            <li>
+                                <a href="#tab_content_en" data-toggle="tab">Content EN </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_content_vi">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="control-label"><strong>Tiêu đề bài viết</strong></label>
+                                            <input id="txtPostTitleVN" type="text" class="form-control" placeholder="Nhập tiêu đề tại đây" runat="server" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtPostTitleVN" ValidationGroup="validNewPost" runat="server" ErrorMessage="Required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtPostTitleVN" ForeColor="Red" Display="Dynamic" ValidationGroup="validNewPost" ValidationExpression="(.){0,200}$" runat="server" ErrorMessage="Tên từ 0-200 ký tự !"></asp:RegularExpressionValidator>
+                                        </div>
+                                        <CKEditor:CKEditorControl ID="EditorPostContentVN" runat="server"
+                                            Toolbar="Full"
+                                            ContentsLangDirection="Ui"
+                                            DialogButtonsOrder="OS"
+                                            Height="800px"
+                                            EnterMode="BR"
+                                            ResizeDir="Both"
+                                            ShiftEnterMode="P"
+                                            StartupMode="Wysiwyg"
+                                            Language="vi"
+                                            ToolbarLocation="Top">
+                                        </CKEditor:CKEditorControl>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_content_en">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="control-label"><strong>Post title</strong></label>
+                                            <input id="txtPostTitleEN" type="text" class="form-control" placeholder="Enter Post title here " runat="server" />
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtPostTitleEN" ForeColor="Red" Display="Dynamic" ValidationGroup="validNewPost" ValidationExpression="(.){0,200}$" runat="server" ErrorMessage="Tên từ 0-200 ký tự !"></asp:RegularExpressionValidator>
+                                        </div>
+                                        <CKEditor:CKEditorControl ID="EditorPostContentEN" runat="server"
+                                            Toolbar="Full"
+                                            ContentsLangDirection="Ui"
+                                            DialogButtonsOrder="OS"
+                                            Height="800px"
+                                            EnterMode="BR"
+                                            ResizeDir="Both"
+                                            ShiftEnterMode="P"
+                                            StartupMode="Wysiwyg"
+                                            Language="en"
+                                            ToolbarLocation="Top">
+                                        </CKEditor:CKEditorControl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
     </div>
 
     <%-- Modal Post Images --%>
@@ -353,7 +348,7 @@
                                 <%--<asp:UpdatePanel runat="server">
                                     <ContentTemplate>--%>
                                         <div class="col-lg-12">
-
+                                            
                                             <div class="form-group margin-bottom-20">
                                                 <div class="pagination_lst">
                                                     <asp:Repeater ID="rptPager" runat="server">
@@ -440,6 +435,9 @@
                 $("#ContentPlaceHolder1_txtPostImgTemp").val("");
             });
         });
+        function calltagspanelClickEvent() {
+            document.getElementById('<%=tagsshowPanel.ClientID %>').click();
+        }
         function callImagesPanelClickEvent() {
             document.getElementById('<%=panelUploadImg.ClientID %>').click();
         }

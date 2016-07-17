@@ -18,11 +18,11 @@ public partial class Admin_Pages_Post_New : BasePage
 {
     public int PageSize = 15;
     PostBLL posts;
-    Post_Category_Relationships post_category_relationships;
+    Post_Category_RelationshipsBLL post_category_relationships;
     CategoryBLL category;
     ImagesBLL images;
     TagsBLL tags;
-    Tags_relationships tags_relationships;
+    Tags_relationshipsBLL tags_relationships;
 
     //protected override void OnLoad(EventArgs e)
     //{
@@ -45,6 +45,7 @@ public partial class Admin_Pages_Post_New : BasePage
                 this.AlertPageValid(false, "", alertPageValid, lblPageValid);
                 this.PopulateRootLevel();
                 this.GetImagesPageWise(1);
+                this.load_cbltags();
             }
         }
     }
@@ -78,6 +79,14 @@ public partial class Admin_Pages_Post_New : BasePage
     protected void treeboxCategory_TreeNodePopulate(object sender, TreeNodeEventArgs e)
     {
         PopulateSubLevel(int.Parse(e.Node.Value), e.Node);
+    }
+    protected void load_cbltags()
+    {
+        tags = new TagsBLL();
+        cbltags.DataSource = tags.ListAllTags();
+        cbltags.DataTextField = "TagsName";
+        cbltags.DataValueField = "ID";
+        cbltags.DataBind();
     }
     protected void btnuploadImg_Click(object sender, EventArgs e)
     {
@@ -239,24 +248,250 @@ public partial class Admin_Pages_Post_New : BasePage
         string script = "window.onload = function() { callImagesPanelClickEvent(); };";
         ClientScript.RegisterStartupScript(this.GetType(), "callImagesPanelClickEvent", script, true);
     }
-
-    protected void btnPostNew_Click(object sender, EventArgs e)
+    protected class CategoryPost : IEquatable<CategoryPost>, IComparable<CategoryPost>
     {
+        public int id { get; set; }
+        public string name { get; set; }
+
+        public int CompareTo(CategoryPost other)
+        {
+            if (other == null)
+                return 1;
+
+            else
+                return this.id.CompareTo(other.id);
+        }
+
+        public bool Equals(CategoryPost other)
+        {
+            if (other == null) return false;
+            CategoryPost objAsPost = other as CategoryPost;
+            if (objAsPost == null) return false;
+            else return Equals(objAsPost);
+        }
+    }
+    protected class TagsPost : IEquatable<TagsPost>, IComparable<TagsPost>
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+
+        public int CompareTo(TagsPost other)
+        {
+            if (other == null)
+                return 1;
+
+            else
+                return this.id.CompareTo(other.id);
+        }
+
+        public bool Equals(TagsPost other)
+        {
+            if (other == null) return false;
+            TagsPost objAsPost = other as TagsPost;
+            if (objAsPost == null) return false;
+            else return Equals(objAsPost);
+        }
+    }
+    protected void New_Post_Category_relationships(string postcode)
+    {
+        posts = new PostBLL();
+        post_category_relationships = new Post_Category_RelationshipsBLL();
+        List<Post> lstP = posts.ListPostWithPostCode(postcode);
+        Post pp = lstP.FirstOrDefault();
+        int postid = pp.ID;
+        List<CategoryPost> cp = new List<CategoryPost>();
+        foreach (TreeNode n in treeboxCategory.CheckedNodes)
+        {
+            // arr.Add(n.Value);
+            cp.Add(new CategoryPost() { id = int.Parse(n.Value), name = n.Text });
+        }
+        List<CategoryPost> newl = cp.OrderBy(r => r.id).ToList();
+        foreach (CategoryPost itm in newl)
+        {
+            this.post_category_relationships.NewPost_Category_Relationships(postid, itm.id);
+        }
+    }
+    protected void New_Tags_relationships(string postcode)
+    {
+        posts = new PostBLL();
+        tags_relationships = new Tags_relationshipsBLL();
+        List<Post> lstP = posts.ListPostWithPostCode(postcode);
+        Post pp = lstP.FirstOrDefault();
+        int postid = pp.ID;
+        List<TagsPost> lstp = new List<TagsPost>();
+        foreach (ListItem itm in cbltags.Items)
+        {
+            if (itm.Selected) lstp.Add(new TagsPost() { id = int.Parse(itm.Value), name = itm.Text });
+        }
+        List<TagsPost> newlt = lstp.OrderBy(r => r.id).ToList();
+        foreach (TagsPost tp in newlt)
+        {
+            this.tags_relationships.NewTags_relationships(postid, tp.id);
+        }
+    }
+    protected Boolean CheckExistTagsName(string name)
+    {
+        tags = new TagsBLL();
+        List<Tags> lst = tags.getTagsWithName(name);
+        Tags tg = lst.FirstOrDefault();
+        if (tg != null)
+        {
+            return false;
+        }
+        return true;
+    }
+    protected void btnAddTags_Click(object sender, EventArgs e)
+    {
+
         try
         {
-            posts = new PostBLL();
-            post_category_relationships = new Post_Category_Relationships();
-            category = new CategoryBLL();
-            images = new ImagesBLL();
             tags = new TagsBLL();
-            tags_relationships = new Tags_relationships();
-
-
-
+            string[] lsttags = txttagsname.Text.Split(',');
+            int i = 0;
+            while (i < lsttags.Length)
+            {
+                if (CheckExistTagsName(lsttags[i]))
+                {
+                    tags.newTagsName(lsttags[i]);
+                }
+                i++;
+            }
+            this.load_cbltags();
+            string script = "window.onload = function() { calltagspanelClickEvent(); };";
+            ClientScript.RegisterStartupScript(this.GetType(), "calltagspanelClickEvent", script, true);
         }
         catch (Exception ex)
         {
             this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
         }
+
+    }
+    //GET DATETIME
+    private string getday(string str)
+    {
+        string day = str.Substring(0, 2);
+        return day;
+    }
+    private string getmonth(string str)
+    {
+        string month = "";
+        List<clsmonth> lstmonth = new List<clsmonth>();
+        lstmonth.Add(new clsmonth("01", "January"));
+        lstmonth.Add(new clsmonth("02", "February"));
+        lstmonth.Add(new clsmonth("03", "March"));
+        lstmonth.Add(new clsmonth("04", "April"));
+        lstmonth.Add(new clsmonth("05", "May"));
+        lstmonth.Add(new clsmonth("06", "June"));
+        lstmonth.Add(new clsmonth("07", "July"));
+        lstmonth.Add(new clsmonth("08", "August"));
+        lstmonth.Add(new clsmonth("09", "September"));
+        lstmonth.Add(new clsmonth("10", "October"));
+        lstmonth.Add(new clsmonth("11", "November"));
+        lstmonth.Add(new clsmonth("12", "December"));
+        foreach (clsmonth itm in lstmonth)
+        {
+            if (str.Contains(itm.Strmonth))
+            {
+                month = itm.Num;
+            }
+        }
+        return month;
+    }
+    [Serializable()]
+    public class clsmonth
+    {
+        public string Num { get; set; }
+        public string Strmonth { get; set; }
+        public clsmonth(string num, string strmonth)
+        {
+            Num = num;
+            Strmonth = strmonth;
+        }
+    }
+    private string getyear(string str)
+    {
+        string year = str.Substring(str.IndexOf("-") - 5, 4);
+        return year;
+    }
+    private string gethours(string str)
+    {
+        string hours = str.Substring(str.IndexOf(":") - 2, 2);
+        return hours;
+    }
+    private string getminutes(string str)
+    {
+        string minutes = str.Substring(str.IndexOf(":") + 1, 2);
+        return minutes;
+    }
+    private string gettimeRefix(string str)
+    {
+        string re = str.Substring(str.Length - 2, 2);
+        return re;
+    }
+    protected int ImagesID(string filename)
+    {
+        int ImID = 0;
+        images = new ImagesBLL();
+
+        if (string.IsNullOrWhiteSpace(filename))
+        {
+            ImID = 0;
+        }
+        else
+        {
+            ImID = images.ImagesID(filename);
+        }
+        return ImID;
+    }
+    public Boolean NewPost(string postCode)
+    {
+        posts = new PostBLL();
+
+        string TitleVN = txtPostTitleVN.Value;
+        string TitleEN = txtPostTitleEN.Value;
+        string PostContentVN = EditorPostContentVN.Text;
+        string PostContentEN = EditorPostContentEN.Text;
+        int CreateBy = Session.GetCurrentUser().ID;
+        string time = timePost.Value.ToString();
+        DateTime ModifyDate = Convert.ToDateTime("12/12/1900");
+        int ModifyBy = Session.GetCurrentUser().ID;
+        string MetaTitle = txtMetaTitle.Text;
+        string MetaKeywords = txtMetaKeywords.Text;
+        string MetaDescriptions = txtMetaDescription.Text;
+        bool PostStatus = (dlpost_status.SelectedValue == "0") ? false : true;
+        bool TopHot = (chkTopHot.Checked == true) ? true : false;
+        int imgID = ImagesID(txtPostImgTemp.Text);
+
+        DateTime PostTime = (string.IsNullOrWhiteSpace(time)) ? DateTime.Now : Convert.ToDateTime(getmonth(time) + "/" + getday(time) + "/" + getyear(time) + " " + gethours(time) + ":" + getminutes(time) + ":00" + " " + gettimeRefix(time));
+        return posts.NewPost(TitleVN, TitleEN, PostContentVN, PostContentEN, CreateBy, ModifyDate, ModifyBy, MetaTitle, MetaKeywords, MetaDescriptions, PostStatus, TopHot, imgID, PostTime, postCode);
+    }
+    protected void btnPostNew_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            post_category_relationships = new Post_Category_RelationshipsBLL();
+            category = new CategoryBLL();
+            images = new ImagesBLL();
+            tags = new TagsBLL();
+            tags_relationships = new Tags_relationshipsBLL();
+            string dateString = DateTime.Now.ToString("MM-dd-yyyy");
+            string PostCode = RandomName + "-" + dateString;
+            
+            if (NewPost(PostCode))
+            {
+                this.New_Post_Category_relationships(PostCode);
+                this.New_Tags_relationships(PostCode);
+                Response.Redirect("http://" + Request.Url.Authority + "/Admin/Pages/Post-Update.aspx?PostCode=" + PostCode);
+            }
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
+    }
+
+    protected void btnUpdateTimePost_Click(object sender, EventArgs e)
+    {
+        Response.Write("<script>alert('" + DateTime.Now.ToString() + "')</script>");
     }
 }

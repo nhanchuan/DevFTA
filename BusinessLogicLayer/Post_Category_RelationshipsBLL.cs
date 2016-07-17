@@ -32,6 +32,38 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return true;
         }
-        
+        public List<Post_Category_Relationships> getCategoryWithPostId(int postid)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "select * from Post_Category_Relationships where PostID=@postid";
+            SqlParameter ppostid = new SqlParameter("@postid", postid);
+            DataTable tb = dt.DATable(sqlquery, ppostid);
+            List<Post_Category_Relationships> lst = new List<Post_Category_Relationships>();
+            foreach (DataRow r in tb.Rows)
+            {
+                Post_Category_Relationships pr = new Post_Category_Relationships();
+                pr.PostID = (string.IsNullOrEmpty(r["PostID"].ToString())) ? 0 : (int)r["PostID"];
+                pr.CategoryID = (string.IsNullOrEmpty(r["CategoryID"].ToString())) ? 0 : (int)r["CategoryID"];
+                lst.Add(pr);
+            }
+            this.dt.CloseConnection();
+            return lst;
+        }
+        //Delete
+        public Boolean DeleteWithPostID(int PostID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sqlquery = "delete from Post_Category_Relationships where PostID=@PostID";
+            SqlParameter pPostID = new SqlParameter("@PostID", PostID);
+            this.dt.Updatedata(sqlquery, pPostID);
+            this.dt.CloseConnection();
+            return true;
+        }
     }
 }
