@@ -101,5 +101,31 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return true;
         }
+        public DataTable GetPostsPageWise(int PageIndex, int PageSize)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "Exec GetPostsPageWise @PageIndex,@PageSize";
+            SqlParameter paramPageIndex = new SqlParameter("PageIndex", PageIndex);
+            SqlParameter paramPageSize = new SqlParameter("PageSize", PageSize);
+            DataTable tb = dt.DATable(sqlquery, paramPageIndex, paramPageSize);
+            this.dt.CloseConnection();
+            return tb;
+        }
+        public int RecordCountPosts() //COUNT ROW IN TABLE IMAGES
+        {
+            int RC = 0;
+
+            if (!this.dt.OpenConnection())
+            {
+                return 0;
+            }
+            string sql = "select COUNT(*) from Post";
+            RC = dt.GetValues(sql);
+            this.dt.CloseConnection();
+            return RC;
+        }
     }
 }
