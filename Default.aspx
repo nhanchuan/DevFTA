@@ -14,41 +14,42 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese" rel="stylesheet" type="text/css" />
     <!-- BEGIN SLIDER -->
     <div class="page-slider margin-bottom-40">
-        <div class="fullwidthbanner-container revolution-slider" style="height:500px;">
+        <div class="fullwidthbanner-container revolution-slider" style="height: 500px;">
             <div class="fullwidthabnner">
                 <ul id="revolutionul">
                     <!-- THE NEW SLIDE -->
                     <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
                         <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                        <img src="../assets/frontend/pages/img/revolutionslider/bg1.jpg" alt="" />
-
-                        <div class="caption lft slide_title_white slide_item_left" style="color:black;font: 300 47px/66px, 'Open Sans', sans-serif;"
-                            data-x="30"
+                        <img src="../assets/frontend/pages/img/revolutionslider/bg5.jpg" alt="" />
+                        
+                        <div class="caption lft slide_title_white slide_item_left" style="color: black; font: 300 47px/66px, 'Open Sans', sans-serif;"
+                            data-x="640"
                             data-y="90"
                             data-speed="400"
                             data-start="1500"
                             data-easing="easeOutExpo">
-                            THỰC PHẨM AN TOÀN <br />
+                            THỰC PHẨM AN TOÀN
+                            <br />
                             <span class="slide_title_white_bold">CẦN MINH BẠCH</span>
                         </div>
-                        <div class="caption lft slide_subtitle_white slide_item_left" style="color:black;"
-                            data-x="87"
+                        <div class="caption lft slide_subtitle_white slide_item_left" style="color: black;"
+                            data-x="697"
                             data-y="245"
                             data-speed="400"
                             data-start="2000"
                             data-easing="easeOutExpo">
                             Food safety requires transparency
                         </div>
-                        <a class="caption lft btn dark slide_btn slide_item_left" href="#"
-                            data-x="187"
+                        <a class="caption lft btn dark btn-danger slide_item_left" href="#"
+                            data-x="797"
                             data-y="315"
                             data-speed="400"
                             data-start="3000"
                             data-easing="easeOutExpo">Đăng ký ngay!
                         </a>
                         <div class="caption lfb"
-                            data-x="640"
-                            data-y="20"
+                            data-x="30"
+                            data-y="40"
                             data-speed="700"
                             data-start="1000"
                             data-easing="easeOutExpo">
@@ -345,20 +346,15 @@
                         <h1>TRUY XUẤT NGUỒN GỐC ĐIỆN TỬ</h1>
                         <label>YOUTUBE, VIMEO AND OTHERS.</label>
                         <ul>
-                            <li>
-                                Ứng dụng điện thoại di động để tra cứu thông tin minh bạch về sản phẩm
+                            <li>Ứng dụng điện thoại di động để tra cứu thông tin minh bạch về sản phẩm
                             </li>
-                            <li>
-                                Nhập thông tin nhanh, đơn giản, theo nhu cầu của doanh nghiệp
+                            <li>Nhập thông tin nhanh, đơn giản, theo nhu cầu của doanh nghiệp
                             </li>
-                            <li>
-                                Người tiêu dùng tra cứu thông tin bằng cách quét mã vạch sản phẩm
+                            <li>Người tiêu dùng tra cứu thông tin bằng cách quét mã vạch sản phẩm
                             </li>
-                            <li>
-                                Công cụ tiếp thị mà không làm thay đổi bao bì
+                            <li>Công cụ tiếp thị mà không làm thay đổi bao bì
                             </li>
-                            <li>
-                                Chi phí thấp và hiệu quả.
+                            <li>Chi phí thấp và hiệu quả.
                             </li>
                         </ul>
                         <a class="btn btn-warning">Đăng ký người dùng</a>
@@ -377,10 +373,10 @@
                             <div id="myCarousel" class="carousel image-carousel slide">
                                 <div class="carousel-inner">
                                     <div class="active item">
-                                        <img src="../../assets/admin/pages/media/gallery/image5.jpg" class="img-responsive" alt="" />
+                                        <img src="../../assets/admin/pages/media/gallery/image5.jpg" class="img-responsive" alt="">
                                         <div class="carousel-caption">
                                             <h4>
-                                                <a href="#">First Thumbnail label </a>
+                                                <a href="page_news_item.html">First Thumbnail label </a>
                                             </h4>
                                             <p>
                                                 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
@@ -388,10 +384,10 @@
                                         </div>
                                     </div>
                                     <div class="item">
-                                        <img src="../../assets/admin/pages/media/gallery/image2.jpg" class="img-responsive" alt="" />
+                                        <img src="../../assets/admin/pages/media/gallery/image2.jpg" class="img-responsive" alt="">
                                         <div class="carousel-caption">
                                             <h4>
-                                                <a href="#">Second Thumbnail label </a>
+                                                <a href="page_news_item.html">Second Thumbnail label </a>
                                             </h4>
                                             <p>
                                                 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
@@ -399,10 +395,10 @@
                                         </div>
                                     </div>
                                     <div class="item">
-                                        <img src="../../assets/admin/pages/media/gallery/image1.jpg" class="img-responsive" alt="" />
+                                        <img src="../../assets/admin/pages/media/gallery/image1.jpg" class="img-responsive" alt="">
                                         <div class="carousel-caption">
                                             <h4>
-                                                <a href="#">Third Thumbnail label </a>
+                                                <a href="page_news_item.html">Third Thumbnail label </a>
                                             </h4>
                                             <p>
                                                 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
@@ -487,19 +483,37 @@
                                 </a>
                             </div>
                             <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Odio dignissimos ducimus </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>Berlin, Germany</strong>
-                                    <em>2 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image3.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
+								<h3>
+								<a href="page_news_item.html">
+								Odio dignissimos ducimus </a>
+								</h3>
+								<div class="news-block-tags">
+									<strong>Berlin, Germany</strong>
+									<em>2 hours ago</em>
+								</div>
+								<p>
+									<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image3.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+								</p>
+								<a href="page_news_item.html" class="news-block-btn">
+								Read more <i class="m-icon-swapright m-icon-black"></i>
+								</a>
+							</div>
+							<div class="news-blocks">
+								<h3>
+								<a href="page_news_item.html">
+								Sanditiis praesentium vo </a>
+								</h3>
+								<div class="news-block-tags">
+									<strong>Ankara, Turkey</strong>
+									<em>5 hours ago</em>
+								</div>
+								<p>
+									<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image5.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint praesentium voluptatum delenitioccaecati cupiditate non provident
+								</p>
+								<a href="page_news_item.html" class="news-block-btn">
+								Read more <i class="m-icon-swapright m-icon-black"></i>
+								</a>
+							</div>
                             <div class="top-news">
                                 <a href="#" class="btn green">
                                     <span>Finance </span>

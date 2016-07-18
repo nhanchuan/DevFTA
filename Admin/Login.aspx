@@ -55,7 +55,8 @@
                 <label class="control-label visible-ie8 visible-ie9">Username</label>
                 <div class="input-icon">
                     <i class="fa fa-user"></i>
-                    <input class="form-control placeholder-no-fix" id="txtusername" type="text" autocomplete="off" placeholder="Username or Email" name="username" runat="server" />
+                    <asp:TextBox CssClass="form-control placeholder-no-fix" ID="txtusername" ToolTip="Username or Email" runat="server"></asp:TextBox>
+                    <%--<input class="form-control placeholder-no-fix" id="" type="text" autocomplete="off" placeholder="Username or Email" name="username" runat="server" />--%>
                 </div>
             </div>
             <div class="form-group">

@@ -27,6 +27,8 @@ public partial class Admin_Pages_Posts : BasePage
             {
                 this.AlertPageValid(false, "", alertPageValid, lblPageValid);
                 this.GetPostPageWise(1);
+                rptPager.Visible = true;
+                rptSearchPage.Visible = false;
             }
         }
     }
@@ -40,6 +42,8 @@ public partial class Admin_Pages_Posts : BasePage
     {
         int pageIndex = int.Parse((sender as LinkButton).CommandArgument);
         this.GetPostPageWise(pageIndex);
+        rptPager.Visible = true;
+        rptSearchPage.Visible = false;
     }
 
     protected void chkPostStatus_CheckedChanged(object sender, EventArgs e)
@@ -96,5 +100,26 @@ public partial class Admin_Pages_Posts : BasePage
     protected void gwPosts_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
 
+    }
+    //SEARCH POSTS
+    private void GetSearchKeyPostsPageWise(int pageIndex, string keysearch)
+    {
+        gwPosts.DataSource = new PostBLL().GetSearchKeyPostsPageWise(pageIndex, PageSize, keysearch);
+        gwPosts.DataBind();
+        this.PopulatePager(rptSearchPage, new PostBLL().RecordCountKeySeachPosts(keysearch), pageIndex, PageSize);
+    }
+    protected void SearchPage_Changed(object sender, EventArgs e)
+    {
+        int pageIndex = int.Parse((sender as LinkButton).CommandArgument);
+        this.GetSearchKeyPostsPageWise(pageIndex, txtsearch.Value);
+        rptPager.Visible = false;
+        rptSearchPage.Visible = true;
+    }
+
+    protected void btnSearchPosts_ServerClick(object sender, EventArgs e)
+    {
+        this.GetSearchKeyPostsPageWise(1, txtsearch.Value);
+        rptPager.Visible = false;
+        rptSearchPage.Visible = true;
     }
 }

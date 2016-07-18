@@ -819,7 +819,7 @@ body.page-header-fixed {
 }
 
 /*  */
-.carousel-indicators {
+/*.carousel-indicators {
 	text-align: left;
 	margin: 0;
 	width: auto;
@@ -838,7 +838,7 @@ body.page-header-fixed {
 .carousel-indicators li.active {
 	background: #6f7a7c;
 	border-color: #9ea7a9;
-}
+}*/
 /* END LAYER SLIDER */
 
 /*  */

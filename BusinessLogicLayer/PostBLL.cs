@@ -155,5 +155,35 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return true;
         }
+        //GetSearchKeyPostsPageWise
+        public DataTable GetSearchKeyPostsPageWise(int PageIndex, int PageSize, string keysearch)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "Exec GetSearchKeyPostsPageWise @PageIndex,@PageSize,@keysearch";
+            SqlParameter paramPageIndex = new SqlParameter("PageIndex", PageIndex);
+            SqlParameter paramPageSize = new SqlParameter("PageSize", PageSize);
+            SqlParameter pkeysearch = new SqlParameter("@keysearch", keysearch);
+            DataTable tb = dt.DATable(sqlquery, paramPageIndex, paramPageSize, pkeysearch);
+            this.dt.CloseConnection();
+            return tb;
+        }
+        public int RecordCountKeySeachPosts(string keysearch) //COUNT ROW IN TABLE IMAGES
+        {
+            int RC = 0;
+
+            if (!this.dt.OpenConnection())
+            {
+                return 0;
+            }
+            string sql = "select COUNT(*) from Post where (CONTAINS(TitleVN,@keysearch) OR CONTAINS(TitleEN, @keysearch) OR CONTAINS(MetaTitle, @keysearch) OR CONTAINS(MetaKeywords, @keysearch) OR CONTAINS(MetaDescriptions, @keysearch))";
+            SqlParameter pkeysearch = new SqlParameter("@keysearch", keysearch);
+            RC = dt.GetValues(sql, pkeysearch);
+            this.dt.CloseConnection();
+            return RC;
+        }
+
     }
 }

@@ -42,9 +42,9 @@
                 <div class="inputs">
                     <div class="portlet-input input-inline input-medium">
                         <div class="input-group">
-                            <input id="txtsearch" type="text" class="form-control input-circle-left" placeholder="search..." title="Tìm Mã hoặc Tên khóa học" runat="server" />
+                            <input id="txtsearch" type="text" class="form-control input-circle-left" placeholder="search..." title="Tìm bài viết..." runat="server" />
                             <span class="input-group-btn">
-                                <button id="btnSearchKhoaHoc" class="btn btn-circle-right btn-default" type="submit" runat="server">Go!</button>
+                                <button id="btnSearchPosts" class="btn btn-circle-right btn-default" type="submit" onserverclick="btnSearchPosts_ServerClick" runat="server">Go!</button>
                             </span>
                         </div>
                     </div>
@@ -151,13 +151,13 @@
                                 OnClick="Page_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:Repeater>
-                    <%--<asp:Repeater ID="rptSearchPage" runat="server">
+                    <asp:Repeater ID="rptSearchPage" runat="server">
                         <ItemTemplate>
                             <asp:LinkButton ID="lnkSearchPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
                                 CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "page_enabled" : "page_disabled" %>'
                                 OnClick="SearchPage_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
                         </ItemTemplate>
-                    </asp:Repeater>--%>
+                    </asp:Repeater>
                     <div class="clearfix"></div>
                 </div>
             </div>

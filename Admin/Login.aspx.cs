@@ -19,7 +19,7 @@ public partial class Admin_Login : BasePage
         {
             if (Request.Cookies["UserFTAAdminName"] != null && Request.Cookies["PasswordFTAAdmin"] != null)
             {
-                txtusername.Value = Request.Cookies["UserAdminName"].Value;
+                txtusername.Text = Request.Cookies["UserFTAAdminName"].Value;
                 //txtpasswords.Attributes["value"] = Request.Cookies["PasswordAdmin"].Value;
                 //txtpasswords.Attributes.Add("value", Request.Cookies["PasswordAdmin"].Value);
                 txtpasswords.Attributes["value"] = Request.Cookies["PasswordFTAAdmin"].Value;
@@ -40,7 +40,7 @@ public partial class Admin_Login : BasePage
             Response.Cookies["PasswordFTAAdmin"].Expires = DateTime.Now.AddDays(-1);
 
         }
-        Response.Cookies["UserFTAAdminName"].Value = txtusername.Value.Trim();
+        Response.Cookies["UserFTAAdminName"].Value = txtusername.Text.Trim();
         Response.Cookies["PasswordFTAAdmin"].Value = txtpasswords.Text.Trim();
     }
     protected Boolean check_login(string key, string password)
@@ -75,7 +75,7 @@ public partial class Admin_Login : BasePage
     {
         try
         {
-            if (string.IsNullOrWhiteSpace(txtusername.Value) || string.IsNullOrWhiteSpace(txtpasswords.Text))
+            if (string.IsNullOrWhiteSpace(txtusername.Text) || string.IsNullOrWhiteSpace(txtpasswords.Text))
             {
                 alertlogin.Attributes.Remove("class");
                 alertlogin.Attributes.Add("class", "alert alert-danger");
@@ -83,7 +83,7 @@ public partial class Admin_Login : BasePage
             }
             else
             {
-                if (check_login(txtusername.Value, CreateSHAHash(txtpasswords.Text, SaltPassword())))
+                if (check_login(txtusername.Text, CreateSHAHash(txtpasswords.Text, SaltPassword())))
                 {
                     this.check_rememberUser();
                     if (checkUserStaus(Session.GetCurrentUser().ID))
