@@ -127,5 +127,33 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return RC;
         }
+        //Update Post status
+        public Boolean UpdatePostStatus(int ID, Boolean PostStatus)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sql = "update Post set PostStatus=@PostStatus where ID=@ID";
+            SqlParameter pID = new SqlParameter("@ID", ID);
+            SqlParameter pPostStatus = new SqlParameter("@PostStatus", PostStatus);
+            this.dt.Updatedata(sql, pID, pPostStatus);
+            this.dt.CloseConnection();
+            return true;
+        }
+        //Update Post Top Hot
+        public Boolean UpdatePostTopHot(int ID, Boolean TopHot)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sql = "update Post set TopHot=@TopHot where ID=@ID";
+            SqlParameter pID = new SqlParameter("@ID", ID);
+            SqlParameter pTopHot = new SqlParameter("@TopHot", TopHot);
+            this.dt.Updatedata(sql, pID, pTopHot);
+            this.dt.CloseConnection();
+            return true;
+        }
     }
 }
