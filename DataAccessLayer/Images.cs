@@ -38,7 +38,6 @@ namespace DataAccessLayer
                 imagesName = value;
             }
         }
-
         public string ImagesUrl
         {
             get
@@ -51,7 +50,6 @@ namespace DataAccessLayer
                 imagesUrl = value;
             }
         }
-
         public int UserUpload
         {
             get

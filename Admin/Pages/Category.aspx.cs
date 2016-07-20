@@ -14,7 +14,7 @@ using System.Drawing;
 
 public partial class Admin_Pages_Category : BasePage
 {
-    public int PageSize = 30;
+    public int PageSize = 15;
     CategoryBLL category;
     ImagesBLL images;
     protected void Page_Load(object sender, EventArgs e)
@@ -29,6 +29,7 @@ public partial class Admin_Pages_Category : BasePage
             else
             {
                 this.AlertPageValid(false, "", alertPageValid, lblPageValid);
+                btnEditCategory.Attributes.Add("class", "btn btn-circle btn-icon-only btn-default disabled");
                 this.load_dlParent();
                 this.GetPostCategoryPageWise(1);
             }
@@ -220,11 +221,43 @@ public partial class Admin_Pages_Category : BasePage
         this.GetPostCategoryPageWise(pageIndex);
         //Session["pageIndexadmin_Category"] = pageIndex.ToString();
         //rptPager.Visible = true;
-       
+
+    }
+    protected void load_dlEditParent()
+    {
+        category = new CategoryBLL();
+        string ctId = (gwCategory.SelectedRow.FindControl("lblCategoryID") as Label).Text;
+        this.load_DropdownList(dlEParent, category.getTBSubtractCategory(int.Parse(ctId)), "NameVN", "ID");
+        dlEParent.Items.Insert(0, new ListItem("--Trống--", "0"));
     }
     protected void gwCategory_SelectedIndexChanged(object sender, EventArgs e)
     {
+        try
+        {
 
+            btnEditCategory.Attributes.Add("class", "btn btn-circle btn-icon-only btn-default");
+            this.load_dlEditParent();
+            category = new CategoryBLL();
+            int ID = Convert.ToInt32((gwCategory.SelectedRow.FindControl("lblCategoryID") as Label).Text);
+            Category cat = category.ListCategoryWithID(ID).FirstOrDefault();
+            txtENameVN.Text = cat.NameVN;
+            txtENameEN.Text = cat.NameEN;
+            txtEPermalink.Text = cat.Permalink;
+            txtESeoTitle.Text = cat.SeoTitle;
+            txtEMetaTitle.Text = cat.MetaTitle;
+            txtEMetaKeywords.Text = cat.MetaKeywords;
+            txtEMetaDescriptions.Text = cat.MetaDescriptions;
+            dlEParent.Items.FindByValue(cat.Parent.ToString()).Selected = true;
+            chkUpdateStatus.Checked = cat.CategoryStatus;
+            chkShowHome.Checked = cat.ShowOnHome;
+            images = new ImagesBLL();
+            Images img = images.ListWithID(cat.CateogryImage).FirstOrDefault();
+            ImageUpdate.ImageUrl = (img == null) ? "#" : "../../" + img.ImagesUrl;
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
     }
     protected void gwCategory_RowDataBound(object sender, GridViewRowEventArgs e)
     {
@@ -233,5 +266,69 @@ public partial class Admin_Pages_Category : BasePage
     protected void gwCategory_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
 
+    }
+
+    private int UpdateImgUpload()
+    {
+        images = new ImagesBLL();
+        string dateString = DateTime.Now.ToString("MM-dd-yyyy");
+        string dirFullPath = HttpContext.Current.Server.MapPath("../../images/Uploads/" + dateString + "/");
+
+        if (!Directory.Exists(dirFullPath))   // CHECK IF THE FOLDER EXISTS. IF NOT, CREATE A NEW FOLDER.
+        {
+            Directory.CreateDirectory(dirFullPath);
+        }
+        string fileName = Path.GetFileName(FileUploadUpdateImg.PostedFile.FileName);
+        ImageCodecInfo jgpEncoder = null;
+        string str_image = "";
+        string fileExtension = "";
+        if (!string.IsNullOrEmpty(fileName))
+        {
+            fileExtension = Path.GetExtension(fileName);
+            str_image = dateString + "-" + RandomName + fileExtension;
+            string pathToSave = HttpContext.Current.Server.MapPath("../../images/Uploads/" + dateString + "/") + str_image;
+            //file.SaveAs(pathToSave);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(FileUploadUpdateImg.FileContent);
+            if (image.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Gif.Guid)
+                jgpEncoder = GetEncoder(ImageFormat.Gif);
+            else if (image.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Jpeg.Guid)
+                jgpEncoder = GetEncoder(ImageFormat.Jpeg);
+            else if (image.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Bmp.Guid)
+                jgpEncoder = GetEncoder(ImageFormat.Bmp);
+            else if (image.RawFormat.Guid == System.Drawing.Imaging.ImageFormat.Png.Guid)
+                jgpEncoder = GetEncoder(ImageFormat.Png);
+            else
+                throw new System.ArgumentException("Invalid File Type");
+            Bitmap bmp1 = new Bitmap(FileUploadUpdateImg.FileContent);
+            Encoder myEncoder = Encoder.Quality;
+            EncoderParameters myEncoderParameters = new EncoderParameters(1);
+            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 30L);
+            myEncoderParameters.Param[0] = myEncoderParameter;
+            bmp1.Save(pathToSave, jgpEncoder, myEncoderParameters);
+            this.images.NewImages(str_image, "images/Uploads/" + dateString + "/" + str_image, Session.GetCurrentUser().ID);
+        }
+        return (images.ListWithImagesName(str_image).FirstOrDefault() == null) ? 0 : images.ListWithImagesName(str_image).FirstOrDefault().ID;
+    }
+    protected void btnUpdateCategory_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            category = new CategoryBLL();
+            int ID = Convert.ToInt32((gwCategory.SelectedRow.FindControl("lblCategoryID") as Label).Text);
+            Category cat = category.ListCategoryWithID(ID).FirstOrDefault();
+            if (category.UpdateCategory(ID, txtENameVN.Text, txtENameEN.Text, Convert.ToInt32(dlEParent.SelectedValue), txtEPermalink.Text, txtESeoTitle.Text, (UpdateImgUpload() == 0) ? cat.CateogryImage : UpdateImgUpload(), DateTime.Now, Session.GetCurrentUser().ID, txtEMetaTitle.Text, txtEMetaKeywords.Text, txtEMetaDescriptions.Text, chkUpdateStatus.Checked, chkShowHome.Checked))
+            {
+                this.GetPostCategoryPageWise(1);
+            }
+            else
+            {
+                this.AlertPageValid(true, "Connect to Server False !", alertPageValid, lblPageValid);
+            }
+            //this.AlertPageValid(true, UpdateImgUpload().ToString(), alertPageValid, lblPageValid);
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToLogString(), alertPageValid, lblPageValid);
+        }
     }
 }

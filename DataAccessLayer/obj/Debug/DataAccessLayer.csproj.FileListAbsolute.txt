@@ -12,3 +12,4 @@ C:\Users\NhanChuan\Developer\DevFTA\DataAccessLayer\bin\Debug\DataAccessLayer.dl
 C:\Users\NhanChuan\Developer\DevFTA\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
 C:\Users\NhanChuan\Developer\DevFTA\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\NhanChuan\Developer\DevFTA\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\NhanChuan\Developer\DevFTA\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache

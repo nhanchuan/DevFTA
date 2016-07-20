@@ -12,6 +12,42 @@ namespace BusinessLogicLayer
     public class CategoryBLL
     {
         DataServices dt = new DataServices();
+        public DateTime defaultdate = Convert.ToDateTime("12/12/1900");
+        public List<Category> ListCategoryWithID(int ID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "select * from Category where ID=@ID";
+            SqlParameter pID = new SqlParameter("@ID", ID);
+            DataTable tb = dt.DATable(sqlquery, pID);
+            List<Category> lst = new List<Category>();
+            foreach (DataRow r in tb.Rows)
+            {
+                Category ct = new Category();
+                ct.ID = (int)r["ID"];
+                ct.NameVN = (string.IsNullOrEmpty(r["NameVN"].ToString())) ? "" : (string)r["NameVN"];
+                ct.NameEN = (string.IsNullOrEmpty(r["NameEN"].ToString())) ? "" : (string)r["NameEN"];
+                ct.Parent = (string.IsNullOrEmpty(r["Parent"].ToString())) ? 0 : (int)r["Parent"];
+                ct.ItemIndex = (string.IsNullOrEmpty(r["ItemIndex"].ToString())) ? 0 : (int)r["ItemIndex"];
+                ct.Permalink = (string.IsNullOrEmpty(r["Permalink"].ToString())) ? "" : (string)r["Permalink"];
+                ct.SeoTitle = (string.IsNullOrEmpty(r["SeoTitle"].ToString())) ? "" : (string)r["SeoTitle"];
+                ct.CateogryImage = (string.IsNullOrEmpty(r["CateogryImage"].ToString())) ? 0 : (int)r["CateogryImage"];
+                ct.CreateBy = (string.IsNullOrEmpty(r["CreateBy"].ToString())) ? 0 : (int)r["CreateBy"];
+                ct.CreateDate = (DateTime)r["CreateDate"];
+                ct.ModifyDate = (string.IsNullOrEmpty(r["ModifyDate"].ToString())) ? defaultdate : (DateTime)r["ModifyDate"];
+                ct.ModifyBy = (string.IsNullOrEmpty(r["ModifyBy"].ToString())) ? 0 : (int)r["ModifyBy"];
+                ct.MetaTitle = (string.IsNullOrEmpty(r["MetaTitle"].ToString())) ? "" : (string)r["MetaTitle"];
+                ct.MetaKeywords = (string.IsNullOrEmpty(r["MetaKeywords"].ToString())) ? "" : (string)r["MetaKeywords"];
+                ct.MetaDescriptions = (string.IsNullOrEmpty(r["MetaDescriptions"].ToString())) ? "" : (string)r["MetaDescriptions"];
+                ct.CategoryStatus = (string.IsNullOrEmpty(r["CategoryStatus"].ToString())) ? false : (Boolean)r["CategoryStatus"];
+                ct.ShowOnHome = (string.IsNullOrEmpty(r["ShowOnHome"].ToString())) ? false : (Boolean)r["ShowOnHome"];
+                lst.Add(ct);
+            }
+            this.dt.CloseConnection();
+            return lst;
+        }
         public DataTable CategoryParent()
         {
             if (!this.dt.OpenConnection())
@@ -23,6 +59,19 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return tb;
         }
+        public DataTable getTBSubtractCategory(int ctID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sql = "Exec getSubtractCategory @ctID";
+            SqlParameter pctID = new SqlParameter("ctID", ctID);
+            DataTable tb = dt.DATable(sql, pctID);
+            this.dt.CloseConnection();
+            return tb;
+        }
+        //New Catogory
         public Boolean NewCategory(string NameVN, string NameEN, int Parent, int ItemIndex, string Permalink, string SeoTitle, int CateogryImage, int CreateBy, DateTime ModifyDate, int ModifyBy, string MetaTitle, string MetaKeywords, string MetaDescriptions, Boolean CategoryStatus, Boolean ShowOnHome)
         {
             if (!this.dt.OpenConnection())
@@ -39,7 +88,7 @@ namespace BusinessLogicLayer
             SqlParameter pCateogryImage = (CateogryImage == 0) ? new SqlParameter("@CateogryImage", DBNull.Value) : new SqlParameter("@CateogryImage", CateogryImage);
             SqlParameter pCreateBy = new SqlParameter("@CreateBy", CreateBy);
             SqlParameter pModifyDate = (ModifyDate.Year <= 1900) ? new SqlParameter("@ModifyDate", DBNull.Value) : new SqlParameter("@ModifyDate", ModifyDate);
-            SqlParameter pModifyBy = (ModifyBy == 0) ? new SqlParameter("@ModifyBy", DBNull.Value) : new SqlParameter("@ModifyBy", ModifyBy);            SqlParameter pMetaTitle = (MetaTitle == "") ? new SqlParameter("@MetaTitle", DBNull.Value) : new SqlParameter("@MetaTitle", MetaTitle);
+            SqlParameter pModifyBy = (ModifyBy == 0) ? new SqlParameter("@ModifyBy", DBNull.Value) : new SqlParameter("@ModifyBy", ModifyBy); SqlParameter pMetaTitle = (MetaTitle == "") ? new SqlParameter("@MetaTitle", DBNull.Value) : new SqlParameter("@MetaTitle", MetaTitle);
             SqlParameter pMetaKeywords = (MetaKeywords == "") ? new SqlParameter("@MetaKeywords", DBNull.Value) : new SqlParameter("@MetaKeywords", MetaKeywords);
             SqlParameter pMetaDescriptions = (MetaDescriptions == "") ? new SqlParameter("@MetaDescriptions", DBNull.Value) : new SqlParameter("@MetaDescriptions", MetaDescriptions);
             SqlParameter pCategoryStatus = new SqlParameter("@CategoryStatus", CategoryStatus);
@@ -48,6 +97,33 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return true;
         }
+        //Update
+        public Boolean UpdateCategory(int ID, string NameVN, string NameEN, int Parent, string Permalink, string SeoTitle, int CateogryImage, DateTime ModifyDate, int ModifyBy, string MetaTitle, string MetaKeywords, string MetaDescriptions, Boolean CategoryStatus, Boolean ShowOnHome)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sqlquery = "Exec UpdateCategory @ID,@NameVN,@NameEN,@Parent,@Permalink,@SeoTitle,@CateogryImage,@ModifyDate,@ModifyBy,@MetaTitle,@MetaKeywords,@MetaDescriptions,@CategoryStatus,@ShowOnHome";
+            SqlParameter pID = new SqlParameter("@ID", ID);
+            SqlParameter pNameVN = new SqlParameter("@NameVN", NameVN);
+            SqlParameter pNameEN = (NameEN == "") ? new SqlParameter("@NameEN", DBNull.Value) : new SqlParameter("@NameEN", NameEN);
+            SqlParameter pParent = (Parent == 0) ? new SqlParameter("@Parent", DBNull.Value) : new SqlParameter("@Parent", Parent);
+            SqlParameter pPermalink = (Permalink == "") ? new SqlParameter("@Permalink", DBNull.Value) : new SqlParameter("@Permalink", Permalink);
+            SqlParameter pSeoTitle = (SeoTitle == "") ? new SqlParameter("@SeoTitle", DBNull.Value) : new SqlParameter("@SeoTitle", SeoTitle);
+            SqlParameter pCateogryImage = (CateogryImage == 0) ? new SqlParameter("@CateogryImage", DBNull.Value) : new SqlParameter("@CateogryImage", CateogryImage);
+            SqlParameter pModifyDate = (ModifyDate.Year <= 1900) ? new SqlParameter("@ModifyDate", DBNull.Value) : new SqlParameter("@ModifyDate", ModifyDate);
+            SqlParameter pModifyBy = (ModifyBy == 0) ? new SqlParameter("@ModifyBy", DBNull.Value) : new SqlParameter("@ModifyBy", ModifyBy);
+            SqlParameter pMetaTitle = (MetaTitle == "") ? new SqlParameter("@MetaTitle", DBNull.Value) : new SqlParameter("@MetaTitle", MetaTitle);
+            SqlParameter pMetaKeywords = (MetaKeywords == "") ? new SqlParameter("@MetaKeywords", DBNull.Value) : new SqlParameter("@MetaKeywords", MetaKeywords);
+            SqlParameter pMetaDescriptions = (MetaDescriptions == "") ? new SqlParameter("@MetaDescriptions", DBNull.Value) : new SqlParameter("@MetaDescriptions", MetaDescriptions);
+            SqlParameter pCategoryStatus = new SqlParameter("@CategoryStatus", CategoryStatus);
+            SqlParameter pShowOnHome = new SqlParameter("@ShowOnHome", ShowOnHome);
+            this.dt.Updatedata(sqlquery, pID, pNameVN, pNameEN, pParent, pPermalink, pSeoTitle, pCateogryImage, pModifyDate, pModifyBy, pMetaTitle, pMetaKeywords, pMetaDescriptions, pCategoryStatus, pShowOnHome);
+            this.dt.CloseConnection();
+            return true;
+        }
+
         public int MaxItemindexWithParent(int Parent)
         {
             int RC = 0;
@@ -100,7 +176,7 @@ namespace BusinessLogicLayer
         }
         public DataTable getCategoryWithParent(int parentId)
         {
-            
+
             if (!this.dt.OpenConnection())
             {
                 return null;
