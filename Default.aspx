@@ -12,6 +12,8 @@
     <link href="../css/frontend/addvideo.css" rel="stylesheet" />
     <%-- FONT --%>
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese" rel="stylesheet" type="text/css" />
+    <link href="../libs/homeycombs/css/homeycombs.css" rel="stylesheet" />
+    <link href="../css/frontend/btnAppStore.css" rel="stylesheet" />
     <!-- BEGIN SLIDER -->
     <div class="page-slider margin-bottom-40">
         <div class="fullwidthbanner-container revolution-slider" style="height: 500px;">
@@ -21,7 +23,7 @@
                     <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
                         <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
                         <img src="../assets/frontend/pages/img/revolutionslider/bg5.jpg" alt="" />
-                        
+
                         <div class="caption lft slide_title_white slide_item_left" style="color: black; font: 300 47px/66px, 'Open Sans', sans-serif;"
                             data-x="640"
                             data-y="90"
@@ -108,7 +110,7 @@
                     </li>
 
                     <!-- THE SECOND SLIDE -->
-                    <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
+                    <%--<li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
                         <img src="../assets/frontend/pages/img/revolutionslider/bg2.jpg" alt="" />
                         <div class="caption lfl slide_title slide_item_left"
                             data-x="30"
@@ -292,7 +294,7 @@
                             data-easing="easeOutBack">
                             <img src="../assets/frontend/pages/img/revolutionslider/iphone_right.png" alt="Image 3" />
                         </div>
-                    </li>
+                    </li>--%>
                 </ul>
                 <div class="tp-bannertimer tp-bottom"></div>
             </div>
@@ -304,41 +306,133 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3>DOANH NGHIỆP</h3>
-                    <div class="bussiness">
-                        <%--<img src="images/content/MinhBachDoanhNghiep.png" />--%>
-                        <%--<a class="btn btn-danger">Đăng ký thành viên</a>--%>
+                    <h3 class="margin-bottom-15">DOANH NGHIỆP</h3>
+                    <div class="honeycombs">
+                        <div class="comb">
+                            <img src="../images/picture_0.jpg" />
+                            <span>1</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_1.jpg" />
+                            <span>
+                                <span>2</span>
+                            </span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/logo/LogoftaFN.png" />
+                            <span>3</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_3.jpg" />
+                            <span>4</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_4.jpg" />
+                            <span>5</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/properties/Quytrinhsanxuat.jpg" />
+                            <span>6</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_1.jpg" />
+                            <span>7</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/logo/LogoftaFN.png" />
+                            <span>8</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_3.jpg" />
+                            <span>9</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_4.jpg" />
+                            <span>10</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/properties/Quytrinhsanxuat.jpg" />
+                            <span>11</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/properties/cac-loai-rau.jpg" />
+                            <span>12</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/properties/Chatbaoquan.jpg" />
+                            <span>13</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_3.jpg" />
+                            <span>14</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_4.jpg" />
+                            <span>15</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/properties/Vietnam.jpg" />
+                            <span>16</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/properties/MinhBach.jpg" />
+                            <span>17</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/logo/LogoftaFN2.jpg" />
+                            <span>FTA</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/properties/Probiotics.jpg" />
+                            <span>18</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_4.jpg" />
+                            <span>19</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_2.jpg" />
+                            <span>20</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_3.jpg" />
+                            <span>21</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_4.jpg" />
+                            <span>22</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/properties/Quytrinhsanxuat.jpg" />
+                            <span>23</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/properties/dohop.jpg" />
+                            <span>24</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/properties/Quytrinhsanxuat.jpg" />
+                            <span>25</span>
+                        </div>
+                        <div class="comb">
+                            <img src="../images/picture_1.jpg" />
+                            <span>26</span>
+                        </div>
+                        <%--<div class="comb">
+                            <img src="../images/picture_2.jpg" />
+                            <span>27</span>
+                        </div>--%>
                     </div>
                 </div>
             </div>
 
-            <%-- Demo NTD --%>
-            <%--<div class="row margin-bottom-40">
-                <div class="col-lg-12">
-                    <h3 class="margin-bottom-15">NGƯỜI TIÊU DÙNG</h3>
-                    <div class="wpnguoitieudung">
-                        <h1>Truy xuất nguồn gốc!
-                            <br />
-                            ↓</h1>
-                        <a class="btn btn-danger">Đăng ký người dùng</a>
-                        <video autoplay="autoplay" muted="muted" loop="loop">
-                            <source src="../Videos/TraceVerified ScanQRCode.mp4" type="video/mp4" />
-                            <source src="../Videos/TraceVerified ScanQRCode_VP8.webm" type="video/webm" />
-                            <source src="../Videos/TraceVerified ScanQRCode_libtheora.ogv" type="video/webm" />
-                        </video>
-                    </div>
-                </div>
-            </div>--%>
-            <%-- End Demo NTD --%>
-
             <%-- NGUOI TIEU DUNG SLIDE 2 --%>
 
             <div class="row margin-bottom-40">
-                <div class="col-lg-12">
+                <%--<div class="col-lg-12">
                     <h3 class="margin-bottom-15">NGƯỜI TIÊU DÙNG</h3>
                     <div class="col-lg-6">
                         <div class="videonguoitieudung">
-                            <%--<iframe width="560" height="315" src="https://www.youtube.com/watch?v=A60b9KuOsI0" frameborder="0" allowfullscreen></iframe>--%>
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/A60b9KuOsI0" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
@@ -359,6 +453,26 @@
                         </ul>
                         <a class="btn btn-warning">Đăng ký người dùng</a>
                     </div>
+                </div>--%>
+                <h3 class="margin-bottom-15">NGƯỜI TIÊU DÙNG</h3>
+                <div class="col-lg-12">
+                    <div class="col-lg-4">
+                        <div class="col-lg-12 margin-bottom-60"></div>
+                        <h3>United On The Go</h3>
+                        <p>Their newest device is the Blu Life Pure mini, a 4.5” smartphone with a 1280 x 720 IPS display.</p>
+                        <a href="#" class="btn btn-app-store"><i class="fa fa-apple"></i><span class="small">Download on the</span> <span class="big">App Store</span></a>
+                        <a href="#" class="btn btn-app-store">
+                            <img width="60" class="pull-left" src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png" />
+                            <span class="small">Download on the</span> <span class="big">Google play</span></a>
+
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="../images/content/nguoitieudung/iphone-hand-mockup-drop-1000x640.png" style="width: 100%; height: auto;" />
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="col-lg-12 margin-bottom-65"></div>
+                        <img src="../images/content/nguoitieudung/checkQ-Code.png" style="width: 100%; height: auto;" />
+                    </div>
                 </div>
             </div>
 
@@ -367,44 +481,26 @@
             <%-- BEGIN NEWS --%>
             <div class="row margin-bottom-40">
                 <div class="col-lg-12">
-                    <h3>TIN TỨC</h3>
+                    <h3 class="margin-bottom-20">TIN TỨC</h3>
                     <div class="row">
                         <div class="col-md-5">
                             <div id="myCarousel" class="carousel image-carousel slide">
                                 <div class="carousel-inner">
-                                    <div class="active item">
-                                        <img src="../../assets/admin/pages/media/gallery/image5.jpg" class="img-responsive" alt="">
-                                        <div class="carousel-caption">
-                                            <h4>
-                                                <a href="page_news_item.html">First Thumbnail label </a>
-                                            </h4>
-                                            <p>
-                                                Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <img src="../../assets/admin/pages/media/gallery/image2.jpg" class="img-responsive" alt="">
-                                        <div class="carousel-caption">
-                                            <h4>
-                                                <a href="page_news_item.html">Second Thumbnail label </a>
-                                            </h4>
-                                            <p>
-                                                Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <img src="../../assets/admin/pages/media/gallery/image1.jpg" class="img-responsive" alt="">
-                                        <div class="carousel-caption">
-                                            <h4>
-                                                <a href="page_news_item.html">Third Thumbnail label </a>
-                                            </h4>
-                                            <p>
-                                                Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <asp:Repeater ID="rptSubSlider" runat="server">
+                                        <ItemTemplate>
+                                            <div class='<%# (Container.ItemIndex==0)?"active item":"item" %>'>
+                                                <img src='<%# "../" + Eval("ImagesUrl") %>' class="img-responsive" alt='<%# Eval("Title") %>' />
+                                                <div class="carousel-caption">
+                                                    <h4>
+                                                        <a href="page_news_item.html"><%# Eval("Title") %> </a>
+                                                    </h4>
+                                                    <p>
+                                                        <%# Eval("Descriptions") %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </div>
                                 <!-- Carousel nav -->
                                 <a class="carousel-control left" href="#myCarousel" data-slide="prev">
@@ -414,9 +510,11 @@
                                     <i class="m-icon-big-swapright m-icon-white"></i>
                                 </a>
                                 <ol class="carousel-indicators">
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                                    <asp:Repeater ID="rptindicators" runat="server">
+                                        <ItemTemplate>
+                                            <li data-target="#myCarousel" data-slide-to='<%# Container.ItemIndex.ToString() %>' class='<%# (Container.ItemIndex==0)?"active":"" %>'></li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </ol>
                             </div>
                             <div class="top-news margin-top-10">
@@ -483,37 +581,33 @@
                                 </a>
                             </div>
                             <div class="news-blocks">
-								<h3>
-								<a href="page_news_item.html">
-								Odio dignissimos ducimus </a>
-								</h3>
-								<div class="news-block-tags">
-									<strong>Berlin, Germany</strong>
-									<em>2 hours ago</em>
-								</div>
-								<p>
-									<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image3.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-								</p>
-								<a href="page_news_item.html" class="news-block-btn">
-								Read more <i class="m-icon-swapright m-icon-black"></i>
-								</a>
-							</div>
-							<div class="news-blocks">
-								<h3>
-								<a href="page_news_item.html">
-								Sanditiis praesentium vo </a>
-								</h3>
-								<div class="news-block-tags">
-									<strong>Ankara, Turkey</strong>
-									<em>5 hours ago</em>
-								</div>
-								<p>
-									<img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image5.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint praesentium voluptatum delenitioccaecati cupiditate non provident
-								</p>
-								<a href="page_news_item.html" class="news-block-btn">
-								Read more <i class="m-icon-swapright m-icon-black"></i>
-								</a>
-							</div>
+                                <h3>
+                                    <a href="page_news_item.html">Odio dignissimos ducimus </a>
+                                </h3>
+                                <div class="news-block-tags">
+                                    <strong>Berlin, Germany</strong>
+                                    <em>2 hours ago</em>
+                                </div>
+                                <p>
+                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image3.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
+                                </p>
+                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
+                                </a>
+                            </div>
+                            <div class="news-blocks">
+                                <h3>
+                                    <a href="page_news_item.html">Sanditiis praesentium vo </a>
+                                </h3>
+                                <div class="news-block-tags">
+                                    <strong>Ankara, Turkey</strong>
+                                    <em>5 hours ago</em>
+                                </div>
+                                <p>
+                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image5.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint praesentium voluptatum delenitioccaecati cupiditate non provident
+                                </p>
+                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
+                                </a>
+                            </div>
                             <div class="top-news">
                                 <a href="#" class="btn green">
                                     <span>Finance </span>
@@ -617,7 +711,7 @@
                         </div>
                         <!--end col-md-3-->
                     </div>
-                    <a class="btn btn-info btnMoreNews">Xem thêm các tin tức</a>
+                    <a class="btn btn-info btn-block" href="../Pages/TinTucVaSuKien.aspx">Xem thêm các tin tức</a>
                 </div>
             </div>
             <%-- END NEWS --%>
@@ -715,9 +809,11 @@
                                     <i class="fa fa-bolt top-news-icon"></i>
                                 </a>
                             </div>
+                            <a class="btn btn-info btn-block" href="#">Xem tất cả các sự kiện</a>
                         </div>
                         <!--end col-md-3-->
                     </div>
+                    
                 </div>
             </div>
             <%-- END EVENT --%>
@@ -788,4 +884,14 @@
             <!-- END CLIENTS -->
         </div>
     </div>
+    <script src="../libs/homeycombs/js/jquery.homeycombs.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.honeycombs').honeycombs({
+                combWidth: 150,  // width of the hexagon
+                margin: 4,      // spacing between hexagon
+                threshold: 3    // hide placeholder hexagons when number of hexagons in a row is more than the threshold number
+            });
+        });
+    </script>
 </asp:Content>

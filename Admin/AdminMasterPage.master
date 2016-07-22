@@ -318,6 +318,9 @@
                                     <a href="../Pages/MenuSetting.aspx"><i class="icon-directions"></i>Menu setting</a>
                                 </li>
                                 <li>
+                                    <a href="../../Admin/Pages/SubSlider.aspx"><i class="fa fa-cubes"></i>&nbsp SubSlider</a>
+                                </li>
+                                <li>
                                     <a href="../Pages/History.aspx"><i class="fa fa-history"></i>History</a>
                                 </li>
                             </ul>

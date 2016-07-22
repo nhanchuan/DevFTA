@@ -4,11 +4,17 @@
     <!-- CATEGORIES START -->
     <h2 class="no-top-space">Categories</h2>
     <ul class="nav sidebar-categories margin-bottom-40">
-        <li><a href="#">London (18)</a></li>
+        <%--<li><a href="#">London (18)</a></li>
         <li><a href="#">Moscow (5)</a></li>
         <li class="active"><a href="#">Paris (12)</a></li>
         <li><a href="#">Berlin (7)</a></li>
-        <li><a href="#">Istanbul (3)</a></li>
+        <li><a href="#">Istanbul (3)</a></li>--%>
+        <asp:Repeater ID="rptcategory" runat="server">
+            <ItemTemplate>
+                <li><a href="#"><%# Eval("NameVN") %></a></li>
+            </ItemTemplate>
+        </asp:Repeater>
+
     </ul>
     <!-- CATEGORIES END -->
 

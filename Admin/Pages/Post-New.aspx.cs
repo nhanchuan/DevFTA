@@ -148,7 +148,6 @@ public partial class Admin_Pages_Post_New : BasePage
     //Load Images
     private void GetImagesPageWise(int pageIndex)
     {
-
         try
         {
             images = new ImagesBLL();
@@ -157,7 +156,6 @@ public partial class Admin_Pages_Post_New : BasePage
             recordCount = images.RecordCountImages();
             rpLstImg.DataBind();
             this.PopulatePager(recordCount, pageIndex);
-
         }
         catch (Exception ex)
         {

@@ -52,7 +52,7 @@
                                             <strong>Nguyễn Thị Hồng Minh</strong>
                                             <small>Người sáng lập, Chủ tịch HĐQT</small>
                                         </h3>
-                                        <p>Bà Nguyễn Thị Hồng Minh là nguyên thứ trưởng bộ Thủy sản (nay sát nhập với Bộ NN và PTNT), phụ trách về chất lượng.</p>
+                                        <p class="limit-text">Bà Nguyễn Thị Hồng Minh là nguyên thứ trưởng bộ Thủy sản (nay sát nhập với Bộ NN và PTNT), phụ trách về chất lượng.</p>
                                         <ul class="social-icons social-icons-color">
                                             <li><a class="facebook" data-original-title="Facebook" href="#"></a></li>
                                             <li><a class="twitter" data-original-title="Twitter" href="#"></a></li>
@@ -68,7 +68,7 @@
                                             <strong>Ông Trương Đình Hòe</strong>
                                             <small>Thành viên HĐQT</small>
                                         </h3>
-                                        <p>Ông Trương Đình Hòe là Tổng thư ký Hiệp hội chế biến và xuất khẩu thủy sản Việt Nam từ năm 2007.</p>
+                                        <p class="limit-text">Ông Trương Đình Hòe là Tổng thư ký Hiệp hội chế biến và xuất khẩu thủy sản Việt Nam từ năm 2007.</p>
                                         <ul class="social-icons social-icons-color">
                                             <li><a class="facebook" data-original-title="Facebook" href="#"></a></li>
                                             <li><a class="twitter" data-original-title="Twitter" href="#"></a></li>
@@ -84,7 +84,7 @@
                                             <strong>Bà Đậu Thúy Hà</strong>
                                             <small>Thành viên HĐQT</small>
                                         </h3>
-                                        <p>Bà Đậu Thuý Hà là Chủ tịch Hội đồng Quản trị Công ty Tư vấn Quản lý OCD và Công ty CP Đào tạo Quản lý Trực tuyến OMT.</p>
+                                        <p class="limit-text">Bà Đậu Thuý Hà là Chủ tịch Hội đồng Quản trị Công ty Tư vấn Quản lý OCD và Công ty CP Đào tạo Quản lý Trực tuyến OMT.</p>
                                         <ul class="social-icons social-icons-color">
                                             <li><a class="facebook" data-original-title="Facebook" href="#"></a></li>
                                             <li><a class="twitter" data-original-title="Twitter" href="#"></a></li>
@@ -100,7 +100,7 @@
                                             <strong>Ông Bùi Huy Bình</strong>
                                             <small>Giám đốc điều hành</small>
                                         </h3>
-                                        <p>Ông Bùi Huy Bình là thạc sỹ chính sách công, chương trình học bổng Fulbright tại Việt Nam...</p>
+                                        <p class="limit-text">Ông Bùi Huy Bình là thạc sỹ chính sách công, chương trình học bổng Fulbright tại Việt Nam...</p>
                                         <ul class="social-icons social-icons-color">
                                             <li><a class="facebook" data-original-title="Facebook" href="#"></a></li>
                                             <li><a class="twitter" data-original-title="Twitter" href="#"></a></li>

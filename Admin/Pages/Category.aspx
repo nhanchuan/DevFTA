@@ -4,6 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <link href="../../App_Themes/admin/pagination.css" rel="stylesheet" />
+    <style type="text/css">
+        .page_disabled {
+            background: #ff6a00;
+        }
+    </style>
     <!-- BEGIN PAGE HEADER-->
     <h1 class="page-title">Chuyên mục
     </h1>
@@ -55,7 +60,7 @@
                     </div>
                 </div>
                 <div class="actions">
-                    <a class="btn btn-circle btn-icon-only btn-default" title="Chọn ảnh từ thư viện" href="#">
+                    <a id="btnchangeLBImageCT" runat="server" title="Chọn ảnh từ thư viện" href="#modalCategoryChangeImages" data-toggle="modal">
                         <i class="fa fa-image"></i>
                     </a>
                     <a href="#modalEditCategory" data-toggle="modal" id="btnEditCategory" title="Chỉnh sửa thông tin danh mục" runat="server">
@@ -71,7 +76,9 @@
                 <asp:GridView ID="gwCategory" CssClass="table table-condensed table-responsive" runat="server"
                     AutoGenerateColumns="False" RowStyle-BackColor="#A1DCF2" Font-Names="Arial" Font-Size="10pt"
                     HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
-                    OnSelectedIndexChanged="gwCategory_SelectedIndexChanged" OnRowDataBound="gwCategory_RowDataBound" OnRowDeleting="gwCategory_RowDeleting">
+                    OnSelectedIndexChanged="gwCategory_SelectedIndexChanged" 
+                    OnRowDataBound="gwCategory_RowDataBound" 
+                    OnRowDeleting="gwCategory_RowDeleting">
                     <SelectedRowStyle BackColor="#79B782" ForeColor="Black" />
                     <Columns>
                         <asp:TemplateField HeaderText="No.">
@@ -121,29 +128,30 @@
                     <HeaderStyle BackColor="#3AC0F2" ForeColor="White"></HeaderStyle>
                     <RowStyle BackColor="#A1DCF2"></RowStyle>
                 </asp:GridView>
-            </div>
-        </div>
-        <div class="col-lg-12 margin-bottom-20">
-            <!-- BEGIN PAGINATOR -->
-            <div class="pagination_lst pull-right">
-                <asp:Repeater ID="rptPager" runat="server">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="lnkPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
-                            CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "btn btn-default page_enabled" : "btn btn-default page_disabled" %>'
-                            OnClick="Page_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
-                    </ItemTemplate>
-                </asp:Repeater>
-                <%--<asp:Repeater ID="rptSearchPage" runat="server">
+                <div class="col-lg-12 margin-bottom-20">
+                    <!-- BEGIN PAGINATOR -->
+                    <div class="pagination_lst pull-right">
+                        <asp:Repeater ID="rptPager" runat="server">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
+                                    CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "btn btn-default page_enabled" : "btn btn-default page_disabled" %>'
+                                    OnClick="Page_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <%--<asp:Repeater ID="rptSearchPage" runat="server">
                         <ItemTemplate>
                             <asp:LinkButton ID="lnkSearchPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
                                 CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "page_enabled" : "page_disabled" %>'
                                 OnClick="SearchPage_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:Repeater>--%>
-                <div class="clearfix"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- END PAGINATOR -->
+                </div>
             </div>
-            <!-- END PAGINATOR -->
         </div>
+        
         <%-- END LIST CATOGORY --%>
     </div>
     <%-- PORLET ADD NEW CATEGORY --%>
@@ -257,7 +265,7 @@
                                 <div class="row">
                                     <a class="btn red" id="btnrefreshImg" runat="server"><i class="fa fa-refresh">Clear</i></a>
                                     <a class="btn green" href="#coluploadUploadImg" data-toggle="collapse"><i class="fa fa-upload"></i>Tải tập tin lên</a>
-                                    <a class="btn yellow" href="#modalselectimages" data-toggle="modal"><i class="fa fa-bank"></i>Chọn từ thư viện</a>
+                                    <a class="btn yellow" href="#modalCategoryImages" id="btnViewModalImages" data-toggle="modal"><i class="fa fa-bank"></i>Chọn từ thư viện</a>
                                 </div>
                                 <br />
                                 <i>( Ảnh chức năng cho chuyên mục )</i>
@@ -406,6 +414,151 @@
     </div>
     <%-- End Modal Edit Category --%>
 
+    <%-- Modal Category Libray Images --%>
+    <div class="modal" id="modalCategoryImages" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+        <div class="modal-dialog modal-full">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Select Images</h4>
+                </div>
+                <div class="modal-body background">
+                    <div class="panel-default">
+                        <div class="panel-body">
+                            <div class="col-lg-9">
+                                <%--<asp:UpdatePanel runat="server">
+                                    <ContentTemplate>--%>
+                                        <div class="col-lg-12">
+                                            
+                                            <div class="form-group margin-bottom-20">
+                                                <div class="pagination_lst">
+                                                    <asp:Repeater ID="rptPaginationImg" runat="server">
+                                                        <ItemTemplate>
+                                                            <asp:LinkButton ID="lnkPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
+                                                                CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "btn btn-default page_enabled" : "btn btn-default page_disabled" %>'
+                                                                OnClick="Img_Page_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+
+                                            <div style="height: 700px; overflow: auto;">
+                                                <div class="grid-container">
+                                                    <ul class="rig columns-5">
+                                                        <asp:Repeater ID="rpLstImg" runat="server">
+                                                            <ItemTemplate>
+                                                                <li>
+                                                                    <a href='<%#"../../"+Eval("ImagesUrl") %>' onclick="return showanh(this.href)"">
+                                                                        <img src='<%#"../../"+Eval("ImagesUrl") %>' />
+                                                                        <h4>Upload by <i style="color: red;"><%# Eval("UserName") %></i></h4>
+                                                                        <p><i class="fa fa-clock-o"></i><%# Eval("DateOfStart") %></p>
+                                                                    </a>
+                                                                </li>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <%--</ContentTemplate>
+                                </asp:UpdatePanel>--%>
+                            </div>
+                            <div class="col-lg-3">
+                                <%-- info --%>
+                                <asp:ValidationSummary ID="ValidationSummary2" ValidationGroup="vlidSelectImage" DisplayMode="BulletList" ShowSummary="true" ForeColor="Red" runat="server" />
+                                <asp:Image ID="ImagesSelect" CssClass="img-responsive" runat="server" />
+                                <br />
+                                <asp:HiddenField ID="HiddenimgSelect" runat="server" />
+                                <label>Url Image:</label>
+                                <asp:TextBox ID="txtImgUrl" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtImgUrl" ValidationGroup="vlidSelectImage" ErrorMessage="No Image Selected !" Display="None"></asp:RequiredFieldValidator>
+                                <%-- end info --%>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-warning" data-dismiss="modal">Hủy</a>
+                    <asp:Button ID="btnchangeImgPost" CssClass="btn btn-primary pull-right" ValidationGroup="vlidSelectImage" OnClick="btnchangeImgPost_Click" runat="server" Text="Save !" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <%-- End Modal Category Libray Images --%>
+
+    <%-- Modal Category Change Images --%>
+    <div class="modal" id="modalCategoryChangeImages" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+        <div class="modal-dialog modal-full">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Select Images</h4>
+                </div>
+                <div class="modal-body background">
+                    <div class="panel-default">
+                        <div class="panel-body">
+                            <div class="col-lg-9">
+                                <%--<asp:UpdatePanel runat="server">
+                                    <ContentTemplate>--%>
+                                        <div class="col-lg-12">
+                                            <div class="form-group margin-bottom-20">
+                                                <div class="pagination_lst">
+                                                    <asp:Repeater ID="rptchangeImgCTPages" runat="server">
+                                                        <ItemTemplate>
+                                                            <asp:LinkButton ID="lnkPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
+                                                                CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "btn btn-default page_enabled" : "btn btn-default page_disabled" %>'
+                                                                OnClick="ImgCT_Page_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            <div style="height: 700px; overflow: auto;">
+                                                <div class="grid-container">
+                                                    <ul class="rig columns-5">
+                                                        <asp:Repeater ID="rpChangeCTImage" runat="server">
+                                                            <ItemTemplate>
+                                                                <li>
+                                                                    <a href='<%#"../../"+Eval("ImagesUrl") %>' onclick="return showlbanh(this.href)"">
+                                                                        <img src='<%#"../../"+Eval("ImagesUrl") %>' />
+                                                                        <h4>Upload by <i style="color: red;"><%# Eval("UserName") %></i></h4>
+                                                                        <p><i class="fa fa-clock-o"></i><%# Eval("DateOfStart") %></p>
+                                                                    </a>
+                                                                </li>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <%--</ContentTemplate>
+                                </asp:UpdatePanel>--%>
+                            </div>
+                            <div class="col-lg-3">
+                                <%-- info --%>
+                                <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="vlidSelectImageCT" DisplayMode="BulletList" ShowSummary="true" ForeColor="Red" runat="server" />
+                                <asp:Image ID="ImagesLBSelect" CssClass="img-responsive" runat="server" />
+                                <br />
+                                <asp:HiddenField ID="HidImgUrlCT" runat="server" />
+                                <label>Url Image:</label>
+                                <asp:TextBox ID="txtImgUrlCT" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtImgUrlCT" ValidationGroup="vlidSelectImageCT" ErrorMessage="No Image Selected !" Display="None"></asp:RequiredFieldValidator>
+                                <%-- end info --%>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-warning" data-dismiss="modal">Hủy</a>
+                    <asp:Button ID="btnChangeCTImages" CssClass="btn btn-primary pull-right" ValidationGroup="vlidSelectImageCT" OnClick="btnChangeCTImages_Click" runat="server" Text="Save !" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <%-- End Modal Category Libray Images --%>
 
     <script type="text/javascript">
         function previewFile() {
@@ -424,18 +577,38 @@
         }
         function previewFileUpdate() {
             var preview = document.querySelector('#<%=ImageUpdate.ClientID %>');
-        var file = document.querySelector('#<%=FileUploadUpdateImg.ClientID %>').files[0];
-        var reader = new FileReader();
-        reader.onloadend = function () {
-            preview.src = reader.result;
-        }
+            var file = document.querySelector('#<%=FileUploadUpdateImg.ClientID %>').files[0];
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
 
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            preview.src = "";
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
         }
-    }
+        function showanh(url) {
+            var filename = url.substring(url.lastIndexOf('/') + 1);
+            document.querySelector('#<%=ImagesSelect.ClientID %>').src = url;
+            document.getElementById('<%=HiddenimgSelect.ClientID %>').value = url;
+            document.getElementById('<%=txtImgUrl.ClientID %>').value = url;
+            return false;
+        }
+        function callmodalCtImages() {
+            document.getElementById("btnViewModalImages").click();
+        }
+        function showlbanh(url) {
+            var filename = url.substring(url.lastIndexOf('/') + 1);
+            document.querySelector('#<%=ImagesLBSelect.ClientID %>').src = url;
+            document.getElementById('<%=HidImgUrlCT.ClientID %>').value = url;
+            document.getElementById('<%=txtImgUrlCT.ClientID %>').value = url;
+            return false;
+        }
+        function callmodalLBCtImages() {
+            document.getElementById('<%=btnchangeLBImageCT.ClientID %>').click();
+        }
     </script>
 </asp:Content>
 

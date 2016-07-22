@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class DemoInProject_ModuleDoanhNghiep : System.Web.UI.Page
+public partial class DemoInProject_NguoiTieuDung : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

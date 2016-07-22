@@ -65,5 +65,17 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return true;
         }
+        public Boolean DeleteWithCategoryID(int CategoryID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sqlquery = "delete from Post_Category_Relationships where CategoryID=@CategoryID";
+            SqlParameter pCategoryID = new SqlParameter("@CategoryID", CategoryID);
+            this.dt.Updatedata(sqlquery, pCategoryID);
+            this.dt.CloseConnection();
+            return true;
+        }
     }
 }

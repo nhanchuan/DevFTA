@@ -4,6 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <link href="../../App_Themes/admin/pagination.css" rel="stylesheet" />
+    <style type="text/css">
+        .page_disabled {
+            background: #ff6a00;
+        }
+    </style>
     <!-- BEGIN PAGE HEADER-->
     <h1 class="page-title">Tất cả bài viết
     </h1>
@@ -136,33 +141,34 @@
                     <HeaderStyle BackColor="#3AC0F2" ForeColor="White"></HeaderStyle>
                     <RowStyle BackColor="#A1DCF2"></RowStyle>
                 </asp:GridView>
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <!-- BEGIN PAGINATOR -->
-            <div class="col-md-4 col-sm-4 items-info">
-            </div>
-            <div class="col-md-8 col-sm-8">
-                <div class="pagination_lst pull-right">
-                    <asp:Repeater ID="rptPager" runat="server">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lnkPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
-                                CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "btn btn-default page_enabled" : "btn btn-default page_disabled" %>'
-                                OnClick="Page_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                    <asp:Repeater ID="rptSearchPage" runat="server">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lnkSearchPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
-                                CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "btn btn-default page_enabled" : "btn btn-default page_disabled" %>'
-                                OnClick="SearchPage_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                    <div class="clearfix"></div>
+                <div class="col-lg-12">
+                    <!-- BEGIN PAGINATOR -->
+                    <div class="col-md-4 col-sm-4 items-info">
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+                        <div class="pagination_lst pull-right">
+                            <asp:Repeater ID="rptPager" runat="server">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
+                                        CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "btn btn-default page_enabled" : "btn btn-default page_disabled" %>'
+                                        OnClick="Page_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:Repeater ID="rptSearchPage" runat="server">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkSearchPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
+                                        CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "btn btn-default page_enabled" : "btn btn-default page_disabled" %>'
+                                        OnClick="SearchPage_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <!-- END PAGINATOR -->
                 </div>
             </div>
-            <!-- END PAGINATOR -->
         </div>
+
         <%-- END LIST CATOGORY --%>
     </div>
 </asp:Content>

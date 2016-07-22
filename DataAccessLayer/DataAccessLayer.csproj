@@ -44,9 +44,12 @@
     <Compile Include="Category.cs" />
     <Compile Include="DataServices.cs" />
     <Compile Include="Images.cs" />
+    <Compile Include="MainMenu.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Post_Category_Relationships.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubMenuItem.cs" />
+    <Compile Include="SubSlider.cs" />
     <Compile Include="Tags.cs" />
     <Compile Include="Tags_relationships.cs" />
     <Compile Include="UserAdmin.cs" />

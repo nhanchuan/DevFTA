@@ -16,6 +16,7 @@ public partial class Admin_Pages_Category : BasePage
 {
     public int PageSize = 15;
     CategoryBLL category;
+    Post_Category_RelationshipsBLL post_category_relationships;
     ImagesBLL images;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -30,8 +31,11 @@ public partial class Admin_Pages_Category : BasePage
             {
                 this.AlertPageValid(false, "", alertPageValid, lblPageValid);
                 btnEditCategory.Attributes.Add("class", "btn btn-circle btn-icon-only btn-default disabled");
+                btnchangeLBImageCT.Attributes.Add("class", "btn btn-circle btn-icon-only btn-default disabled");
                 this.load_dlParent();
                 this.GetPostCategoryPageWise(1);
+                this.GetImagesPageWise(1);
+                this.GetImagesCTPageWise(1);
             }
         }
     }
@@ -144,76 +148,7 @@ public partial class Admin_Pages_Category : BasePage
         gwCategory.DataSource = category.GetCategoryPageWise(pageIndex, PageSize);
         recordCount = category.CountRecordPostCategory();
         gwCategory.DataBind();
-        this.PopulatePager(recordCount, pageIndex);
-    }
-    private void PopulatePager(int recordCount, int currentPage)
-    {
-        List<ListItem> pages = new List<ListItem>();
-        int startIndex, endIndex;
-        int pagerSpan = 5;
-
-        //Calculate the Start and End Index of pages to be displayed.
-        double dblPageCount = (double)((decimal)recordCount / Convert.ToDecimal(PageSize));
-        int pageCount = (int)Math.Ceiling(dblPageCount);
-        startIndex = currentPage > 1 && currentPage + pagerSpan - 1 < pagerSpan ? currentPage : 1;
-        endIndex = pageCount > pagerSpan ? pagerSpan : pageCount;
-        if (currentPage > pagerSpan % 2)
-        {
-            if (currentPage == 2)
-            {
-                endIndex = 5;
-            }
-            else
-            {
-                endIndex = currentPage + 2;
-            }
-        }
-        else
-        {
-            endIndex = (pagerSpan - currentPage) + 1;
-        }
-
-        if (endIndex - (pagerSpan - 1) > startIndex)
-        {
-            startIndex = endIndex - (pagerSpan - 1);
-        }
-
-        if (endIndex > pageCount)
-        {
-            endIndex = pageCount;
-            startIndex = ((endIndex - pagerSpan) + 1) > 0 ? (endIndex - pagerSpan) + 1 : 1;
-        }
-
-        //Add the First Page Button.
-        if (currentPage > 1)
-        {
-            pages.Add(new ListItem("First", "1"));
-        }
-
-        //Add the Previous Button.
-        if (currentPage > 1)
-        {
-            pages.Add(new ListItem("<<", (currentPage - 1).ToString()));
-        }
-
-        for (int i = startIndex; i <= endIndex; i++)
-        {
-            pages.Add(new ListItem(i.ToString(), i.ToString(), i != currentPage));
-        }
-
-        //Add the Next Button.
-        if (currentPage < pageCount)
-        {
-            pages.Add(new ListItem(">>", (currentPage + 1).ToString()));
-        }
-
-        //Add the Last Button.
-        if (currentPage != pageCount)
-        {
-            pages.Add(new ListItem("Last", pageCount.ToString()));
-        }
-        rptPager.DataSource = pages;
-        rptPager.DataBind();
+        this.PopulatePager(rptPager, recordCount, pageIndex, PageSize);
     }
     protected void Page_Changed(object sender, EventArgs e)
     {
@@ -236,6 +171,7 @@ public partial class Admin_Pages_Category : BasePage
         {
 
             btnEditCategory.Attributes.Add("class", "btn btn-circle btn-icon-only btn-default");
+            btnchangeLBImageCT.Attributes.Add("class", "btn btn-circle btn-icon-only btn-default");
             this.load_dlEditParent();
             category = new CategoryBLL();
             int ID = Convert.ToInt32((gwCategory.SelectedRow.FindControl("lblCategoryID") as Label).Text);
@@ -261,11 +197,45 @@ public partial class Admin_Pages_Category : BasePage
     }
     protected void gwCategory_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-
+        try
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                LinkButton del = e.Row.FindControl("linkBtnDel") as LinkButton;
+                del.Attributes.Add("onclick", "return confirm('Are you sure you want to delete this ?')");
+            }
+        }
+        catch (Exception ex)
+        {
+            Response.Write("<script>alert('" + ex.ToString() + "')</script>");
+        }
     }
     protected void gwCategory_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-
+        try
+        {
+            category = new CategoryBLL();
+            post_category_relationships = new Post_Category_RelationshipsBLL();
+            int ctID = Convert.ToInt32((gwCategory.Rows[e.RowIndex].FindControl("lblCategoryID") as Label).Text);
+            if (this.post_category_relationships.DeleteWithCategoryID(ctID))
+            {
+                if(this.category.UpdateParent(ctID,0))
+                {
+                    if (this.category.Delete(ctID))
+                    {
+                        this.GetPostCategoryPageWise(1);
+                    }
+                    else
+                    {
+                        this.AlertPageValid(true, "False to connect server !", alertPageValid, lblPageValid);
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
     }
 
     private int UpdateImgUpload()
@@ -329,6 +299,89 @@ public partial class Admin_Pages_Category : BasePage
         catch (Exception ex)
         {
             this.AlertPageValid(true, ex.ToLogString(), alertPageValid, lblPageValid);
+        }
+    }
+    //Load Images
+    private void GetImagesPageWise(int pageIndex)
+    {
+        try
+        {
+            images = new ImagesBLL();
+            int Size = 15;
+            int recordCount = 0;
+            rpLstImg.DataSource = images.GetImagesPageWise(pageIndex, Size);
+            recordCount = images.RecordCountImages();
+            rpLstImg.DataBind();
+            this.PopulatePager(rptPaginationImg, recordCount, pageIndex, Size);
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
+    }
+    protected void Img_Page_Changed(object sender, EventArgs e)
+    {
+        int pageIndex = int.Parse((sender as LinkButton).CommandArgument);
+        this.GetImagesPageWise(pageIndex);
+        string script = "window.onload = function() { callmodalCtImages(); };";
+        ClientScript.RegisterStartupScript(this.GetType(), "callmodalCtImages", script, true);
+    }
+    protected void btnchangeImgPost_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            string http = "http://" + Request.Url.Authority + "/";
+            txtImageTemp.Text = HiddenimgSelect.Value.Remove(0, HiddenimgSelect.Value.LastIndexOf("/") + 1);
+            ImgPostCategory.Src = "../../" + HiddenimgSelect.Value.Remove(0, http.Length);
+            
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
+    }
+    private void GetImagesCTPageWise(int pageIndex)
+    {
+        try
+        {
+            images = new ImagesBLL();
+            int Size = 15;
+            int recordCount = 0;
+            rpChangeCTImage.DataSource = images.GetImagesPageWise(pageIndex, Size);
+            recordCount = images.RecordCountImages();
+            rpChangeCTImage.DataBind();
+            this.PopulatePager(rptchangeImgCTPages, recordCount, pageIndex, Size);
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
+    }
+    protected void ImgCT_Page_Changed(object sender, EventArgs e)
+    {
+        int pageIndex = int.Parse((sender as LinkButton).CommandArgument);
+        this.GetImagesCTPageWise(pageIndex);
+        string script = "window.onload = function() { callmodalLBCtImages(); };";
+        ClientScript.RegisterStartupScript(this.GetType(), "callmodalLBCtImages", script, true);
+    }
+    protected void btnChangeCTImages_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            category = new CategoryBLL();
+            images = new ImagesBLL();
+            int ctID = Convert.ToInt32((gwCategory.SelectedRow.FindControl("lblCategoryID") as Label).Text);
+            string http = "http://" + Request.Url.Authority + "/";
+            string ImgNAme = HidImgUrlCT.Value.Remove(0, HidImgUrlCT.Value.LastIndexOf("/") + 1);
+            Images img = images.ListWithImagesName(ImgNAme).FirstOrDefault();
+            if (category.UpdateImage(ctID, img.ID))
+            {
+                this.GetPostCategoryPageWise(1);
+            }
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
         }
     }
 }

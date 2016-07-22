@@ -9,8 +9,8 @@
     <div class="main">
         <div class="container">
             <ul class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Tin tức & Sự kiện</a></li>
+                <li><a href="../Default.aspx">Home</a></li>
+                <li><a href="../Pages/TinTucVaSuKien.aspx">Tin tức & Sự kiện</a></li>
             </ul>
             <!-- BEGIN SIDEBAR & CONTENT -->
             <div class="row margin-bottom-40">

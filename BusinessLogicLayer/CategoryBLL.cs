@@ -198,5 +198,46 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return tb;
         }
+        //Update Images
+        public Boolean UpdateImage(int ID, int CateogryImage)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sqlquery = "update Category set CateogryImage=@CateogryImage where ID=@ID";
+            SqlParameter pID = new SqlParameter("@ID", ID);
+            SqlParameter pCateogryImage = new SqlParameter("@CateogryImage", CateogryImage);
+            this.dt.Updatedata(sqlquery, pID, pCateogryImage);
+            this.dt.CloseConnection();
+            return true;
+        }
+        // Set Parent Null
+        public Boolean UpdateParent(int ID, int Parent)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sqlquery = "update Category set Parent=@Parent where Parent=@ID";
+            SqlParameter pID = new SqlParameter("@ID", ID);
+            SqlParameter pParent = (Parent == 0) ? new SqlParameter("@Parent", DBNull.Value) : new SqlParameter("@Parent", Parent);
+            this.dt.Updatedata(sqlquery, pID, pParent);
+            this.dt.CloseConnection();
+            return true;
+        }
+        //Delete 
+        public Boolean Delete(int ID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sqlquery = "delete from Category where ID=@ID";
+            SqlParameter pID = new SqlParameter("@ID", ID);
+            this.dt.Updatedata(sqlquery, pID);
+            this.dt.CloseConnection();
+            return true;
+        }
     }
 }
