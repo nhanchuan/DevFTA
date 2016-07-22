@@ -111,8 +111,8 @@
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lkbtnUp" CommandArgument='<%# Eval("MenuID") %>' runat="server"><i class="fa fa-caret-square-o-up" style="font-size:20px;"></i></asp:LinkButton>
-                                    <asp:LinkButton ID="lkbtnDown" CommandArgument='<%# Eval("MenuID") %>' runat="server"><i class="fa fa-caret-square-o-down" style="font-size:20px;"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="lkbtnUp" CommandArgument='<%# Eval("MenuID") %>' OnClick="lkbtnUp_Click" runat="server"><i class="fa fa-caret-square-o-up" style="font-size:20px;"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="lkbtnDown" CommandArgument='<%# Eval("MenuID") %>' OnClick="lkbtnDown_Click" runat="server"><i class="fa fa-caret-square-o-down" style="font-size:20px;"></i></asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle Width="60px" />
                             </asp:TemplateField>
@@ -175,13 +175,13 @@
                         <Columns>
                             <asp:TemplateField HeaderText="CMenuID">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblCMenuID" runat="server" Text='<%# Eval("CMenuID") %>'></asp:Label>
+                                    <asp:Label ID="lblmenuID" runat="server" Text='<%# Eval("ID") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle Width="100px" />
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Sub Menu">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblCategoryName" runat="server" Text='<%# Eval("CategoryName") %>'></asp:Label>
+                                    <asp:Label ID="lblNameVN" runat="server" Text='<%# Eval("NameVN") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Thuộc Menu">
@@ -191,8 +191,8 @@
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lkbtnSubUp" CommandArgument='<%# Eval("CMenuID") %>' runat="server"><i class="fa fa-caret-square-o-up" style="font-size:20px;"></i></asp:LinkButton>
-                                    <asp:LinkButton ID="lkbtnSubDown" CommandArgument='<%# Eval("CMenuID") %>' runat="server"><i class="fa fa-caret-square-o-down" style="font-size:20px;"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="lkbtnSubUp" CommandArgument='<%# Eval("ID") %>' runat="server"><i class="fa fa-caret-square-o-up" style="font-size:20px;"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="lkbtnSubDown" CommandArgument='<%# Eval("ID") %>' runat="server"><i class="fa fa-caret-square-o-down" style="font-size:20px;"></i></asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle Width="60px" />
                             </asp:TemplateField>

@@ -13,6 +13,40 @@ namespace BusinessLogicLayer
     {
         DataServices dt = new DataServices();
         public DateTime defaultdate = Convert.ToDateTime("12/12/1900");
+        public List<Category> ListAllCategory()
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "select * from Category";
+            DataTable tb = dt.DATable(sqlquery);
+            List<Category> lst = new List<Category>();
+            foreach (DataRow r in tb.Rows)
+            {
+                Category ct = new Category();
+                ct.ID = (int)r["ID"];
+                ct.NameVN = (string.IsNullOrEmpty(r["NameVN"].ToString())) ? "" : (string)r["NameVN"];
+                ct.NameEN = (string.IsNullOrEmpty(r["NameEN"].ToString())) ? "" : (string)r["NameEN"];
+                ct.Parent = (string.IsNullOrEmpty(r["Parent"].ToString())) ? 0 : (int)r["Parent"];
+                ct.ItemIndex = (string.IsNullOrEmpty(r["ItemIndex"].ToString())) ? 0 : (int)r["ItemIndex"];
+                ct.Permalink = (string.IsNullOrEmpty(r["Permalink"].ToString())) ? "" : (string)r["Permalink"];
+                ct.SeoTitle = (string.IsNullOrEmpty(r["SeoTitle"].ToString())) ? "" : (string)r["SeoTitle"];
+                ct.CateogryImage = (string.IsNullOrEmpty(r["CateogryImage"].ToString())) ? 0 : (int)r["CateogryImage"];
+                ct.CreateBy = (string.IsNullOrEmpty(r["CreateBy"].ToString())) ? 0 : (int)r["CreateBy"];
+                ct.CreateDate = (DateTime)r["CreateDate"];
+                ct.ModifyDate = (string.IsNullOrEmpty(r["ModifyDate"].ToString())) ? defaultdate : (DateTime)r["ModifyDate"];
+                ct.ModifyBy = (string.IsNullOrEmpty(r["ModifyBy"].ToString())) ? 0 : (int)r["ModifyBy"];
+                ct.MetaTitle = (string.IsNullOrEmpty(r["MetaTitle"].ToString())) ? "" : (string)r["MetaTitle"];
+                ct.MetaKeywords = (string.IsNullOrEmpty(r["MetaKeywords"].ToString())) ? "" : (string)r["MetaKeywords"];
+                ct.MetaDescriptions = (string.IsNullOrEmpty(r["MetaDescriptions"].ToString())) ? "" : (string)r["MetaDescriptions"];
+                ct.CategoryStatus = (string.IsNullOrEmpty(r["CategoryStatus"].ToString())) ? false : (Boolean)r["CategoryStatus"];
+                ct.ShowOnHome = (string.IsNullOrEmpty(r["ShowOnHome"].ToString())) ? false : (Boolean)r["ShowOnHome"];
+                lst.Add(ct);
+            }
+            this.dt.CloseConnection();
+            return lst;
+        }
         public List<Category> ListCategoryWithID(int ID)
         {
             if (!this.dt.OpenConnection())

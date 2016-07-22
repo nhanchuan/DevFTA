@@ -177,5 +177,20 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return true;
         }
+        //============UPDATRE ITEM INDEX======================================================================================================================================================================
+        public Boolean UpdateItemIndex(int ItemIndex, int MenuID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sql = "update MainMenu set ItemIndex=@ItemIndex where MenuID=@MenuID";
+            SqlParameter pItemIndex = new SqlParameter("@ItemIndex", ItemIndex);
+            SqlParameter pMenuID = new SqlParameter("@MenuID", MenuID);
+            this.dt.Updatedata(sql, pItemIndex, pMenuID);
+            this.dt.CloseConnection();
+            return true;
+        }
+
     }
 }

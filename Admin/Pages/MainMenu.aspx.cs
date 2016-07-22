@@ -12,6 +12,8 @@ using BusinessLogicLayer;
 public partial class Admin_Pages_MainMenu : BasePage
 {
     MainMenuBLL mainmenu;
+    CategoryBLL category;
+    SubMenuItemBLL submenuitem;
     protected void Page_Load(object sender, EventArgs e)
     {
         this.setcurenturl();
@@ -78,7 +80,12 @@ public partial class Admin_Pages_MainMenu : BasePage
     {
 
     }
-
+    private void load_gwSubMenuItem(int menuId)
+    {
+        submenuitem = new SubMenuItemBLL();
+        gwSubMenuItem.DataSource = submenuitem.ListSubMenuItemByMenuID(menuId);
+        gwSubMenuItem.DataBind();
+    }
     protected void gwMenuItems_SelectedIndexChanged(object sender, EventArgs e)
     {
         try
@@ -90,13 +97,20 @@ public partial class Admin_Pages_MainMenu : BasePage
             txtEPermalink.Text = menu.Permalink;
             chkEStatus.Checked = menu.MenuStatus;
             btnSubmit.Enabled = true;
+            this.load_dlSelectCategory();
+            this.load_gwSubMenuItem(menuID);
         }
         catch (Exception ex)
         {
             this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
         }
     }
-
+    private void load_dlSelectCategory()
+    {
+        category = new CategoryBLL();
+        this.load_DropdownList(dlSelectCategory, category.ListAllCategory(), "NameVN", "ID");
+        dlSelectCategory.Items.Insert(0, new ListItem("-- Selected Category --", "0"));
+    }
     protected void chkShow_CheckedChanged(object sender, EventArgs e)
     {
         try
@@ -126,6 +140,110 @@ public partial class Admin_Pages_MainMenu : BasePage
             if(mainmenu.UpdateMainMenu(menuID,txtEditItemname.Text,txtEPermalink.Text,chkEStatus.Checked))
             {
                 this.load_gwMenuItems();
+            }
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
+    }
+    [Serializable]
+    class Number
+    {
+        int num;
+        public Number(int num) // ham khoi tao
+        {
+            this.num = num;
+        }
+        public int getNum()     // ham tra ve gia tri num
+        {
+            return num;
+        }
+        public void setNum(int num) // ham set gia tri num
+        {
+            this.num = num;
+        }
+    }
+    private void swap(Number a, Number b) // ham hoan vi
+    {
+        int temp = a.getNum();                  // gan num cua a cho temp
+        a.setNum(b.getNum());                   // gan num cua b cho a
+        b.setNum(temp);                         // gan temp cho num cua b
+    }
+    protected void lkbtnUp_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            mainmenu = new MainMenuBLL();
+            LinkButton lkbutton = (sender as LinkButton);
+            //Get the command argument
+            string commandArgument = lkbutton.CommandArgument;
+            int menuid = int.Parse(commandArgument);
+            Number a, b;
+            Number A, B;
+            List<MainMenu> lstMN = mainmenu.ListMenuItemsWithMenuID(menuid); //index A
+            MainMenu menu = lstMN.FirstOrDefault();
+
+            List<MainMenu> lstMUP = mainmenu.ListMenuItemsWithIndex(mainmenu.MaxItemindexLK(menu.ItemIndex)); //index B
+            MainMenu menuUp = lstMUP.FirstOrDefault();
+
+            if (menuUp == null)
+            {
+                a = new Number(0);
+                b = new Number(0);
+                return;
+            }
+            else
+            {
+                A = new Number(menu.MenuID);
+                B = new Number(menuUp.MenuID);
+                a = new Number(menu.ItemIndex);
+                b = new Number(menuUp.ItemIndex);
+                this.swap(a, b);
+                this.mainmenu.UpdateItemIndex(a.getNum(), A.getNum());
+                this.mainmenu.UpdateItemIndex(b.getNum(), B.getNum());
+                this.load_gwMenuItems();
+                gwMenuItems.SelectedIndex = -1;
+            }
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
+    }
+
+    protected void lkbtnDown_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            mainmenu = new MainMenuBLL();
+            LinkButton lkbutton = (sender as LinkButton);
+            //Get the command argument
+            string commandArgument = lkbutton.CommandArgument;
+            int menuid = int.Parse(commandArgument);
+            Number a, b;
+            Number A, B;
+            List<MainMenu> lstMN = mainmenu.ListMenuItemsWithMenuID(menuid);
+            MainMenu menu = lstMN.FirstOrDefault();
+            List<MainMenu> lstMDown = mainmenu.ListMenuItemsWithIndex(mainmenu.MinItemindexLK(menu.ItemIndex)); //index B
+            MainMenu menuDown = lstMDown.FirstOrDefault();
+            if (menuDown == null)
+            {
+                a = new Number(0);
+                b = new Number(0);
+                return;
+            }
+            else
+            {
+                A = new Number(menu.MenuID);
+                B = new Number(menuDown.MenuID);
+                a = new Number(menu.ItemIndex);
+                b = new Number(menuDown.ItemIndex);
+                this.swap(a, b);
+                this.mainmenu.UpdateItemIndex(a.getNum(), A.getNum());
+                this.mainmenu.UpdateItemIndex(b.getNum(), B.getNum());
+                this.load_gwMenuItems();
+                gwMenuItems.SelectedIndex = -1;
             }
         }
         catch (Exception ex)
