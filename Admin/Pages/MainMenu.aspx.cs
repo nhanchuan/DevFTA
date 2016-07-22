@@ -99,6 +99,7 @@ public partial class Admin_Pages_MainMenu : BasePage
             btnSubmit.Enabled = true;
             this.load_dlSelectCategory();
             this.load_gwSubMenuItem(menuID);
+            lblAddSubItemWaring.Text = "";
         }
         catch (Exception ex)
         {
@@ -249,6 +250,159 @@ public partial class Admin_Pages_MainMenu : BasePage
         catch (Exception ex)
         {
             this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
+    }
+
+    protected void btnInsertItemtoMenu_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            submenuitem = new SubMenuItemBLL();
+            string strMenuID = (gwMenuItems.SelectedRow.FindControl("lblMenuID") as Label).Text;
+            List<SubMenuItem> lstMC = submenuitem.ListItemByMenuIDandCategoryID(Convert.ToInt32(strMenuID), Convert.ToInt32(dlSelectCategory.SelectedValue));
+            SubMenuItem menuItem = lstMC.FirstOrDefault();
+            if (menuItem != null)
+            {
+                lblAddSubItemWaring.Text = "Danh mục đã có. Vui lòng chọn danh mục khác !";
+            }
+            else
+            {
+                //lblAddSubItemWaring.Text = menu_categry.CounkItemWithMenuID(Convert.ToInt32(strMenuID)).ToString();
+                lblAddSubItemWaring.Text = "";
+                if (submenuitem.AddNewSubMenuItem(Convert.ToInt32(strMenuID), Convert.ToInt32(dlSelectCategory.SelectedValue), submenuitem.MaxSortOrderByMenuID(Convert.ToInt32(strMenuID)) + 1))
+                {
+                    this.load_gwSubMenuItem(Convert.ToInt32(strMenuID));
+                }
+                else
+                {
+                    lblAddSubItemWaring.Text = "Thêm thất bại. Lỗi kết nối CSDL !";
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
+    }
+
+    protected void gwSubMenuItem_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        try
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                LinkButton del = e.Row.FindControl("linkBtnDelSubItem") as LinkButton;
+                del.Attributes.Add("onclick", "return confirm('Are you sure you want to delete this ?')");
+            }
+        }
+        catch (Exception ex)
+        {
+            Response.Write("<script>alert('" + ex.ToString() + "')</script>");
+        }
+    }
+
+    protected void gwSubMenuItem_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            submenuitem = new SubMenuItemBLL();
+            string strMenuID = (gwMenuItems.SelectedRow.FindControl("lblMenuID") as Label).Text;
+            int subID = Convert.ToInt32((gwSubMenuItem.Rows[e.RowIndex].FindControl("lblmenuID") as Label).Text);
+
+            if (this.submenuitem.DeleteByID(subID))
+            {
+                this.load_gwSubMenuItem(Convert.ToInt32(strMenuID));
+            }
+            else
+            {
+                Response.Write("<script>alert('Xóa Menu Item thất bại. Lỗi kết nối csdl !')</script>");
+            }
+        }
+        catch (Exception ex)
+        {
+            lblAddSubItemWaring.Text = ex.ToLogString();
+        }
+    }
+
+    protected void lkbtnSubUp_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            submenuitem = new SubMenuItemBLL();
+            string strMenuID = (gwMenuItems.SelectedRow.FindControl("lblMenuID") as Label).Text;
+            LinkButton lkbutton = (sender as LinkButton);
+            string commandArgument = lkbutton.CommandArgument;
+            int c_menuid = int.Parse(commandArgument);
+            Number a, b;
+            Number A, B;
+            List<SubMenuItem> lstCMN = submenuitem.ListItemByID(c_menuid);
+            SubMenuItem c_menu = lstCMN.FirstOrDefault();
+            List<SubMenuItem> lstCMUP = submenuitem.ListItemBySortOrderandMenuID(submenuitem.MaxItemindexLK(c_menu.SortOrder, Convert.ToInt32(strMenuID)), Convert.ToInt32(strMenuID));
+            SubMenuItem menuUp = lstCMUP.FirstOrDefault();
+
+            if (menuUp == null)
+            {
+                a = new Number(0);
+                b = new Number(0);
+                return;
+            }
+            else
+            {
+                A = new Number(c_menu.ID);
+                B = new Number(menuUp.ID);
+                a = new Number(c_menu.SortOrder);
+                b = new Number(menuUp.SortOrder);
+                this.swap(a, b);
+                this.submenuitem.UpdateIndexItem(a.getNum(), A.getNum());
+                this.submenuitem.UpdateIndexItem(b.getNum(), B.getNum());
+                this.load_gwSubMenuItem(Convert.ToInt32(strMenuID));
+                gwSubMenuItem.SelectedIndex = -1;
+            }
+        }
+        catch (Exception ex)
+        {
+            lblAddSubItemWaring.Text = ex.ToLogString();
+        }
+    }
+
+    protected void lkbtnSubDown_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            submenuitem = new SubMenuItemBLL();
+            string strMenuID = (gwMenuItems.SelectedRow.FindControl("lblMenuID") as Label).Text;
+            LinkButton lkbutton = (sender as LinkButton);
+            string commandArgument = lkbutton.CommandArgument;
+            int c_menuid = int.Parse(commandArgument);
+            Number a, b;
+            Number A, B;
+            List<SubMenuItem> lstCMN = submenuitem.ListItemByID(c_menuid);
+            SubMenuItem c_menu = lstCMN.FirstOrDefault();
+            List<SubMenuItem> lstCMUP = submenuitem.ListItemBySortOrderandMenuID(submenuitem.MinItemindexLK(c_menu.SortOrder, Convert.ToInt32(strMenuID)), Convert.ToInt32(strMenuID));
+            SubMenuItem menuUp = lstCMUP.FirstOrDefault();
+
+            if (menuUp == null)
+            {
+                a = new Number(0);
+                b = new Number(0);
+                return;
+            }
+            else
+            {
+                A = new Number(c_menu.ID);
+                B = new Number(menuUp.ID);
+                a = new Number(c_menu.SortOrder);
+                b = new Number(menuUp.SortOrder);
+                this.swap(a, b);
+                this.submenuitem.UpdateIndexItem(a.getNum(), A.getNum());
+                this.submenuitem.UpdateIndexItem(b.getNum(), B.getNum());
+                this.load_gwSubMenuItem(Convert.ToInt32(strMenuID));
+                gwSubMenuItem.SelectedIndex = -1;
+            }
+        }
+        catch (Exception ex)
+        {
+            lblAddSubItemWaring.Text = ex.ToLogString();
         }
     }
 }

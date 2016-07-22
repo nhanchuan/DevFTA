@@ -88,9 +88,9 @@
 
                     <div class="clearfix"></div>
                     <asp:GridView ID="gwMenuItems" CssClass="table table-condensed" runat="server" AutoGenerateColumns="False" RowStyle-BackColor="#A1DCF2" Font-Names="Arial" Font-Size="10pt"
-                        HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" 
-                        OnRowDataBound="gwMenuItems_RowDataBound" 
-                        OnRowDeleting="gwMenuItems_RowDeleting" 
+                        HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White"
+                        OnRowDataBound="gwMenuItems_RowDataBound"
+                        OnRowDeleting="gwMenuItems_RowDeleting"
                         OnSelectedIndexChanged="gwMenuItems_SelectedIndexChanged">
                         <Columns>
                             <asp:TemplateField HeaderText="DB_ID">
@@ -154,7 +154,8 @@
 
                             </div>
                             <span class="input-group-btn">
-                                <button id="btnInsertItemtoMenu" class="btn btn-success" type="button" validationgroup="validChoseCategory" runat="server"><i class="fa fa-arrow-left fa-fw"></i>Thêm vào Menu</button>
+                                <%--<button id="btnInsertItemtoMenu" class="btn btn-success" type="button" validationgroup="validChoseCategory" runat="server"><i class="fa fa-arrow-left fa-fw"></i>Thêm vào Menu</button>--%>
+                                <asp:Button ID="btnInsertItemtoMenu" CssClass="btn btn-success" ValidationGroup="validChoseCategory" OnClick="btnInsertItemtoMenu_Click" runat="server" Text="<= Thêm vào Menu" />
                             </span>
                         </div>
                     </div>
@@ -171,7 +172,7 @@
                             <asp:Label ID="lblAddSubItemWaring" ForeColor="Red" runat="server"></asp:Label></i>
                     </div>
                     <asp:GridView ID="gwSubMenuItem" CssClass="table table-condensed" runat="server" AutoGenerateColumns="False" RowStyle-BackColor="#A1DCF2" Font-Names="Arial" Font-Size="10pt"
-                        HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White">
+                        HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" OnRowDataBound="gwSubMenuItem_RowDataBound" OnRowDeleting="gwSubMenuItem_RowDeleting">
                         <Columns>
                             <asp:TemplateField HeaderText="CMenuID">
                                 <ItemTemplate>
@@ -191,14 +192,14 @@
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lkbtnSubUp" CommandArgument='<%# Eval("ID") %>' runat="server"><i class="fa fa-caret-square-o-up" style="font-size:20px;"></i></asp:LinkButton>
-                                    <asp:LinkButton ID="lkbtnSubDown" CommandArgument='<%# Eval("ID") %>' runat="server"><i class="fa fa-caret-square-o-down" style="font-size:20px;"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="lkbtnSubUp" CommandArgument='<%# Eval("ID") %>' OnClick="lkbtnSubUp_Click" runat="server"><i class="fa fa-caret-square-o-up" style="font-size:20px;"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="lkbtnSubDown" CommandArgument='<%# Eval("ID") %>' OnClick="lkbtnSubDown_Click" runat="server"><i class="fa fa-caret-square-o-down" style="font-size:20px;"></i></asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle Width="60px" />
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="linkBtnDelSubItem" runat="server" CausesValidation="False" CommandName="Delete" ToolTip="Delete" Text="Delete"><img src="../images/icon/Actions-edit-delete-icon.png" width="20" height="20" /></asp:LinkButton>
+                                    <asp:LinkButton ID="linkBtnDelSubItem" CssClass="btn btn-circle btn-icon-only btn-default" runat="server" CausesValidation="False" CommandName="Delete" ToolTip="Delete" Text="Delete"><i class="glyphicon glyphicon-trash"></i></asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle Width="30px" />
                             </asp:TemplateField>

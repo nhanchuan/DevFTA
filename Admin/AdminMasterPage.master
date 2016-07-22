@@ -315,7 +315,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="../Pages/MenuSetting.aspx"><i class="icon-directions"></i>Menu setting</a>
+                                    <a href="../../Admin/Pages/MainMenu.aspx"><i class="icon-directions"></i>Menu setting</a>
                                 </li>
                                 <li>
                                     <a href="../../Admin/Pages/SubSlider.aspx"><i class="fa fa-cubes"></i>&nbsp SubSlider</a>
