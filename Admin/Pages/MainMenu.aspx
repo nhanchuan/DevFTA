@@ -76,13 +76,11 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
-                                    <h4><i>Menu Index :
-                                        <asp:Label ID="lblEIndex" runat="server" Text="Label"></asp:Label></i></h4>
-                                    <asp:Label ID="lblWaringEdit" ForeColor="Red" runat="server"></asp:Label>
+                                    <asp:CheckBox ID="chkEStatus" Text="Show" runat="server" />
                                 </div>
                                 <div class="col-lg-2">
                                     <br />
-                                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary" ValidationGroup="validEditMenu" Enabled="false" runat="server" Text="Submit" />
+                                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary" ValidationGroup="validEditMenu" Enabled="false" OnClick="btnSubmit_Click" runat="server" Text="Submit" />
                                 </div>
                             </div>
                         </div>
@@ -90,7 +88,10 @@
 
                     <div class="clearfix"></div>
                     <asp:GridView ID="gwMenuItems" CssClass="table table-condensed" runat="server" AutoGenerateColumns="False" RowStyle-BackColor="#A1DCF2" Font-Names="Arial" Font-Size="10pt"
-                        HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" OnRowDataBound="gwMenuItems_RowDataBound" OnRowDeleting="gwMenuItems_RowDeleting" OnSelectedIndexChanged="gwMenuItems_SelectedIndexChanged">
+                        HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" 
+                        OnRowDataBound="gwMenuItems_RowDataBound" 
+                        OnRowDeleting="gwMenuItems_RowDeleting" 
+                        OnSelectedIndexChanged="gwMenuItems_SelectedIndexChanged">
                         <Columns>
                             <asp:TemplateField HeaderText="DB_ID">
                                 <ItemTemplate>

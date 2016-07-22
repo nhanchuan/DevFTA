@@ -81,17 +81,54 @@ public partial class Admin_Pages_MainMenu : BasePage
 
     protected void gwMenuItems_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        try
+        {
+            mainmenu = new MainMenuBLL();
+            int menuID = Convert.ToInt32((gwMenuItems.SelectedRow.FindControl("lblMenuID") as Label).Text);
+            MainMenu menu = mainmenu.ListMenuItemsWithMenuID(menuID).FirstOrDefault();
+            txtEditItemname.Text = menu.ItemName;
+            txtEPermalink.Text = menu.Permalink;
+            chkEStatus.Checked = menu.MenuStatus;
+            btnSubmit.Enabled = true;
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
     }
 
     protected void chkShow_CheckedChanged(object sender, EventArgs e)
     {
         try
         {
+            
+            CheckBox chk = (sender as CheckBox);
+            GridViewRow row = (GridViewRow)(((CheckBox)sender).NamingContainer);
+            HiddenField hdnCheck = (HiddenField)row.Cells[4].FindControl("hiddenField1");
             mainmenu = new MainMenuBLL();
-
+            if (mainmenu.UpdateStatus(Convert.ToInt32(hdnCheck.Value), chk.Checked))
+            {
+                this.load_gwMenuItems();
+            }
         }
-        catch (Exception)
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            mainmenu = new MainMenuBLL();
+            int menuID = Convert.ToInt32((gwMenuItems.SelectedRow.FindControl("lblMenuID") as Label).Text);
+            if(mainmenu.UpdateMainMenu(menuID,txtEditItemname.Text,txtEPermalink.Text,chkEStatus.Checked))
+            {
+                this.load_gwMenuItems();
+            }
+        }
+        catch (Exception ex)
         {
             this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
         }

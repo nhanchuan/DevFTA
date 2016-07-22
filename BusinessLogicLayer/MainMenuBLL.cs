@@ -108,7 +108,7 @@ namespace BusinessLogicLayer
             SqlParameter pItemName = (ItemName == "") ? new SqlParameter("@ItemName", DBNull.Value) : new SqlParameter("@ItemName", ItemName);
             SqlParameter pPermalink = (Permalink == "") ? new SqlParameter("@Permalink", DBNull.Value) : new SqlParameter("@Permalink", Permalink);
             SqlParameter pMenuStatus = new SqlParameter("@MenuStatus", MenuStatus);
-            this.dt.Updatedata(sql, pMenuID, pItemName, pPermalink);
+            this.dt.Updatedata(sql, pMenuID, pItemName, pPermalink, pMenuStatus);
             this.dt.CloseConnection();
             return true;
         }
@@ -162,6 +162,20 @@ namespace BusinessLogicLayer
             RC = dt.GetValues(sql, pItemIndex);
             this.dt.CloseConnection();
             return RC;
+        }
+        //Update Status
+        public Boolean UpdateStatus(int MenuID, Boolean MenuStatus)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return false;
+            }
+            string sql = "update MainMenu set MenuStatus=@MenuStatus where MenuID=@MenuID";
+            SqlParameter pMenuID = new SqlParameter("@MenuID", MenuID);
+            SqlParameter pMenuStatus = new SqlParameter("@MenuStatus", MenuStatus);
+            this.dt.Updatedata(sql, pMenuID, pMenuStatus);
+            this.dt.CloseConnection();
+            return true;
         }
     }
 }
