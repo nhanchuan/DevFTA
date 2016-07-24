@@ -31,6 +31,35 @@ namespace BusinessLogicLayer
                 itm.MenuID = (string.IsNullOrEmpty(r["MenuID"].ToString())) ? 0 : (int)r["MenuID"];
                 itm.CategoryID = (string.IsNullOrEmpty(r["CategoryID"].ToString())) ? 0 : (int)r["CategoryID"];
                 itm.SortOrder = (string.IsNullOrEmpty(r["SortOrder"].ToString())) ? 0 : (int)r["SortOrder"];
+                itm.OrtherItem = (string.IsNullOrEmpty(r["OrtherItem"].ToString())) ? "" : (string)r["OrtherItem"];
+                itm.Permalink = (string.IsNullOrEmpty(r["Permalink"].ToString())) ? "" : (string)r["Permalink"];
+                itm.PostID = (string.IsNullOrEmpty(r["PostID"].ToString())) ? 0 : (int)r["PostID"];
+                lst.Add(itm);
+            }
+            this.dt.CloseConnection();
+            return lst;
+        }
+        public List<SubMenuItem> ListItemByMenuIDandPostID(int MenuID, int PostID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sql = "select * from SubMenuItem where MenuID=@MenuID and PostID=@PostID";
+            SqlParameter pMenuID = new SqlParameter("@MenuID", MenuID);
+            SqlParameter pPostID = new SqlParameter("@PostID", PostID);
+            DataTable tb = dt.DATable(sql, pMenuID, pPostID);
+            List<SubMenuItem> lst = new List<SubMenuItem>();
+            foreach (DataRow r in tb.Rows)
+            {
+                SubMenuItem itm = new SubMenuItem();
+                itm.ID = (int)r["ID"];
+                itm.MenuID = (string.IsNullOrEmpty(r["MenuID"].ToString())) ? 0 : (int)r["MenuID"];
+                itm.CategoryID = (string.IsNullOrEmpty(r["CategoryID"].ToString())) ? 0 : (int)r["CategoryID"];
+                itm.SortOrder = (string.IsNullOrEmpty(r["SortOrder"].ToString())) ? 0 : (int)r["SortOrder"];
+                itm.OrtherItem = (string.IsNullOrEmpty(r["OrtherItem"].ToString())) ? "" : (string)r["OrtherItem"];
+                itm.Permalink = (string.IsNullOrEmpty(r["Permalink"].ToString())) ? "" : (string)r["Permalink"];
+                itm.PostID = (string.IsNullOrEmpty(r["PostID"].ToString())) ? 0 : (int)r["PostID"];
                 lst.Add(itm);
             }
             this.dt.CloseConnection();
@@ -53,6 +82,9 @@ namespace BusinessLogicLayer
                 itm.MenuID = (string.IsNullOrEmpty(r["MenuID"].ToString())) ? 0 : (int)r["MenuID"];
                 itm.CategoryID = (string.IsNullOrEmpty(r["CategoryID"].ToString())) ? 0 : (int)r["CategoryID"];
                 itm.SortOrder = (string.IsNullOrEmpty(r["SortOrder"].ToString())) ? 0 : (int)r["SortOrder"];
+                itm.OrtherItem = (string.IsNullOrEmpty(r["OrtherItem"].ToString())) ? "" : (string)r["OrtherItem"];
+                itm.Permalink = (string.IsNullOrEmpty(r["Permalink"].ToString())) ? "" : (string)r["Permalink"];
+                itm.PostID = (string.IsNullOrEmpty(r["PostID"].ToString())) ? 0 : (int)r["PostID"];
                 lst.Add(itm);
             }
             this.dt.CloseConnection();
@@ -76,6 +108,9 @@ namespace BusinessLogicLayer
                 itm.MenuID = (string.IsNullOrEmpty(r["MenuID"].ToString())) ? 0 : (int)r["MenuID"];
                 itm.CategoryID = (string.IsNullOrEmpty(r["CategoryID"].ToString())) ? 0 : (int)r["CategoryID"];
                 itm.SortOrder = (string.IsNullOrEmpty(r["SortOrder"].ToString())) ? 0 : (int)r["SortOrder"];
+                itm.OrtherItem = (string.IsNullOrEmpty(r["OrtherItem"].ToString())) ? "" : (string)r["OrtherItem"];
+                itm.Permalink = (string.IsNullOrEmpty(r["Permalink"].ToString())) ? "" : (string)r["Permalink"];
+                itm.PostID = (string.IsNullOrEmpty(r["PostID"].ToString())) ? 0 : (int)r["PostID"];
                 lst.Add(itm);
             }
             this.dt.CloseConnection();
@@ -94,17 +129,20 @@ namespace BusinessLogicLayer
             return tb;
         }
         //Add New Menu Category Item
-        public Boolean AddNewSubMenuItem(int MenuID, int CategoryID, int SortOrder)
+        public Boolean AddNewSubMenuItem(int MenuID, int CategoryID, int SortOrder, string OrtherItem, string Permalink, int PostID)
         {
             if (!this.dt.OpenConnection())
             {
                 return false;
             }
-            string sql = "insert into SubMenuItem(MenuID,CategoryID,SortOrder) values(@MenuID,@CategoryID,@SortOrder)";
+            string sql = "insert into SubMenuItem(MenuID,CategoryID,SortOrder,OrtherItem,Permalink,PostID) values(@MenuID,@CategoryID,@SortOrder,@OrtherItem,@Permalink,@PostID)";
             SqlParameter pMenuID = new SqlParameter("@MenuID", MenuID);
-            SqlParameter pCategoryID = new SqlParameter("@CategoryID", CategoryID);
+            SqlParameter pCategoryID = (CategoryID == 0) ? new SqlParameter("@CategoryID", DBNull.Value) : new SqlParameter("@CategoryID", CategoryID);
             SqlParameter pSortOrder = new SqlParameter("@SortOrder", SortOrder);
-            this.dt.Updatedata(sql, pMenuID, pCategoryID, pSortOrder);
+            SqlParameter pOrtherItem = (OrtherItem == "") ? new SqlParameter("@OrtherItem", DBNull.Value) : new SqlParameter("@OrtherItem", OrtherItem);
+            SqlParameter pPermalink = (Permalink == "") ? new SqlParameter("@Permalink", DBNull.Value) : new SqlParameter("@Permalink", Permalink);
+            SqlParameter pPostID = (PostID == 0) ? new SqlParameter("@PostID", DBNull.Value) : new SqlParameter("@PostID", PostID);
+            this.dt.Updatedata(sql, pMenuID, pCategoryID, pSortOrder, pOrtherItem, pPermalink, pPostID);
             this.dt.CloseConnection();
             return true;
         }

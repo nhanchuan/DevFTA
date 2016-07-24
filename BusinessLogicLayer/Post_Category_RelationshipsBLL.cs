@@ -32,15 +32,15 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return true;
         }
-        public List<Post_Category_Relationships> getCategoryWithPostId(int postid)
+        public List<Post_Category_Relationships> getCategoryWithPostId(int PostID)
         {
             if (!this.dt.OpenConnection())
             {
                 return null;
             }
-            string sqlquery = "select * from Post_Category_Relationships where PostID=@postid";
-            SqlParameter ppostid = new SqlParameter("@postid", postid);
-            DataTable tb = dt.DATable(sqlquery, ppostid);
+            string sqlquery = "select * from Post_Category_Relationships where PostID=@PostID";
+            SqlParameter pPostID = new SqlParameter("@PostID", PostID);
+            DataTable tb = dt.DATable(sqlquery, pPostID);
             List<Post_Category_Relationships> lst = new List<Post_Category_Relationships>();
             foreach (DataRow r in tb.Rows)
             {

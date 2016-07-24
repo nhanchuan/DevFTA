@@ -13,6 +13,7 @@ public partial class Admin_Pages_MainMenu : BasePage
 {
     MainMenuBLL mainmenu;
     CategoryBLL category;
+    PostBLL posts;
     SubMenuItemBLL submenuitem;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -98,6 +99,7 @@ public partial class Admin_Pages_MainMenu : BasePage
             chkEStatus.Checked = menu.MenuStatus;
             btnSubmit.Enabled = true;
             this.load_dlSelectCategory();
+            this.load_btnAddPost();
             this.load_gwSubMenuItem(menuID);
             lblAddSubItemWaring.Text = "";
         }
@@ -112,11 +114,18 @@ public partial class Admin_Pages_MainMenu : BasePage
         this.load_DropdownList(dlSelectCategory, category.ListAllCategory(), "NameVN", "ID");
         dlSelectCategory.Items.Insert(0, new ListItem("-- Selected Category --", "0"));
     }
+    private void load_btnAddPost()
+    {
+        posts = new PostBLL();
+        this.load_DropdownList(dlPosts, posts.ListAllPostinACtive(), "TitleVN", "ID");
+        dlPosts.DataBind();
+        dlPosts.Items.Insert(0, new ListItem(" -- Select a Post -- ", "0"));
+    }
     protected void chkShow_CheckedChanged(object sender, EventArgs e)
     {
         try
         {
-            
+
             CheckBox chk = (sender as CheckBox);
             GridViewRow row = (GridViewRow)(((CheckBox)sender).NamingContainer);
             HiddenField hdnCheck = (HiddenField)row.Cells[4].FindControl("hiddenField1");
@@ -138,7 +147,7 @@ public partial class Admin_Pages_MainMenu : BasePage
         {
             mainmenu = new MainMenuBLL();
             int menuID = Convert.ToInt32((gwMenuItems.SelectedRow.FindControl("lblMenuID") as Label).Text);
-            if(mainmenu.UpdateMainMenu(menuID,txtEditItemname.Text,txtEPermalink.Text,chkEStatus.Checked))
+            if (mainmenu.UpdateMainMenu(menuID, txtEditItemname.Text, txtEPermalink.Text, chkEStatus.Checked))
             {
                 this.load_gwMenuItems();
             }
@@ -258,6 +267,8 @@ public partial class Admin_Pages_MainMenu : BasePage
         try
         {
             submenuitem = new SubMenuItemBLL();
+            //category = new CategoryBLL();
+            //Category cat = category.ListCategoryWithID(Convert.ToInt32(dlSelectCategory.SelectedValue)).FirstOrDefault();
             string strMenuID = (gwMenuItems.SelectedRow.FindControl("lblMenuID") as Label).Text;
             List<SubMenuItem> lstMC = submenuitem.ListItemByMenuIDandCategoryID(Convert.ToInt32(strMenuID), Convert.ToInt32(dlSelectCategory.SelectedValue));
             SubMenuItem menuItem = lstMC.FirstOrDefault();
@@ -269,7 +280,7 @@ public partial class Admin_Pages_MainMenu : BasePage
             {
                 //lblAddSubItemWaring.Text = menu_categry.CounkItemWithMenuID(Convert.ToInt32(strMenuID)).ToString();
                 lblAddSubItemWaring.Text = "";
-                if (submenuitem.AddNewSubMenuItem(Convert.ToInt32(strMenuID), Convert.ToInt32(dlSelectCategory.SelectedValue), submenuitem.MaxSortOrderByMenuID(Convert.ToInt32(strMenuID)) + 1))
+                if (submenuitem.AddNewSubMenuItem(Convert.ToInt32(strMenuID), Convert.ToInt32(dlSelectCategory.SelectedValue), submenuitem.MaxSortOrderByMenuID(Convert.ToInt32(strMenuID)) + 1, "", "", 0))
                 {
                     this.load_gwSubMenuItem(Convert.ToInt32(strMenuID));
                 }
@@ -403,6 +414,56 @@ public partial class Admin_Pages_MainMenu : BasePage
         catch (Exception ex)
         {
             lblAddSubItemWaring.Text = ex.ToLogString();
+        }
+    }
+
+    protected void btnAddOrtherItem_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            submenuitem = new SubMenuItemBLL();
+            string strMenuID = (gwMenuItems.SelectedRow.FindControl("lblMenuID") as Label).Text;
+            lblAddSubItemWaring.Text = "";
+            if (submenuitem.AddNewSubMenuItem(Convert.ToInt32(strMenuID), 0, submenuitem.MaxSortOrderByMenuID(Convert.ToInt32(strMenuID)) + 1, txtOrtherItem.Text, txtOrtherItemParmalink.Text, Convert.ToInt32(dlPosts.SelectedValue)))
+            {
+                this.load_gwSubMenuItem(Convert.ToInt32(strMenuID));
+                txtOrtherItem.Text = "";
+                txtOrtherItemParmalink.Text = "";
+            }
+            else
+            {
+                lblAddSubItemWaring.Text = "Thêm thất bại. Lỗi kết nối CSDL !";
+            }
+        }
+        catch (Exception ex)
+        {
+            lblWarningOrtherItem.Text = ex.ToLogString();
+        }
+    }
+
+    protected void btnAddPost_Click(object sender, EventArgs e)
+    {
+        submenuitem = new SubMenuItemBLL();
+        //category = new CategoryBLL();
+        //Category cat = category.ListCategoryWithID(Convert.ToInt32(dlSelectCategory.SelectedValue)).FirstOrDefault();
+        string strMenuID = (gwMenuItems.SelectedRow.FindControl("lblMenuID") as Label).Text;
+        List<SubMenuItem> lstMC = submenuitem.ListItemByMenuIDandPostID(Convert.ToInt32(strMenuID), Convert.ToInt32(dlPosts.SelectedValue));
+        SubMenuItem menuItem = lstMC.FirstOrDefault();
+        if (menuItem != null)
+        {
+            lblWarningAddPost.Text = "Bài viết đã có. Vui lòng chọn bài viết khác !";
+        }
+        else
+        {
+            lblAddSubItemWaring.Text = "";
+            if (submenuitem.AddNewSubMenuItem(Convert.ToInt32(strMenuID), 0, submenuitem.MaxSortOrderByMenuID(Convert.ToInt32(strMenuID)) + 1, "", "", Convert.ToInt32(dlPosts.SelectedValue)))
+            {
+                this.load_gwSubMenuItem(Convert.ToInt32(strMenuID));
+            }
+            else
+            {
+                lblAddSubItemWaring.Text = "Thêm thất bại. Lỗi kết nối CSDL !";
+            }
         }
     }
 }

@@ -16,12 +16,12 @@
             <div class="row margin-bottom-40">
                 <!-- BEGIN CONTENT -->
                 <div class="col-md-12 col-sm-12">
-                    <h1>Blog Item</h1>
+                    <%--<h1>Blog Item</h1>--%>
                     <div class="content-page">
                         <div class="row">
                             <!-- BEGIN LEFT SIDEBAR -->
                             <div class="col-md-9 col-sm-9 blog-item">
-                                <div class="blog-item-img">
+                                <%--<div class="blog-item-img">
                                     <!-- BEGIN CAROUSEL -->
                                     <div class="front-carousel">
                                         <div id="myCarousel" class="carousel slide">
@@ -49,15 +49,10 @@
                                         </div>
                                     </div>
                                     <!-- END CAROUSEL -->
-                                </div>
-                                <h2><a href="#">Corrupti quos dolores etquas</a></h2>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui sint blanditiis prae sentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing condimentum eleifend enim a feugiat.</p>
-                                <blockquote>
-                                    <p>Pellentesque ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante Integer posuere erat a ante.</p>
-                                    <small>Someone famous <cite title="Source Title">Source Title</cite></small>
-                                </blockquote>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                                <p>Culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+                                </div>--%>
+                                <h2><a href="#"><asp:Label ID="lblPostTitle" runat="server" Text="Label"></asp:Label></a></h2>
+                                <p>
+                                    <asp:Label ID="lblcontent" runat="server" Text="Label"></asp:Label></p>
                                 <ul class="blog-info">
                                     <li><i class="fa fa-user"></i>By admin</li>
                                     <li><i class="fa fa-calendar"></i>25/07/2013</li>

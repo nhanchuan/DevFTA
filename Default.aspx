@@ -518,196 +518,131 @@
                                 </ol>
                             </div>
                             <div class="top-news margin-top-10">
-                                <a href="#" class="btn blue">
-                                    <span>Featured News </span>
+                                <a href="kinh-te-13" class="btn blue">
+                                    <span>
+                                        <asp:Label ID="lblLeftBlockNews" runat="server" Text="Label"></asp:Label>
+                                    </span>
                                     <em>
                                         <i class="fa fa-tags"></i>
                                         USA, Business, Apple </em>
                                     <i class="fa fa- icon-bullhorn top-news-icon"></i>
                                 </a>
                             </div>
-                            <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Google Glass Technology.. </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>CA, USA</strong>
-                                    <em>3 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image1.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
-                            <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Sint occaecati cupiditat </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>London, UK</strong>
-                                    <em>7 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image4.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
-                            <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Accusamus et iusto odio </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>CA, USA</strong>
-                                    <em>3 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image5.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
+                            <asp:Repeater ID="rptLeftBlockNews" runat="server">
+                                <ItemTemplate>
+                                    <div class="news-blocks">
+                                        <h3>
+                                            <a href="#"><%# Eval("TitleVN") %> </a>
+                                        </h3>
+                                        <div class="news-block-tags">
+                                            <strong>CA, USA</strong>
+                                            <em><i class="fa fa-calendar"></i><%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
+                                        </div>
+                                        <p>
+                                            <img class="news-block-img pull-right" src='<%# "../../"+Eval("ImagesUrl") %>' alt="">
+                                            <%# Limit(Eval("MetaDescriptions"),500) %>
+                                        </p>
+                                        <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
+                                        </a>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
                         <!--end col-md-5-->
                         <div class="col-md-4">
                             <div class="top-news">
-                                <a href="#" class="btn red">
-                                    <span>World News </span>
+                                <a href="thi-truong-14" class="btn red">
+                                    <span>
+                                        <asp:Label ID="lblNewsMidTop" runat="server" Text="Label"></asp:Label>
+                                    </span>
                                     <em>
                                         <i class="fa fa-tags"></i>
                                         UK, Canada, Asia </em>
                                     <i class="fa fa-globe top-news-icon"></i>
                                 </a>
                             </div>
-                            <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Odio dignissimos ducimus </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>Berlin, Germany</strong>
-                                    <em>2 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image3.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
-                            <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Sanditiis praesentium vo </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>Ankara, Turkey</strong>
-                                    <em>5 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image5.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint praesentium voluptatum delenitioccaecati cupiditate non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
+                            <asp:Repeater ID="rptNewsMidTop" runat="server">
+                                <ItemTemplate>
+                                    <div class="news-blocks">
+                                        <h3>
+                                            <a href="#"><%# Eval("TitleVN") %> </a>
+                                        </h3>
+                                        <div class="news-block-tags">
+                                            <strong>CA, USA</strong>
+                                            <em><i class="fa fa-calendar"></i><%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
+                                        </div>
+                                        <p>
+                                            <img class="news-block-img pull-right" src='<%# "../../"+Eval("ImagesUrl") %>' alt="">
+                                            <%# Limit(Eval("MetaDescriptions"),500) %>
+                                        </p>
+                                        <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
+                                        </a>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                             <div class="top-news">
-                                <a href="#" class="btn green">
-                                    <span>Finance </span>
+                                <a href="nguoi-tieu-dung-1" class="btn green">
+                                    <span>
+                                        <asp:Label ID="lblNewsMidBotom" runat="server" Text="Label"></asp:Label>
+                                    </span>
                                     <em>
                                         <i class="fa fa-tags"></i>
                                         Money, Business, Google </em>
                                     <i class="fa fa-briefcase top-news-icon"></i>
                                 </a>
                             </div>
-                            <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Odio dignissimos ducimus </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>Berlin, Germany</strong>
-                                    <em>2 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image3.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
-                            <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Sanditiis praesentium vo </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>Ankara, Turkey</strong>
-                                    <em>5 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image5.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint praesentium voluptatum delenitioccaecati cupiditate non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
+                            <asp:Repeater ID="rptNewsMidBotom" runat="server">
+                                <ItemTemplate>
+                                    <div class="news-blocks">
+                                        <h3>
+                                            <a href="#"><%# Eval("TitleVN") %> </a>
+                                        </h3>
+                                        <div class="news-block-tags">
+                                            <strong>CA, USA</strong>
+                                            <em><i class="fa fa-calendar"></i><%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
+                                        </div>
+                                        <p>
+                                            <img class="news-block-img pull-right" src='<%# "../../"+Eval("ImagesUrl") %>' alt="">
+                                            <%# Limit(Eval("MetaDescriptions"),500) %>
+                                        </p>
+                                        <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
+                                        </a>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
                         <!--end col-md-4-->
                         <div class="col-md-3">
                             <div class="top-news">
-                                <a href="#" class="btn purple">
-                                    <span>Science </span>
+                                <a href="scienece-6" class="btn purple">
+                                    <span>
+                                        <asp:Label ID="lblNewsRight" runat="server" Text="Label"></asp:Label>
+                                    </span>
                                     <em>
                                         <i class="fa fa-tags"></i>
                                         Hi-Tech, Medicine, Space </em>
                                     <i class="fa fa-beaker top-news-icon"></i>
                                 </a>
                             </div>
-                            <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Vero eos et accusam </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>CA, USA</strong>
-                                    <em>3 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image2.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
-                            <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Sias excepturi sint occae </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>Vancouver, Canada</strong>
-                                    <em>3 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image4.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
-                            <div class="top-news">
-                                <a href="#" class="btn yellow">
-                                    <span>Sport </span>
-                                    <em>
-                                        <i class="fa fa-tags"></i>
-                                        Football, Swimming, Tennis </em>
-                                    <i class="fa fa-trophy top-news-icon"></i>
-                                </a>
-                            </div>
-                            <div class="news-blocks">
-                                <h3>
-                                    <a href="page_news_item.html">Vero eos et accusam </a>
-                                </h3>
-                                <div class="news-block-tags">
-                                    <strong>CA, USA</strong>
-                                    <em>3 hours ago</em>
-                                </div>
-                                <p>
-                                    <img class="news-block-img pull-right" src="../../assets/admin/pages/media/gallery/image2.jpg" alt="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-                                </p>
-                                <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
-                                </a>
-                            </div>
+                            <asp:Repeater ID="rptNewsRight" runat="server">
+                                <ItemTemplate>
+                                    <div class="news-blocks">
+                                        <h3>
+                                            <a href="#"><%# Eval("TitleVN") %> </a>
+                                        </h3>
+                                        <div class="news-block-tags">
+                                            <strong>CA, USA</strong>
+                                            <em><i class="fa fa-calendar"></i><%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
+                                        </div>
+                                        <p>
+                                            <img class="news-block-img pull-right" src='<%# "../../"+Eval("ImagesUrl") %>' alt="">
+                                            <%# Limit(Eval("MetaDescriptions"),500) %>
+                                        </p>
+                                        <a href="page_news_item.html" class="news-block-btn">Read more <i class="m-icon-swapright m-icon-black"></i>
+                                        </a>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
                         <!--end col-md-3-->
                     </div>
@@ -767,7 +702,7 @@
                             <div class="space20">
                             </div>
                             <h3>Sự kiện đã diễn ra</h3>
-                            <div class="top-news">
+                            <div class="top-news margin-bottom-30">
                                 <a href="#" class="btn red">
                                     <span>Tranparency News </span>
                                     <em>Posted on: April 16, 2013</em>
@@ -813,7 +748,7 @@
                         </div>
                         <!--end col-md-3-->
                     </div>
-                    
+
                 </div>
             </div>
             <%-- END EVENT --%>

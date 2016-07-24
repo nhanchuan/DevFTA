@@ -67,35 +67,7 @@ public partial class Admin_Pages_Post_Update : BasePage
         }
         return true;
     }
-    private void LoadPostInfo()
-    {
-        try
-        {
-            posts = new PostBLL();
-            Post post = posts.ListPostWithPostCode(Request.QueryString["PostCode"]).FirstOrDefault();
-            txtPostTitleVN.Value = post.TitleVN;
-            txtPostTitleEN.Value = post.TitleEN;
-            EditorPostContentVN.Text = post.PostContentVN;
-            EditorPostContentEN.Text = post.PostContentEN;
-            txtMetaTitle.Text = post.MetaTitle;
-            txtMetaKeywords.Text = post.MetaKeywords;
-            txtMetaDescription.Text = post.MetaDescriptions;
-            chkTopHot.Checked = post.TopHot;
-            lblpost_status.Text = (post.PostStatus) ? " -- Đăng bài --" : " -- Chờ xét duyệt  --";
-            dlpost_status.Items.FindByValue((post.PostStatus) ? "1" : "0").Selected = true;
-
-            lblTimePost.Text = post.PostTime.ToString();
-            this.load_Checkcbltag(post.ID);
-
-            images = new ImagesBLL();
-            imgpost.Src = (images.ListWithID(post.PostImages).FirstOrDefault() == null) ? "../../images/noimage.jpg.jpg" : "../../" + images.ListWithID(post.PostImages).FirstOrDefault().ImagesUrl;
-            txtPostImgTemp.Text = (images.ListWithID(post.PostImages).FirstOrDefault() == null) ? "" : images.ListWithID(post.PostImages).FirstOrDefault().ImagesName;
-        }
-        catch (Exception ex)
-        {
-            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
-        }
-    }
+   
     private void PopulateRootLevel()
     {
         category = new CategoryBLL();
@@ -126,7 +98,40 @@ public partial class Admin_Pages_Post_Update : BasePage
     protected void treeboxCategory_TreeNodePopulate(object sender, TreeNodeEventArgs e)
     {
         PopulateSubLevel(int.Parse(e.Node.Value), e.Node);
-        this.checkedTreeBoxCategory(new PostBLL().ListPostWithPostCode(Request.QueryString["PostCode"]).FirstOrDefault().ID.ToString());
+        //posts = new PostBLL();
+        //this.checkedTreeBoxCategory(posts.ListPostWithPostCode(Request.QueryString["PostCode"]).FirstOrDefault().ID.ToString());
+        
+    }
+    private void LoadPostInfo()
+    {
+        try
+        {
+            posts = new PostBLL();
+            Post post = posts.ListPostWithPostCode(Request.QueryString["PostCode"]).FirstOrDefault();
+            txtPostTitleVN.Value = post.TitleVN;
+            txtPostTitleEN.Value = post.TitleEN;
+            EditorPostContentVN.Text = post.PostContentVN;
+            EditorPostContentEN.Text = post.PostContentEN;
+            txtMetaTitle.Text = post.MetaTitle;
+            txtMetaKeywords.Text = post.MetaKeywords;
+            txtMetaDescription.Text = post.MetaDescriptions;
+            chkTopHot.Checked = post.TopHot;
+            lblpost_status.Text = (post.PostStatus) ? " -- Đăng bài --" : " -- Chờ xét duyệt  --";
+            dlpost_status.Items.FindByValue((post.PostStatus) ? "1" : "0").Selected = true;
+
+            lblTimePost.Text = post.PostTime.ToString();
+            this.load_Checkcbltag(post.ID);
+
+            images = new ImagesBLL();
+            imgpost.Src = (images.ListWithID(post.PostImages).FirstOrDefault() == null) ? "../../images/noimage.jpg.jpg" : "../../" + images.ListWithID(post.PostImages).FirstOrDefault().ImagesUrl;
+            txtPostImgTemp.Text = (images.ListWithID(post.PostImages).FirstOrDefault() == null) ? "" : images.ListWithID(post.PostImages).FirstOrDefault().ImagesName;
+            posts = new PostBLL();
+            this.checkedTreeBoxCategory(posts.ListPostWithPostCode(Request.QueryString["PostCode"]).FirstOrDefault().ID.ToString());
+        }
+        catch (Exception ex)
+        {
+            this.AlertPageValid(true, ex.ToString(), alertPageValid, lblPageValid);
+        }
     }
     protected void checkedTreeBoxCategory(string postid)
     {
@@ -134,6 +139,7 @@ public partial class Admin_Pages_Post_Update : BasePage
         foreach (TreeNode node in treeboxCategory.Nodes)
         {
             List<Post_Category_Relationships> lstPCR = post_category_relationships.getCategoryWithPostId(int.Parse(postid));
+            
             foreach (Post_Category_Relationships itm in lstPCR)
             {
                 checknode(node, itm.CategoryID.ToString());

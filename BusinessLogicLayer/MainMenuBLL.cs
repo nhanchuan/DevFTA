@@ -57,6 +57,29 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return lst;
         }
+        public List<MainMenu> ListMenuItemsByMenuStatus(Boolean MenuStatus)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sql = "select * from MainMenu where MenuStatus=@MenuStatus order by ItemIndex asc";
+            SqlParameter pMenuStatus = new SqlParameter("@MenuStatus", MenuStatus);
+            DataTable tb = dt.DATable(sql, pMenuStatus);
+            List<MainMenu> lst = new List<MainMenu>();
+            foreach (DataRow r in tb.Rows)
+            {
+                MainMenu menu = new MainMenu();
+                menu.MenuID = (int)r["MenuID"];
+                menu.ItemName = (string.IsNullOrEmpty(r["ItemName"].ToString())) ? "" : (string)r["ItemName"];
+                menu.Permalink = (string.IsNullOrEmpty(r["Permalink"].ToString())) ? "" : (string)r["Permalink"];
+                menu.ItemIndex = (int)r["ItemIndex"];
+                menu.MenuStatus = (string.IsNullOrEmpty(r["MenuStatus"].ToString())) ? false : (Boolean)r["MenuStatus"];
+                lst.Add(menu);
+            }
+            this.dt.CloseConnection();
+            return lst;
+        }
         public List<MainMenu> ListMenuItemsWithIndex(int ItemIndex)
         {
             if (!this.dt.OpenConnection())

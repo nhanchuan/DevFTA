@@ -13,6 +13,42 @@ namespace BusinessLogicLayer
     {
         DataServices dt = new DataServices();
         public DateTime defaultdate = Convert.ToDateTime("12/12/1900");
+        public List<Post> ListPosByID(int ID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "select * from Post where ID=@ID";
+            SqlParameter pID = new SqlParameter("@ID", ID);
+            DataTable tb = dt.DATable(sqlquery, pID);
+            List<Post> lst = new List<Post>();
+            foreach (DataRow r in tb.Rows)
+            {
+                Post p = new Post();
+                p.ID = (int)r["ID"];
+                p.TitleVN = (string.IsNullOrEmpty(r["TitleVN"].ToString())) ? "" : (string)r["TitleVN"];
+                p.TitleEN = (string.IsNullOrEmpty(r["TitleEN"].ToString())) ? "" : (string)r["TitleEN"];
+                p.PostContentVN = (string.IsNullOrEmpty(r["PostContentVN"].ToString())) ? "" : (string)r["PostContentVN"];
+                p.PostContentEN = (string.IsNullOrEmpty(r["PostContentEN"].ToString())) ? "" : (string)r["PostContentEN"];
+                p.CreateBy = (int)r["CreateBy"];
+                p.CreateDate = (DateTime)r["CreateDate"];
+                p.ModifyDate = (string.IsNullOrEmpty(r["ModifyDate"].ToString())) ? defaultdate : (DateTime)r["ModifyDate"];
+                p.ModifyBy = (string.IsNullOrEmpty(r["ModifyBy"].ToString())) ? 0 : (int)r["ModifyBy"];
+                p.MetaTitle = (string.IsNullOrEmpty(r["MetaTitle"].ToString())) ? "" : (string)r["MetaTitle"];
+                p.MetaKeywords = (string.IsNullOrEmpty(r["MetaKeywords"].ToString())) ? "" : (string)r["MetaKeywords"];
+                p.MetaDescriptions = (string.IsNullOrEmpty(r["MetaDescriptions"].ToString())) ? "" : (string)r["MetaDescriptions"];
+                p.PostStatus = (string.IsNullOrEmpty(r["PostStatus"].ToString())) ? false : (Boolean)r["PostStatus"];
+                p.ViewCount = (string.IsNullOrEmpty(r["ViewCount"].ToString())) ? 0 : (int)r["ViewCount"];
+                p.TopHot = (string.IsNullOrEmpty(r["TopHot"].ToString())) ? false : (Boolean)r["TopHot"];
+                p.PostImages = (string.IsNullOrEmpty(r["PostImages"].ToString())) ? 0 : (int)r["PostImages"];
+                p.PostTime = (string.IsNullOrEmpty(r["PostTime"].ToString())) ? defaultdate : (DateTime)r["PostTime"];
+                p.PostCode = (string.IsNullOrEmpty(r["PostCode"].ToString())) ? "" : (string)r["PostCode"];
+                lst.Add(p);
+            }
+            this.dt.CloseConnection();
+            return lst;
+        }
         public List<Post> ListPostWithPostCode(string PostCode)
         {
             if (!this.dt.OpenConnection())
@@ -24,6 +60,76 @@ namespace BusinessLogicLayer
             DataTable tb = dt.DATable(sqlquery, pPostCode);
             List<Post> lst = new List<Post>();
             foreach(DataRow r in tb.Rows)
+            {
+                Post p = new Post();
+                p.ID = (int)r["ID"];
+                p.TitleVN = (string.IsNullOrEmpty(r["TitleVN"].ToString())) ? "" : (string)r["TitleVN"];
+                p.TitleEN = (string.IsNullOrEmpty(r["TitleEN"].ToString())) ? "" : (string)r["TitleEN"];
+                p.PostContentVN = (string.IsNullOrEmpty(r["PostContentVN"].ToString())) ? "" : (string)r["PostContentVN"];
+                p.PostContentEN = (string.IsNullOrEmpty(r["PostContentEN"].ToString())) ? "" : (string)r["PostContentEN"];
+                p.CreateBy = (int)r["CreateBy"];
+                p.CreateDate = (DateTime)r["CreateDate"];
+                p.ModifyDate = (string.IsNullOrEmpty(r["ModifyDate"].ToString())) ? defaultdate : (DateTime)r["ModifyDate"];
+                p.ModifyBy = (string.IsNullOrEmpty(r["ModifyBy"].ToString())) ? 0 : (int)r["ModifyBy"];
+                p.MetaTitle = (string.IsNullOrEmpty(r["MetaTitle"].ToString())) ? "" : (string)r["MetaTitle"];
+                p.MetaKeywords = (string.IsNullOrEmpty(r["MetaKeywords"].ToString())) ? "" : (string)r["MetaKeywords"];
+                p.MetaDescriptions = (string.IsNullOrEmpty(r["MetaDescriptions"].ToString())) ? "" : (string)r["MetaDescriptions"];
+                p.PostStatus = (string.IsNullOrEmpty(r["PostStatus"].ToString())) ? false : (Boolean)r["PostStatus"];
+                p.ViewCount = (string.IsNullOrEmpty(r["ViewCount"].ToString())) ? 0 : (int)r["ViewCount"];
+                p.TopHot = (string.IsNullOrEmpty(r["TopHot"].ToString())) ? false : (Boolean)r["TopHot"];
+                p.PostImages = (string.IsNullOrEmpty(r["PostImages"].ToString())) ? 0 : (int)r["PostImages"];
+                p.PostTime = (string.IsNullOrEmpty(r["PostTime"].ToString())) ? defaultdate : (DateTime)r["PostTime"];
+                p.PostCode = (string.IsNullOrEmpty(r["PostCode"].ToString())) ? "" : (string)r["PostCode"];
+                lst.Add(p);
+            }
+            this.dt.CloseConnection();
+            return lst;
+        }
+        public List<Post> ListAllPost()
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "select * from Post";
+            DataTable tb = dt.DATable(sqlquery);
+            List<Post> lst = new List<Post>();
+            foreach (DataRow r in tb.Rows)
+            {
+                Post p = new Post();
+                p.ID = (int)r["ID"];
+                p.TitleVN = (string.IsNullOrEmpty(r["TitleVN"].ToString())) ? "" : (string)r["TitleVN"];
+                p.TitleEN = (string.IsNullOrEmpty(r["TitleEN"].ToString())) ? "" : (string)r["TitleEN"];
+                p.PostContentVN = (string.IsNullOrEmpty(r["PostContentVN"].ToString())) ? "" : (string)r["PostContentVN"];
+                p.PostContentEN = (string.IsNullOrEmpty(r["PostContentEN"].ToString())) ? "" : (string)r["PostContentEN"];
+                p.CreateBy = (int)r["CreateBy"];
+                p.CreateDate = (DateTime)r["CreateDate"];
+                p.ModifyDate = (string.IsNullOrEmpty(r["ModifyDate"].ToString())) ? defaultdate : (DateTime)r["ModifyDate"];
+                p.ModifyBy = (string.IsNullOrEmpty(r["ModifyBy"].ToString())) ? 0 : (int)r["ModifyBy"];
+                p.MetaTitle = (string.IsNullOrEmpty(r["MetaTitle"].ToString())) ? "" : (string)r["MetaTitle"];
+                p.MetaKeywords = (string.IsNullOrEmpty(r["MetaKeywords"].ToString())) ? "" : (string)r["MetaKeywords"];
+                p.MetaDescriptions = (string.IsNullOrEmpty(r["MetaDescriptions"].ToString())) ? "" : (string)r["MetaDescriptions"];
+                p.PostStatus = (string.IsNullOrEmpty(r["PostStatus"].ToString())) ? false : (Boolean)r["PostStatus"];
+                p.ViewCount = (string.IsNullOrEmpty(r["ViewCount"].ToString())) ? 0 : (int)r["ViewCount"];
+                p.TopHot = (string.IsNullOrEmpty(r["TopHot"].ToString())) ? false : (Boolean)r["TopHot"];
+                p.PostImages = (string.IsNullOrEmpty(r["PostImages"].ToString())) ? 0 : (int)r["PostImages"];
+                p.PostTime = (string.IsNullOrEmpty(r["PostTime"].ToString())) ? defaultdate : (DateTime)r["PostTime"];
+                p.PostCode = (string.IsNullOrEmpty(r["PostCode"].ToString())) ? "" : (string)r["PostCode"];
+                lst.Add(p);
+            }
+            this.dt.CloseConnection();
+            return lst;
+        }
+        public List<Post> ListAllPostinACtive()
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "select * from Post where PostStatus<>0";
+            DataTable tb = dt.DATable(sqlquery);
+            List<Post> lst = new List<Post>();
+            foreach (DataRow r in tb.Rows)
             {
                 Post p = new Post();
                 p.ID = (int)r["ID"];
@@ -184,6 +290,51 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return RC;
         }
+        //===========================================================
+        //FRONT END CODE
+        //===========================================================
+        public DataTable GetListPostsByCategoryIDPageWise(int PageIndex, int PageSize, int CategoryID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "Exec GetListPostsByCategoryIDPageWise @PageIndex,@PageSize,@CategoryID";
+            SqlParameter pPageIndex = new SqlParameter("@PageIndex", PageIndex);
+            SqlParameter pPageSize = new SqlParameter("@PageSize", PageSize);
+            SqlParameter pCategoryID = new SqlParameter("@CategoryID", CategoryID);
+            DataTable tb = dt.DATable(sqlquery, pPageIndex, pPageSize, pCategoryID);
+            this.dt.CloseConnection();
+            return tb;
+        }
+        public int CountListPostsByCategoryIDPageWise(int CategoryID)
+        {
+            int RC = 0;
 
+            if (!this.dt.OpenConnection())
+            {
+                return 0;
+            }
+            string sql = "select COUNT(pot.ID) from Post pot full outer join Post_Category_Relationships pcr on pot.ID=pcr.PostID";
+            sql += " ";
+            sql += "where pot.ID is not null and pcr.CategoryID=@CategoryID and pot.PostStatus<>0 and pot.PostTime <=getdate()";
+            SqlParameter pCategoryID = new SqlParameter("@CategoryID", CategoryID);
+            RC = dt.GetValues(sql, pCategoryID);
+            this.dt.CloseConnection();
+            return RC;
+        }
+        public DataTable WidgetIndexNews(int CategoryID, int Itemview)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "Exec WidgetIndexNews @CategoryID,@Itemview";
+            SqlParameter pCategoryID = new SqlParameter("@CategoryID", CategoryID);
+            SqlParameter pItemview = new SqlParameter("@Itemview", Itemview);
+            DataTable tb = dt.DATable(sqlquery, pCategoryID, pItemview);
+            this.dt.CloseConnection();
+            return tb;
+        }
     }
 }

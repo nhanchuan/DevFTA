@@ -12,7 +12,9 @@ namespace DataAccessLayer
         private int menuID;
         private int categoryID;
         private int sortOrder;
-
+        private string ortherItem;
+        private string permalink;
+        private int postID;
         public int ID
         {
             get
@@ -62,6 +64,45 @@ namespace DataAccessLayer
             set
             {
                 sortOrder = value;
+            }
+        }
+
+        public string OrtherItem
+        {
+            get
+            {
+                return ortherItem;
+            }
+
+            set
+            {
+                ortherItem = value;
+            }
+        }
+
+        public string Permalink
+        {
+            get
+            {
+                return permalink;
+            }
+
+            set
+            {
+                permalink = value;
+            }
+        }
+
+        public int PostID
+        {
+            get
+            {
+                return postID;
+            }
+
+            set
+            {
+                postID = value;
             }
         }
     }

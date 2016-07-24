@@ -146,16 +146,13 @@
                         <h3><i class="fa fa-cubes"></i>Sub Mennu Setting</h3>
                     </div>
                     <div class="form-group">
-
                         <div class="input-group">
                             <div class="input-icon">
                                 <i class="fa fa-search"></i>
-                                <asp:DropDownList ID="dlSelectCategory" CssClass="form-control" runat="server"></asp:DropDownList>
-
+                                <asp:DropDownList ID="dlSelectCategory" placeholder="Thêm Category" CssClass="form-control" runat="server"></asp:DropDownList>
                             </div>
                             <span class="input-group-btn">
-                                <%--<button id="btnInsertItemtoMenu" class="btn btn-success" type="button" validationgroup="validChoseCategory" runat="server"><i class="fa fa-arrow-left fa-fw"></i>Thêm vào Menu</button>--%>
-                                <asp:Button ID="btnInsertItemtoMenu" CssClass="btn btn-success" ValidationGroup="validChoseCategory" OnClick="btnInsertItemtoMenu_Click" runat="server" Text="<= Thêm vào Menu" />
+                                <asp:Button ID="btnInsertItemtoMenu" CssClass="btn btn-success" ValidationGroup="validChoseCategory" OnClick="btnInsertItemtoMenu_Click" runat="server" Text="Thêm vào Menu =>" />
                             </span>
                         </div>
                     </div>
@@ -171,6 +168,47 @@
                         <i>
                             <asp:Label ID="lblAddSubItemWaring" ForeColor="Red" runat="server"></asp:Label></i>
                     </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-icon">
+                                <i class="fa fa-search"></i>
+                                <asp:DropDownList ID="dlPosts" CssClass="form-control" placeholder="Thêm bài viết" runat="server"></asp:DropDownList>
+                            </div>
+                            <span class="input-group-btn">
+                                <asp:Button ID="btnAddPost" CssClass="btn btn-success" ValidationGroup="validChosePosts" OnClick="btnAddPost_Click" runat="server" Text="Thêm Bài Viết =>" />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
+                            ControlToValidate="dlPosts"
+                            ValidationGroup="validChosePosts"
+                            Display="Dynamic"
+                            ForeColor="Red"
+                            ErrorMessage="Chưa chọn bài viết !"
+                            InitialValue="0">
+                        </asp:RequiredFieldValidator>
+                        <i>
+                            <asp:Label ID="lblWarningAddPost" ForeColor="Red" runat="server"></asp:Label></i>
+                    </div>
+                    <div class="row">
+                        <div class="form-group margin-bottom-20">
+                            <label class="control-label col-md-12">Thêm Mục Khác</label>
+                            <div class="col-lg-5">
+                                <asp:TextBox ID="txtOrtherItem" CssClass="form-control" placeholder="Tên chuyên mục" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtOrtherItem" ValidationGroup="validOrtherItem" runat="server" ForeColor="Red" Display="Dynamic" ErrorMessage="Nhập tên chuyên mục !"></asp:RequiredFieldValidator>
+                            </div>
+                            <div class="col-lg-5">
+                                <asp:TextBox ID="txtOrtherItemParmalink" CssClass="form-control" placeholder="Permalink" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="col-lg-2">
+                                <asp:Button ID="btnAddOrtherItem" ValidationGroup="validOrtherItem" OnClick="btnAddOrtherItem_Click" CssClass="btn btn-success" runat="server" Text="Thêm =>" />
+                            </div>
+                        </div>
+                        <i>
+                            <asp:Label ID="lblWarningOrtherItem" ForeColor="Red" runat="server"></asp:Label></i>
+                    </div>
+
                     <asp:GridView ID="gwSubMenuItem" CssClass="table table-condensed" runat="server" AutoGenerateColumns="False" RowStyle-BackColor="#A1DCF2" Font-Names="Arial" Font-Size="10pt"
                         HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" OnRowDataBound="gwSubMenuItem_RowDataBound" OnRowDeleting="gwSubMenuItem_RowDeleting">
                         <Columns>
@@ -182,12 +220,19 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Sub Menu">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblNameVN" runat="server" Text='<%# Eval("NameVN") %>'></asp:Label>
+                                    <asp:Label ID="lblNameVN" runat="server" 
+                                        Text='<%# (!string.IsNullOrEmpty(Eval("CategoryID").ToString())) ? Eval("NameVN"): (!string.IsNullOrEmpty(Eval("PostID").ToString()))? Eval("MetaTitle"): Eval("OrtherItem")  %>'>
+                                    </asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Thuộc Menu">
                                 <ItemTemplate>
                                     <asp:Label ID="lblItemName" runat="server" Text='<%# Eval("ItemName") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:Label ID="lblPermalink" runat="server" Text='<%# Eval("Permalink") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
