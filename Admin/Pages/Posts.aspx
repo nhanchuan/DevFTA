@@ -121,12 +121,12 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Trạng thái">
                             <ItemTemplate>
-                                <asp:CheckBox ID="chkPostStatus" Checked='<%# Eval("TopHot") %>' AccessKey='<%# Eval("ID") %>' OnCheckedChanged="chkPostStatus_CheckedChanged" AutoPostBack="true" Text="Duyệt" runat="server" />
+                                <asp:CheckBox ID="chkPostStatus" Checked='<%# Eval("TopHot") %>' AutoPostBack="true" Text="Duyệt" runat="server" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Top Hot">
                             <ItemTemplate>
-                                <asp:CheckBox ID="chkTopHot" Checked='<%# Eval("TopHot") %>' AccessKey='<%# Eval("ID") %>' OnCheckedChanged="chkTopHot_CheckedChanged" AutoPostBack="true" Text="Top Hot" runat="server" />
+                                <asp:CheckBox ID="chkTopHot" Checked='<%# Eval("TopHot") %>' AutoPostBack="true" Text="Top Hot" runat="server" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>

@@ -56,76 +56,8 @@
                                 <ul class="blog-info">
                                     <li><i class="fa fa-user"></i>By admin</li>
                                     <li><i class="fa fa-calendar"></i>25/07/2013</li>
-                                    <li><i class="fa fa-comments"></i>17</li>
                                     <li><i class="fa fa-tags"></i>Metronic, Keenthemes, UI Design</li>
                                 </ul>
-
-                                <h2>Comments</h2>
-                                <div class="comments">
-                                    <div class="media">
-                                        <a href="#" class="pull-left">
-                                            <img src="../assets/frontend/pages/img/people/img1-small.jpg" alt="" class="media-object" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Media heading <span>5 hours ago / <a href="#">Reply</a></span></h4>
-                                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                                            <!-- Nested media object -->
-                                            <div class="media">
-                                                <a href="#" class="pull-left">
-                                                    <img src="../assets/frontend/pages/img/people/img2-small.jpg" alt="" class="media-object" />
-                                                </a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Media heading <span>17 hours ago / <a href="#">Reply</a></span></h4>
-                                                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                                                </div>
-                                            </div>
-                                            <!--end media-->
-                                            <div class="media">
-                                                <a href="#" class="pull-left">
-                                                    <img src="../assets/frontend/pages/img/people/img3-small.jpg" alt="" class="media-object" />
-                                                </a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Media heading <span>2 days ago / <a href="#">Reply</a></span></h4>
-                                                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                                                </div>
-                                            </div>
-                                            <!--end media-->
-                                        </div>
-                                    </div>
-                                    <!--end media-->
-                                    <div class="media">
-                                        <a href="#" class="pull-left">
-                                            <img src="../assets/frontend/pages/img/people/img4-small.jpg" alt="" class="media-object" />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Media heading <span>July 25,2013 / <a href="#">Reply</a></span></h4>
-                                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                                        </div>
-                                    </div>
-                                    <!--end media-->
-                                </div>
-
-                                <div class="post-comment padding-top-40">
-                                    <h3>Leave a Comment</h3>
-                                    <div role="form">
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input class="form-control" type="text">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Email <span class="color-red">*</span></label>
-                                            <input class="form-control" type="text">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Message</label>
-                                            <textarea class="form-control" rows="8"></textarea>
-                                        </div>
-                                        <p>
-                                            <button class="btn btn-primary" type="submit">Post a Comment</button></p>
-                                    </div>
-                                </div>
                             </div>
                             <!-- END LEFT SIDEBAR -->
 

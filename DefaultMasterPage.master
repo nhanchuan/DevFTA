@@ -51,8 +51,8 @@
     <!-- Theme styles END -->
 
     <%-- Custom style --%>
-    <link href="/css/frontend/custom.css" rel="stylesheet" type="text/css" />
-
+    
+    <link href="/css/frontend/custom.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -65,7 +65,7 @@
                     <!-- BEGIN TOP BAR LEFT PART -->
                     <div class="col-md-6 col-sm-6 additional-shop-info">
                         <ul class="list-unstyled list-inline">
-                            <li><i class="fa fa-phone"></i><span>(08)64 646 825</span></li>
+                            <li><i class="fa fa-phone"></i><span>(08) 3823 4179</span></li>
                             <li><i class="fa fa-envelope-o"></i><span>thucphamminhbach@gmail.com</span></li>
                         </ul>
                     </div>
@@ -73,8 +73,14 @@
                     <!-- BEGIN TOP BAR MENU -->
                     <div class="col-md-6 col-sm-6 additional-nav">
                         <ul class="list-unstyled list-inline pull-right">
-                            <li><a href="page-login.html">Log In</a></li>
-                            <li><a href="page-reg-page.html">Registration</a></li>
+                            <li><a href="page-login.html">Đăng nhập</a></li>
+                            <li><a href="page-reg-page.html">Đăng ký</a></li>
+                            <li>
+                                <img src="../assets/global/img/flags/vn.png" />
+                            </li>
+                            <li>
+                                <img src="../assets/global/img/flags/um.png" />
+                            </li>
                         </ul>
                     </div>
                     <!-- END TOP BAR MENU -->
@@ -86,7 +92,7 @@
         <div class="header">
             <div class="container">
                 <a class="site-logo" href="../Default.aspx">
-                    <img src="../images/logo/FTA-Logo_MENU.png" class="img-responsive" alt="Food Transparency Association" /></a>
+                    <img src="../images/logo/LogoftaFN2.jpg"  style="width:80%;height:auto;" alt="Food Transparency Association" /></a>
                 <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
                 <!-- BEGIN NAVIGATION -->
@@ -109,51 +115,6 @@
                                 </li>
                             </ItemTemplate>
                         </asp:Repeater>
-                        <%--<li class="dropdown active">
-                            <a class="dropdown-toggle" href="../Default.aspx">Trang chủ</a>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Về chúng tôi </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="../Pages/LichSuHinhThanh.aspx">Lịch sử hình thành</a></li>
-                                <li><a href="../Pages/DoiNguSangLap.aspx">Đội ngủ phát triển và chuyên gia</a></li>
-                                <li><a href="#">Trách nhiệm xã hội</a></li>
-                                <li><a href="#">Cơ hội nghề nghiệp</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown dropdown-megamenu">
-                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Thành viên</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Lợi ích khi là thành viên</a></li>
-                                <li><a href="#">Trách nhiệm thành viên</a></li>
-                                <li><a href="#">Hướng dẫn đăng ký thành viên</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="../Pages/TinTucVaSuKien.aspx">Tin tức & sự kiện </a>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Thông tin minh bạch </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Điều lệ hiệp hội</a></li>
-                                <li><a href="#">Cơ chế giám sát, kiểm tra chéo nội bộ</a></li>
-                                <li><a href="#">Các quy tắc hiệp hội</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="../Pages/LienHe.aspx">Liên hệ</a></li>
-                        <!-- BEGIN TOP SEARCH -->
-                        <li class="menu-search">
-                            <span class="sep"></span>
-                            <i class="fa fa-search search-btn"></i>
-                            <div class="search-box">
-                                <div class="input-group">
-                                    <input type="text" placeholder="Search" class="form-control" />
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="submit">Search</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>--%>
                         <!-- END TOP SEARCH -->
                     </ul>
                 </div>
@@ -287,9 +248,7 @@
     <!-- pop up -->
     <script src="/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
     <!-- slider for products -->
-
     <!-- BEGIN RevolutionSlider -->
-
     <script src="/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
     <script src="/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
     <script src="/assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>

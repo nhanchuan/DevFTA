@@ -87,5 +87,21 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return true;
         }
+        //===============================================================================================
+        public DataTable TbTagsByPostID(int PostID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "select tag.* from Tags tag full outer join Tags_relationships tr on tag.ID=tr.TagsID";
+            sqlquery += " ";
+            sqlquery += "where tag.ID is not null and tr.PostID=@PostID";
+            
+            SqlParameter pPostID = new SqlParameter("@PostID", PostID);
+            DataTable tb = dt.DATable(sqlquery, pPostID);
+            this.dt.CloseConnection();
+            return tb;
+        }
     }
 }

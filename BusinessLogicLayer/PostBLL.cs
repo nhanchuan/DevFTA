@@ -323,16 +323,44 @@ namespace BusinessLogicLayer
             this.dt.CloseConnection();
             return RC;
         }
-        public DataTable WidgetIndexNews(int CategoryID, int Itemview)
+        public DataTable WidgetIndexNews(int CategoryID, int Itemview,int Start, int Num)
         {
             if (!this.dt.OpenConnection())
             {
                 return null;
             }
-            string sqlquery = "Exec WidgetIndexNews @CategoryID,@Itemview";
+            string sqlquery = "Exec WidgetIndexNews @CategoryID,@Itemview,@Start,@Num";
             SqlParameter pCategoryID = new SqlParameter("@CategoryID", CategoryID);
             SqlParameter pItemview = new SqlParameter("@Itemview", Itemview);
-            DataTable tb = dt.DATable(sqlquery, pCategoryID, pItemview);
+            SqlParameter pStart = new SqlParameter("@Start", Start);
+            SqlParameter pNum = new SqlParameter("@Num", Num);
+            DataTable tb = dt.DATable(sqlquery, pCategoryID, pItemview, pStart, pNum);
+            this.dt.CloseConnection();
+            return tb;
+        }
+        //GetPostEventOnHome
+        public DataTable GetPostEventOnHome(int CategoryID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "Exec GetPostEventOnHome @CategoryID";
+            SqlParameter pCategoryID = new SqlParameter("@CategoryID", CategoryID);
+            DataTable tb = dt.DATable(sqlquery, pCategoryID);
+            this.dt.CloseConnection();
+            return tb;
+        }
+        //TheEventTookPlace
+        public DataTable TheEventTookPlace(int CategoryID)
+        {
+            if (!this.dt.OpenConnection())
+            {
+                return null;
+            }
+            string sqlquery = "Exec TheEventTookPlace @CategoryID";
+            SqlParameter pCategoryID = new SqlParameter("@CategoryID", CategoryID);
+            DataTable tb = dt.DATable(sqlquery, pCategoryID);
             this.dt.CloseConnection();
             return tb;
         }

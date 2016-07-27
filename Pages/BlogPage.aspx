@@ -37,8 +37,8 @@
                                                 <h2><a href='<%# "Category-"+ XoaKyTuDacBiet(Eval("MetaTitle").ToString())+"-"+Eval("ID") %>'><%# Eval("TitleVN") %></a></h2>
                                                 <ul class="blog-info">
                                                     <li><i class="fa fa-calendar"></i><%# Eval("PostTime","{0:dd-MM-yyyy}") %></li>
-                                                    <li><i class="fa fa-comments"></i>17</li>
-                                                    <li><i class="fa fa-tags"></i>Metronic, Keenthemes, UI Design</li>
+                                                    <%--<li><i class="fa fa-comments"></i>17</li>
+                                                    <li><i class="fa fa-tags"></i>Metronic, Keenthemes, UI Design</li>--%>
                                                 </ul>
                                                 <p><%# Limit(Eval("MetaDescriptions"),500) %></p>
                                                 <%--<p><%# Eval("MetaDescriptions") %></p>--%>

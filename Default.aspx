@@ -14,6 +14,7 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese" rel="stylesheet" type="text/css" />
     <link href="../libs/homeycombs/css/homeycombs.css" rel="stylesheet" />
     <link href="../css/frontend/btnAppStore.css" rel="stylesheet" />
+    <link href="../css/frontend/custom.css" rel="stylesheet" />
     <!-- BEGIN SLIDER -->
     <div class="page-slider margin-bottom-40">
         <div class="fullwidthbanner-container revolution-slider" style="height: 500px;">
@@ -23,223 +24,106 @@
                     <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
                         <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
                         <img src="../assets/frontend/pages/img/revolutionslider/bg5.jpg" alt="" />
-
-                        <div class="caption lft slide_title_white slide_item_left" style="color: black; font: 300 47px/66px, 'Open Sans', sans-serif;"
-                            data-x="640"
-                            data-y="90"
+                        <div class="caption lfb"
+                            data-x="30"
+                            data-y="10"
+                            data-speed="700"
+                            data-start="1000"
+                            data-easing="easeOutExpo">
+                            <img src="../images/slider/OpenFarm.png" id="imgSliderFarm" alt="Image 1" />
+                        </div>
+                        <div class="caption lft slide_subtitle slide_item_left subtitle_1"
+                            data-x="600"
+                            data-y="150"
                             data-speed="400"
                             data-start="1500"
                             data-easing="easeOutExpo">
-                            THỰC PHẨM AN TOÀN
-                            <br />
-                            <span class="slide_title_white_bold">CẦN MINH BẠCH</span>
+                            THỰC PHẨM AN TOÀN CẦN MINH BẠCH
                         </div>
-                        <div class="caption lft slide_subtitle_white slide_item_left" style="color: black;"
-                            data-x="697"
-                            data-y="245"
+                        <div class="caption lft slide_subtitle_white slide_item_left bold" style="color: black;"
+                            data-x="600"
+                            data-y="190"
                             data-speed="400"
                             data-start="2000"
                             data-easing="easeOutExpo">
                             Food safety requires transparency
                         </div>
-                        <a class="caption lft btn dark btn-danger slide_item_left" href="#"
-                            data-x="797"
-                            data-y="315"
+                        <a class="caption lft btn dark green slide_item_left" href="#"
+                            data-x="610"
+                            data-y="250"
                             data-speed="400"
                             data-start="3000"
-                            data-easing="easeOutExpo">Đăng ký ngay!
+                            data-easing="easeOutExpo">Xem thêm !
                         </a>
-                        <div class="caption lfb"
-                            data-x="30"
-                            data-y="40"
-                            data-speed="700"
-                            data-start="1000"
-                            data-easing="easeOutExpo">
-                            <img src="../images/logo/LogoftaFN.png" alt="Image 1" />
-                        </div>
+
                     </li>
 
                     <!-- THE FIRST SLIDE -->
                     <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
                         <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                        <img src="../images/slider/background/hoinghifta2.jpg" alt="" />
+                        <img src="../images/slider/TrachNhiemDoanhNghiep.PNG" alt="" />
 
-                        <%--<div class="caption lft slide_title slide_item_left"
-                            data-x="30"
-                            data-y="105"
-                            data-speed="400"
-                            data-start="1500"
-                            data-easing="easeOutExpo">
-                            Hội thảo vận động thành lập FTA Hà Nội - Hồ Chí Minh 
-             
-                        </div>--%>
-                        <div class="caption lft slide_subtitle slide_item_left"
+                        <div class="caption lft slide_subtitle slide_item_left subtitle_2 bold"
                             data-x="0"
-                            data-y="410"
+                            data-y="360"
                             data-speed="400"
                             data-start="2000"
                             data-easing="easeOutExpo">
-                            Hội thảo vận động thành lập FTA Hà Nội - Hồ Chí Minh
-             
+                            DOANH NGHIỆP TRÁCH NHIỆM - MINH BẠCH
                         </div>
-                        <%--<div class="caption lft slide_desc slide_item_left"
-                            data-x="30"
-                            data-y="220"
-                            data-speed="400"
-                            data-start="2500"
-                            data-easing="easeOutExpo">
-                            Lorem ipsum dolor sit amet, dolore eiusmod<br />
-                            quis tempor incididunt. Sed unde omnis iste.
-             
-                        </div>--%>
-                        <a class="caption lft btn green slide_btn slide_item_left" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes"
+
+                        <a class="caption lft btn green slide_item_left" href="#"
                             data-x="0"
-                            data-y="450"
+                            data-y="410"
                             data-speed="400"
                             data-start="3000"
                             data-easing="easeOutExpo">Xem thêm !
                         </a>
-                        <%--<div class="caption lfb"
-                            data-x="640"
-                            data-y="55"
-                            data-speed="700"
-                            data-start="1000"
-                            data-easing="easeOutExpo">
-                            <img src="../assets/frontend/pages/img/revolutionslider/man-winner.png" alt="Image 1" />
-                        </div>--%>
+
                     </li>
 
                     <!-- THE SECOND SLIDE -->
-                    <%--<li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-                        <img src="../assets/frontend/pages/img/revolutionslider/bg2.jpg" alt="" />
-                        <div class="caption lfl slide_title slide_item_left"
-                            data-x="30"
-                            data-y="125"
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
+                        <img src="../images/slider/NguoiTieuDungThongMinh.PNG" alt="" />
+                        <div class="caption lft slide_subtitle slide_item_left subtitle_2 bold"
+                            data-x="0"
+                            data-y="360"
                             data-speed="400"
-                            data-start="3500"
-                            data-easing="easeOutExpo">
-                            Powerfull &amp; Clean
-             
-                        </div>
-                        <div class="caption lfl slide_subtitle slide_item_left"
-                            data-x="30"
-                            data-y="200"
-                            data-speed="400"
-                            data-start="4000"
-                            data-easing="easeOutExpo">
-                            Responsive Admin &amp; Website Theme
-             
-                        </div>
-                        <div class="caption lfl slide_desc slide_item_left"
-                            data-x="30"
-                            data-y="245"
-                            data-speed="400"
-                            data-start="4500"
-                            data-easing="easeOutExpo">
-                            Lorem ipsum dolor sit amet, consectetuer elit sed diam<br />
-                            nonummy amet euismod dolore.
-             
-                        </div>
-                        <div class="caption lfr slide_item_right"
-                            data-x="635"
-                            data-y="105"
-                            data-speed="1200"
-                            data-start="1500"
-                            data-easing="easeOutBack">
-                            <img src="../assets/frontend/pages/img/revolutionslider/mac.png" alt="Image 1" />
-                        </div>
-                        <div class="caption lfr slide_item_right"
-                            data-x="580"
-                            data-y="245"
-                            data-speed="1200"
                             data-start="2000"
-                            data-easing="easeOutBack">
-                            <img src="../assets/frontend/pages/img/revolutionslider/ipad.png" alt="Image 1" />
+                            data-easing="easeOutExpo">
+                            NGƯỜI TIÊU DÙNG THÔNG MINH
                         </div>
-                        <div class="caption lfr slide_item_right"
-                            data-x="735"
-                            data-y="290"
-                            data-speed="1200"
-                            data-start="2500"
-                            data-easing="easeOutBack">
-                            <img src="../assets/frontend/pages/img/revolutionslider/iphone.png" alt="Image 1" />
-                        </div>
-                        <div class="caption lfr slide_item_right"
-                            data-x="835"
-                            data-y="230"
-                            data-speed="1200"
+                        <a class="caption lft btn green slide_item_left" href="#"
+                            data-x="0"
+                            data-y="410"
+                            data-speed="400"
                             data-start="3000"
-                            data-easing="easeOutBack">
-                            <img src="../assets/frontend/pages/img/revolutionslider/macbook.png" alt="Image 1" />
-                        </div>
-                        <div class="caption lft slide_item_right"
-                            data-x="865"
-                            data-y="45"
-                            data-speed="500"
-                            data-start="5000"
-                            data-easing="easeOutBack">
-                            <img src="../assets/frontend/pages/img/revolutionslider/hint1-red.png" id="rev-hint1" alt="Image 1" />
-                        </div>
-                        <div class="caption lfb slide_item_right"
-                            data-x="355"
-                            data-y="355"
-                            data-speed="500"
-                            data-start="5500"
-                            data-easing="easeOutBack">
-                            <img src="../assets/frontend/pages/img/revolutionslider/hint2-red.png" id="rev-hint2" alt="Image 1" />
-                        </div>
+                            data-easing="easeOutExpo">Xem thêm !
+                        </a>
                     </li>
 
                     <!-- THE THIRD SLIDE -->
                     <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
-                        <img src="../assets/frontend/pages/img/revolutionslider/bg3.jpg" alt="" />
-                        <div class="caption lfl slide_item_left"
-                            data-x="30"
-                            data-y="95"
-                            data-speed="400"
-                            data-start="1500"
-                            data-easing="easeOutBack">
-                            <iframe src="http://player.vimeo.com/video/56974716?portrait=0" width="420" height="240" style="border: 0"></iframe>
-                        </div>
-                        <div class="caption lfr slide_title"
-                            data-x="470"
-                            data-y="100"
+                        <img src="../images/slider/hoinghifta2.jpg" alt="" />
+                        <div class="caption lft slide_subtitle slide_item_left subtitle_2 bold"
+                            data-x="0"
+                            data-y="360"
                             data-speed="400"
                             data-start="2000"
                             data-easing="easeOutExpo">
-                            Responsive Video Support
-             
+                            GIA NHẬP GIA ĐÌNH THỰC PHẨM MINH BẠCH
                         </div>
-                        <div class="caption lfr slide_subtitle"
-                            data-x="470"
-                            data-y="170"
-                            data-speed="400"
-                            data-start="2500"
-                            data-easing="easeOutExpo">
-                            Youtube, Vimeo and others.
-             
-                        </div>
-                        <div class="caption lfr slide_desc"
-                            data-x="470"
-                            data-y="220"
+                        <a class="caption lft btn green slide_item_left" href="#"
+                            data-x="0"
+                            data-y="410"
                             data-speed="400"
                             data-start="3000"
-                            data-easing="easeOutExpo">
-                            Lorem ipsum dolor sit amet, consectetuer elit sed diam<br />
-                            nonummy amet euismod dolore.
-             
-                        </div>
-                        <a class="caption lfr btn yellow slide_btn" href="#"
-                            data-x="470"
-                            data-y="280"
-                            data-speed="400"
-                            data-start="3500"
-                            data-easing="easeOutExpo">Watch more Videos!
+                            data-easing="easeOutExpo">Xem thêm !
                         </a>
                     </li>
 
                     <!-- THE FORTH SLIDE -->
-                    <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
+                    <%--<li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="../assets/frontend/pages/img/revolutionslider/thumbs/thumb2.jpg">
                         <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
                         <img src="../assets/frontend/pages/img/revolutionslider/bg4.jpg" alt="" />
                         <div class="caption lft slide_title"
@@ -304,127 +188,7 @@
 
     <div class="main">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="margin-bottom-15">DOANH NGHIỆP</h3>
-                    <div class="honeycombs">
-                        <div class="comb">
-                            <img src="../images/picture_0.jpg" />
-                            <span>1</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_1.jpg" />
-                            <span>
-                                <span>2</span>
-                            </span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/logo/LogoftaFN.png" />
-                            <span>3</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_3.jpg" />
-                            <span>4</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_4.jpg" />
-                            <span>5</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/properties/Quytrinhsanxuat.jpg" />
-                            <span>6</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_1.jpg" />
-                            <span>7</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/logo/LogoftaFN.png" />
-                            <span>8</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_3.jpg" />
-                            <span>9</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_4.jpg" />
-                            <span>10</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/properties/Quytrinhsanxuat.jpg" />
-                            <span>11</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/properties/cac-loai-rau.jpg" />
-                            <span>12</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/properties/Chatbaoquan.jpg" />
-                            <span>13</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_3.jpg" />
-                            <span>14</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_4.jpg" />
-                            <span>15</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/properties/Vietnam.jpg" />
-                            <span>16</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/properties/MinhBach.jpg" />
-                            <span>17</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/logo/LogoftaFN2.jpg" />
-                            <span>FTA</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/properties/Probiotics.jpg" />
-                            <span>18</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_4.jpg" />
-                            <span>19</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_2.jpg" />
-                            <span>20</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_3.jpg" />
-                            <span>21</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_4.jpg" />
-                            <span>22</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/properties/Quytrinhsanxuat.jpg" />
-                            <span>23</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/properties/dohop.jpg" />
-                            <span>24</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/properties/Quytrinhsanxuat.jpg" />
-                            <span>25</span>
-                        </div>
-                        <div class="comb">
-                            <img src="../images/picture_1.jpg" />
-                            <span>26</span>
-                        </div>
-                        <%--<div class="comb">
-                            <img src="../images/picture_2.jpg" />
-                            <span>27</span>
-                        </div>--%>
-                    </div>
-                </div>
-            </div>
+
 
             <%-- NGUOI TIEU DUNG SLIDE 2 --%>
 
@@ -454,24 +218,26 @@
                         <a class="btn btn-warning">Đăng ký người dùng</a>
                     </div>
                 </div>--%>
-                <h3 class="margin-bottom-15">NGƯỜI TIÊU DÙNG</h3>
+                <%--<h3 class="margin-bottom-15"></h3>--%>
                 <div class="col-lg-12">
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="col-lg-12 margin-bottom-60"></div>
-                        <h3>United On The Go</h3>
-                        <p>Their newest device is the Blu Life Pure mini, a 4.5” smartphone with a 1280 x 720 IPS display.</p>
-                        <a href="#" class="btn btn-app-store"><i class="fa fa-apple"></i><span class="small">Download on the</span> <span class="big">App Store</span></a>
-                        <a href="#" class="btn btn-app-store">
+                        <h3>Ứng dụng tra cứu thông tin minh bạch</h3>
+                        <p>Ứng dụng hỗ trợ trên nền tảng thiết bị Android & IOS</p>
+                        <%-- Btn App Store --%>
+                        <a href="#" class="btn btn-app-store disabled"><i class="fa fa-apple"></i><span class="small">Download on the</span> <span class="big">App Store</span></a>
+                        <%-- Btn Google store --%>
+                        <a href="#" class="btn btn-app-store disabled">
                             <img width="60" class="pull-left" src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png" />
                             <span class="small">Download on the</span> <span class="big">Google play</span></a>
 
                     </div>
                     <div class="col-lg-4">
-                        <img src="../images/content/nguoitieudung/iphone-hand-mockup-drop-1000x640.png" style="width: 100%; height: auto;" />
+                        <img src="../images/content/nguoitieudung/fta2_iphone-hand-mockup-drop-1000x640.png" style="width: 100%; height: auto;" />
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-2">
                         <div class="col-lg-12 margin-bottom-65"></div>
-                        <img src="../images/content/nguoitieudung/checkQ-Code.png" style="width: 100%; height: auto;" />
+                        <%--<img src="../images/content/nguoitieudung/checkQ-Code.png" style="width: 100%; height: auto;" />--%>
                     </div>
                 </div>
             </div>
@@ -492,7 +258,7 @@
                                                 <img src='<%# "../" + Eval("ImagesUrl") %>' class="img-responsive" alt='<%# Eval("Title") %>' />
                                                 <div class="carousel-caption">
                                                     <h4>
-                                                        <a href="page_news_item.html"><%# Eval("Title") %> </a>
+                                                        <a href="#"><%# Eval("Title") %> </a>
                                                     </h4>
                                                     <p>
                                                         <%# Eval("Descriptions") %>
@@ -518,25 +284,25 @@
                                 </ol>
                             </div>
                             <div class="top-news margin-top-10">
-                                <a href="kinh-te-13" class="btn blue">
+                                <%--<a href="bao-chi-noi-ve-fta-16" class="btn red">
                                     <span>
-                                        <asp:Label ID="lblLeftBlockNews" runat="server" Text="Label"></asp:Label>
+                                        <asp:Label ID="lblNewsMidTop" runat="server" Text="Label"></asp:Label>
                                     </span>
                                     <em>
                                         <i class="fa fa-tags"></i>
-                                        USA, Business, Apple </em>
-                                    <i class="fa fa- icon-bullhorn top-news-icon"></i>
-                                </a>
+                                        UK, Canada, Asia </em>
+                                    <i class="fa fa-globe top-news-icon"></i>
+                                </a>--%>
                             </div>
                             <asp:Repeater ID="rptLeftBlockNews" runat="server">
                                 <ItemTemplate>
                                     <div class="news-blocks">
                                         <h3>
-                                            <a href="#"><%# Eval("TitleVN") %> </a>
+                                            <a href='<%# "Category-"+ XoaKyTuDacBiet(Eval("MetaTitle").ToString())+"-"+Eval("ID") %>'><%# Eval("TitleVN") %> </a>
                                         </h3>
                                         <div class="news-block-tags">
-                                            <strong>CA, USA</strong>
-                                            <em><i class="fa fa-calendar"></i><%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
+                                            <%--<strong>CA, USA</strong>--%>
+                                            <em><i class="fa fa-calendar"></i>&nbsp<%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
                                         </div>
                                         <p>
                                             <img class="news-block-img pull-right" src='<%# "../../"+Eval("ImagesUrl") %>' alt="">
@@ -551,25 +317,26 @@
                         <!--end col-md-5-->
                         <div class="col-md-4">
                             <div class="top-news">
-                                <a href="thi-truong-14" class="btn red">
+                                <a href="bao-chi-noi-ve-fta-16" class="btn blue">
                                     <span>
-                                        <asp:Label ID="lblNewsMidTop" runat="server" Text="Label"></asp:Label>
+                                        <asp:Label ID="lblLeftBlockNews" runat="server" Text="Label"></asp:Label>
                                     </span>
-                                    <em>
+                                    <%--<em>
                                         <i class="fa fa-tags"></i>
-                                        UK, Canada, Asia </em>
-                                    <i class="fa fa-globe top-news-icon"></i>
+                                        USA, Business, Apple </em>--%>
+                                    <i class="fa fa- icon-bullhorn top-news-icon"></i>
                                 </a>
                             </div>
+
                             <asp:Repeater ID="rptNewsMidTop" runat="server">
                                 <ItemTemplate>
                                     <div class="news-blocks">
                                         <h3>
-                                            <a href="#"><%# Eval("TitleVN") %> </a>
+                                            <a href='<%# "Category-"+ XoaKyTuDacBiet(Eval("MetaTitle").ToString())+"-"+Eval("ID") %>'><%# Eval("TitleVN") %> </a>
                                         </h3>
                                         <div class="news-block-tags">
-                                            <strong>CA, USA</strong>
-                                            <em><i class="fa fa-calendar"></i><%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
+                                            <%--<strong>CA, USA</strong>--%>
+                                            <em><i class="fa fa-calendar"></i>&nbsp<%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
                                         </div>
                                         <p>
                                             <img class="news-block-img pull-right" src='<%# "../../"+Eval("ImagesUrl") %>' alt="">
@@ -580,7 +347,7 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
-                            <div class="top-news">
+                            <%-- <div class="top-news">
                                 <a href="nguoi-tieu-dung-1" class="btn green">
                                     <span>
                                         <asp:Label ID="lblNewsMidBotom" runat="server" Text="Label"></asp:Label>
@@ -590,16 +357,16 @@
                                         Money, Business, Google </em>
                                     <i class="fa fa-briefcase top-news-icon"></i>
                                 </a>
-                            </div>
+                            </div>--%>
                             <asp:Repeater ID="rptNewsMidBotom" runat="server">
                                 <ItemTemplate>
                                     <div class="news-blocks">
                                         <h3>
-                                            <a href="#"><%# Eval("TitleVN") %> </a>
+                                            <a href='<%# "Category-"+ XoaKyTuDacBiet(Eval("MetaTitle").ToString())+"-"+Eval("ID") %>'><%# Eval("TitleVN") %> </a>
                                         </h3>
                                         <div class="news-block-tags">
-                                            <strong>CA, USA</strong>
-                                            <em><i class="fa fa-calendar"></i><%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
+                                            <%--<strong>CA, USA</strong>--%>
+                                            <em><i class="fa fa-calendar"></i>&nbsp<%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
                                         </div>
                                         <p>
                                             <img class="news-block-img pull-right" src='<%# "../../"+Eval("ImagesUrl") %>' alt="">
@@ -613,7 +380,7 @@
                         </div>
                         <!--end col-md-4-->
                         <div class="col-md-3">
-                            <div class="top-news">
+                            <%--<div class="top-news">
                                 <a href="scienece-6" class="btn purple">
                                     <span>
                                         <asp:Label ID="lblNewsRight" runat="server" Text="Label"></asp:Label>
@@ -623,16 +390,16 @@
                                         Hi-Tech, Medicine, Space </em>
                                     <i class="fa fa-beaker top-news-icon"></i>
                                 </a>
-                            </div>
+                            </div>--%>
                             <asp:Repeater ID="rptNewsRight" runat="server">
                                 <ItemTemplate>
                                     <div class="news-blocks">
                                         <h3>
-                                            <a href="#"><%# Eval("TitleVN") %> </a>
+                                            <a href='<%# "Category-"+ XoaKyTuDacBiet(Eval("MetaTitle").ToString())+"-"+Eval("ID") %>'><%# Eval("TitleVN") %> </a>
                                         </h3>
                                         <div class="news-block-tags">
-                                            <strong>CA, USA</strong>
-                                            <em><i class="fa fa-calendar"></i><%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
+                                            <%--<strong>CA, USA</strong>--%>
+                                            <em><i class="fa fa-calendar"></i>&nbsp<%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
                                         </div>
                                         <p>
                                             <img class="news-block-img pull-right" src='<%# "../../"+Eval("ImagesUrl") %>' alt="">
@@ -646,7 +413,13 @@
                         </div>
                         <!--end col-md-3-->
                     </div>
-                    <a class="btn btn-info btn-block" href="../Pages/TinTucVaSuKien.aspx">Xem thêm các tin tức</a>
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-3">
+                            <a class="btn btn-info btn-block" href="Tin-noi-bat-3">Xem thêm các tin tức</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <%-- END NEWS --%>
@@ -656,17 +429,21 @@
                     <h3 class="margin-bottom-30">SỰ KIỆN</h3>
                     <div class="row">
                         <div class="col-md-8 article-block">
-                            <h3><strong>Sự kiện thành lập Hiệp Hội Thực Phẩm Minh Bạch</strong></h3>
+                            <%--<h3><strong>Sự kiện thành lập Hiệp Hội Thực Phẩm Minh Bạch</strong></h3>--%>
+                            <h3><strong>
+                                <asp:Label ID="lblEventNew" runat="server" Text="Label"></asp:Label></strong></h3>
                             <div class="blog-tag-data">
-                                <img src="../../assets/admin/pages/media/gallery/item_img.jpg" class="img-responsive" alt="">
+                                <img src="../../assets/admin/pages/media/gallery/item_img.jpg" id="imgEventNew" runat="server" class="img-responsive" alt="" />
                                 <div class="row">
                                     <div class="col-md-6">
                                         <ul class="list-inline blog-tags">
                                             <li>
                                                 <i class="fa fa-tags"></i>
-                                                <a href="#">Technology </a>
-                                                <a href="#">Education </a>
-                                                <a href="#">Internet </a>
+                                                <asp:Repeater ID="rptTagsEventNew" runat="server">
+                                                    <ItemTemplate>
+                                                        <a href="#"><%# Eval("TagsName") %> </a>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
                                             </li>
                                         </ul>
                                     </div>
@@ -674,11 +451,9 @@
                                         <ul class="list-inline">
                                             <li>
                                                 <i class="fa fa-calendar"></i>
-                                                <a href="#">April 16, 2013 </a>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-comments"></i>
-                                                <a href="#">38 Comments </a>
+                                                <a href="#">
+                                                    <asp:Label ID="lblEventNewTimePost" runat="server" Text="Label"></asp:Label>
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -686,15 +461,10 @@
                             </div>
                             <!--end news-tag-data-->
                             <div>
-                                <p>
-                                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.
+                                <p class="bold">
+                                    <asp:Label ID="lblEventNewContent" runat="server" Text="Label"></asp:Label>
                                 </p>
-                                <blockquote class="hero">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit posuere erat a ante.
-                                    </p>
-                                    <small>Someone famous <cite title="Source Title">Source Title</cite></small>
-                                </blockquote>
+
                             </div>
                         </div>
                         <!--end col-md-9-->
@@ -703,7 +473,19 @@
                             </div>
                             <h3>Sự kiện đã diễn ra</h3>
                             <div class="top-news margin-bottom-30">
-                                <a href="#" class="btn red">
+
+                                <asp:Repeater ID="rptTheEventTookPlace" runat="server">
+                                    <ItemTemplate>
+                                        <a href="#" title='<%# Eval("TitleVN") %>'
+                                            class='<%# (Container.ItemIndex==0)?"btn red":(Container.ItemIndex==1)?"btn green":(Container.ItemIndex==2)?"btn blue":(Container.ItemIndex==3)?"btn yellow":"btn purple" %>'>
+                                            <span><%# Limit(Eval("TitleVN").ToString(),30) %> </span>
+                                            <em><i class="fa fa-calendar"></i>&nbsp <%# Eval("PostTime","{0:dd-MM-yyyy}") %></em>
+                                            <i class="fa fa-briefcase top-news-icon"></i>
+                                        </a>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+
+                                <%--<a href="#" class="btn red">
                                     <span>Tranparency News </span>
                                     <em>Posted on: April 16, 2013</em>
                                     <em>
@@ -742,7 +524,7 @@
                                         <i class="fa fa-tags"></i>
                                         Places, Internet, Google Map </em>
                                     <i class="fa fa-bolt top-news-icon"></i>
-                                </a>
+                                </a>--%>
                             </div>
                             <a class="btn btn-info btn-block" href="#">Xem tất cả các sự kiện</a>
                         </div>
@@ -762,11 +544,11 @@
                     <div class="brands">
                         <div class="container">
                             <div class="owl-carousel owl-carousel6-brands">
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/canon.jpg" alt="canon" title="canon">
-                                    <img src="../../assets/frontend/pages/img/brands/esprit.jpg" alt="esprit" title="esprit">
+                                <a href="http://truyxuatnguongoc.com/">
+                                    <img src="../../images/logo/TRACEVERIFIED.png" alt="canon" title="traceverified" />
+                                    <%--<img src="../../assets/frontend/pages/img/brands/esprit.jpg" alt="esprit" title="esprit">--%>
                                 </a>
-                                <a href="shop-product-list.html">
+                                <%--<a href="shop-product-list.html">
                                     <img src="../../assets/frontend/pages/img/brands/esprit.jpg" alt="esprit" title="esprit">
                                     <img src="../../assets/frontend/pages/img/brands/zara.jpg" alt="zara" title="zara">
                                 </a>
@@ -809,7 +591,7 @@
                                 <a href="shop-product-list.html">
                                     <img src="../../assets/frontend/pages/img/brands/zara.jpg" alt="zara" title="zara">
                                     <img src="../../assets/frontend/pages/img/brands/next.jpg" alt="next" title="next">
-                                </a>
+                                </a>--%>
                             </div>
                         </div>
                     </div>

@@ -458,6 +458,7 @@ body.page-header-fixed {
   margin-right: 67px;
   padding-top: 22px;
   padding-bottom: 22px;
+  
 }
 
 .header .mobi-toggler {
@@ -500,7 +501,10 @@ body.page-header-fixed {
 .header-navigation > ul > li > a {
 	color: #333;
 	display: block;	
-	padding: 29px 12px 30px;
+	padding: 29px 12px 50px;
+}
+.page-header-fixed .header-navigation > ul > li > a{
+    padding: 29px 12px 50px!important;
 }
 .header-navigation ul > li.active > a,
 .header-navigation ul > li > a:hover,
@@ -511,7 +515,9 @@ body.page-header-fixed {
 	color: #e02222;
 	background: #fcfcfc;
 	text-decoration: none;
+    
 }
+    
 .header-navigation ul > li.active > a {
 	border-bottom: 2px solid #e64f00;
 }
