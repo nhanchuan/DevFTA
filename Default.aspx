@@ -536,62 +536,109 @@
             <%-- END EVENT --%>
             <!-- BEGIN CLIENTS -->
             <div class="row margin-bottom-40 our-clients">
-
-                <h2><a href="#">Thành Viên</a></h2>
-
+                <h2 class="margin-bottom-20"><a href="#">Thành Viên</a></h2>
                 <div class="col-md-12">
                     <!-- BEGIN BRANDS -->
                     <div class="brands">
                         <div class="container">
                             <div class="owl-carousel owl-carousel6-brands">
-                                <a href="http://truyxuatnguongoc.com/">
-                                    <img src="../../images/logo/TRACEVERIFIED.png" alt="canon" title="traceverified" />
-                                    <%--<img src="../../assets/frontend/pages/img/brands/esprit.jpg" alt="esprit" title="esprit">--%>
-                                </a>
-                                <%--<a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/esprit.jpg" alt="esprit" title="esprit">
-                                    <img src="../../assets/frontend/pages/img/brands/zara.jpg" alt="zara" title="zara">
-                                </a>
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/gap.jpg" alt="gap" title="gap">
-                                    <img src="../../assets/frontend/pages/img/brands/zara.jpg" alt="zara" title="zara">
-                                </a>
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/next.jpg" alt="next" title="next">
-                                    <img src="../../assets/frontend/pages/img/brands/next.jpg" alt="next" title="next">
-                                </a>
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/puma.jpg" alt="puma" title="puma">
-                                    <img src="../../assets/frontend/pages/img/brands/zara.jpg" alt="zara" title="zara">
-                                </a>
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/zara.jpg" alt="zara" title="zara">
-                                    <img src="../../assets/frontend/pages/img/brands/canon.jpg" alt="canon" title="canon">
-                                </a>
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/canon.jpg" alt="canon" title="canon">
-                                    <img src="../../assets/frontend/pages/img/brands/next.jpg" alt="next" title="next">
-                                </a>
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/esprit.jpg" alt="esprit" title="esprit">
-                                    <img src="../../assets/frontend/pages/img/brands/zara.jpg" alt="zara" title="zara">
-                                </a>
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/gap.jpg" alt="gap" title="gap">
-                                    <img src="../../assets/frontend/pages/img/brands/canon.jpg" alt="canon" title="canon">
-                                </a>
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/next.jpg" alt="next" title="next">
-                                    <img src="../../assets/frontend/pages/img/brands/canon.jpg" alt="canon" title="canon">
-                                </a>
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/puma.jpg" alt="puma" title="puma">
-                                    <img src="../../assets/frontend/pages/img/brands/next.jpg" alt="next" title="next">
-                                </a>
-                                <a href="shop-product-list.html">
-                                    <img src="../../assets/frontend/pages/img/brands/zara.jpg" alt="zara" title="zara">
-                                    <img src="../../assets/frontend/pages/img/brands/next.jpg" alt="next" title="next">
-                                </a>--%>
+                                <div>
+                                    <a href="http://www.vcg.vn/" target="_blank" >
+                                        <img src="../images/brands/vcgGroup.png" title="vcg group" alt="vcg group" />
+                                    </a>
+                                    <%--<p>&nbsp</p>--%>
+                                    <a href="http://rausachdaingan.com/" target="_blank">
+                                        <img src="../images/brands/rausachdaingan.PNG" title="vcg group" alt="vcg group" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="http://bannhanong.mobi/" target="_blank">
+                                        <img src="../images/brands/bannhanong2.png" title="vcg group" alt="vcg group" />
+                                    </a>
+                                    <a href="http://vietnambanana.com/" target="_blank">
+                                        <img src="../images/brands/vietnambanana.png" title="vietnambanana" alt="vietnambanana.png" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="http://www.vinacap.org/" target="_blank">
+                                        <img src="../images/brands/vinacap.png" />
+                                    </a>
+                                    <a href="http://www.sagrifood.com.vn/" target="_blank">
+                                        <img src="../images/brands/sargifood.jpg" alt="gap" title="gap" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="http://www.sagiang.com.vn/" target="_blank">
+                                        <img src="../images/brands/SaGiang.jpg" />
+                                    </a>
+                                    <a href="http://savefood.vn/" target="_blank">
+                                        <img src="../images/brands/savefood1.jpg" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="http://toiyeunamviet.vn/" target="_blank">
+                                        <img src="../images/brands/toiyeunamviet.jpg" />
+                                    </a>
+                                    <a href="http://vnpaco.vn/" target="_blank">
+                                        <img src="../images/brands/vnnpaco.jpg" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="http://www.tanphuongvinh.com/" target="_blank">
+                                        <img src="../images/brands/TanPhuongVinh.jpg" />
+                                    </a>
+                                    <a href="http://5ship.vn/" target="_blank">
+                                        <img src="../images/brands/5Ship.jpg" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#" target="_blank">
+                                        <img src="../images/brands/AmThucVN.png" />
+                                    </a>
+                                    <a href="http://kimsonfarm.vn/" target="_blank">
+                                        <img src="../images/brands/KKimSonFarm.jpg" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="http://truyxuatnguongoc.com/" target="_blank">
+                                        <img src="../images/brands/Traceverified.jpg" />
+                                    </a>
+                                    <a href="http://ngontuoilanh.com/" target="_blank">
+                                        <img src="../images/brands/Ngon_Tuoi_lanh.PNG" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="http://hellomam.vn/" target="_blank">
+                                        <img src="../images/brands/HelloMam.png" />
+                                    </a>
+                                    <a href="http://hainam.com.vn/" target="_blank">
+                                        <img src="../images/brands/HaiNamCoLtD.png" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="http://kimdelta.com/" target="_blank">
+                                        <img src="../images/brands/KimDelta.jpg" />
+                                    </a>
+                                    <a href="http://sgfoods.com.vn/" target="_blank">
+                                        <img src="../images/brands/SGFoood.png" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="http://www.vietrabbit.com/" target="_blank">
+                                        <img src="../images/brands/vietrabbit.PNG" />
+                                    </a>
+                                    <a href="http://www.orfarm.com.vn/" target="_blank">
+                                        <img src="../images/brands/OrFarm.png" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="https://disieuthi.vn/" target="_blank">
+                                        <img src="../images/brands/disieuthi.PNG" />
+                                    </a>
+                                    <a href="http://ocd.vn/" target="_blank">
+                                        <img src="../images/brands/ODC.PNG" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -610,5 +657,7 @@
                 threshold: 3    // hide placeholder hexagons when number of hexagons in a row is more than the threshold number
             });
         });
+
+        
     </script>
 </asp:Content>
